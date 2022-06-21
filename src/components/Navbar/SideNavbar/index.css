@@ -2,7 +2,7 @@
     background-color: #060b26;
     height: 80px;
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
   }
   
@@ -70,3 +70,24 @@
   span {
     margin-left: 16px;
   }
+
+  .other-services-p {
+    color: #8597ac;
+    cursor: pointer;
+    padding: 0.5vw;
+  }
+  
+  .other-services-p:hover {
+    background-color: #f3f7fb !important;
+    cursor: pointer;
+    padding: 0.5vw;
+  }
+
+  
+.ant-popover-inner-content {
+  padding: 10px;
+}
+
+.ant-popover {
+  width: max-content;
+}
