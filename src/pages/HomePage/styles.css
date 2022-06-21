@@ -1,0 +1,67 @@
+.empty-screen-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.groupCard{
+    width: 100%;
+    margin-bottom: 2rem;
+    background-color: #fff;
+    height: 100%;
+  }
+
+  .content-homepage{
+    margin-top: -1vh;
+    background-color: #f3f7fb;
+    padding-top: 1vh;
+  }
+
+
+  @media screen and (min-width: 1600px){
+    .content-page{
+      min-height: 100vh;
+    }
+  }
+  
+  @media all and (min-width: 1400px) and (max-width:1600px){
+    .content-page{
+      min-height: 95vh;
+    }
+  }
+  
+  @media all and (min-width: 1300px) and (max-width: 1400px) {
+    .content-page{
+      min-height: 78vh;
+    }
+  }
+  
+  @media all and (min-width: 1024px) and (max-width: 1280px) {
+    .content-page{
+      min-height: 100vh;
+    }
+  }
+  
+  @media all and (min-width: 768px) and (max-width: 1024px) { 
+    .content-page{
+      min-height: 100vh;
+    }
+  }
+  
+  @media all and (min-width: 480px) and (max-width: 768px) { 
+    .AssignUserSearchbox{
+      width: 12rem;
+    }
+    .contentAssignUser{
+      min-height: 100vh;
+    }
+  }
+  
+  @media all and (max-width: 480px) { 
+    .AssignUserSearchbox{
+      width: 12rem;
+    }
+    .contentAssignUser{
+      min-height: 100vh;
+    }
+  }

@@ -5,16 +5,16 @@ import React, { PureComponent } from "react";
 
 import { Label } from "../../components";
 
-class EmptyPage extends PureComponent {
+class HomePage extends PureComponent {
   render() {
     return (
         <Card className="groupCard" style={{borderRadius:16, marginBottom: '2rem'}}>
             <div className="empty-screen-container">
-                <Label label='Under Construction' isBlue />
+                <Label label='Home Page' isBlue isBold />
             </div>
         </Card>
     );
   }
 }
 
-export default EmptyPage;
+export default HomePage;
