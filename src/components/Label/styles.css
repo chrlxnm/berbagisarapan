@@ -1,0 +1,284 @@
+.textNormal {
+    font-family: "Open Sans";
+    font-size: 12pt;
+    color: var(--main-text-color);
+  }
+  
+  .textBlack {
+    color: var(--main-text-black-color);
+  }
+  .textDarkBlue {
+    color: #1F3F68;
+  }
+  
+  .textDarkerBlue {
+    color: #1E5387 !important;
+  }
+  
+  .errorMessage {
+    font-size: 8pt;
+    color: var(--error-text-color)  
+  }
+  
+  
+  .textBold {
+    font-family: "Open Sans Bold";
+    font-size: 12pt;
+    color: var(--main-blue-color);
+  }
+  
+  .textBold2 {
+    font-family: "Open Sans Bold";
+    font-size: 1.5rem;
+    color: var(--main-blue-color);
+    margin-bottom: 2rem;
+  }
+  
+  .textMediumBold {
+    font-family: "Open Sans";
+    font-weight: 600;
+    
+  }
+  
+  .textYellow {
+    color: #F5A623;
+  }
+  
+  .textBlue {
+    color: var(--main-darkblue-color);
+  }
+  .textGrey {
+    color: var(--main-light-text-input);
+  }
+  .textNoMargin {
+    margin: 0pt;
+    padding: 0pt;
+  }
+  .textOneHalfMargin {
+    line-height: 20pt;
+  }
+  .textOneHalfMargin2 {
+    line-height: 10pt;
+  }
+  .textCentered {
+    /* line-height: 16pt; */
+    text-align: center;
+  }
+  .textLeft {
+    text-align: start;
+  }
+  .textWhite{
+    color: #fff;
+    font-size: 10pt;
+  }
+  
+  .textLightBlue {
+    color: #49a7e8;
+  }
+  
+  .textTiny {
+    font-size: 7pt;
+  }
+  .textSmall {
+    font-size: 9pt;
+  }
+  .textInfo {
+    font-size: 10pt;
+  }
+  .textHuge{
+    font-size: 14pt;
+  }
+  
+  .textHuge2 {
+    font-size: 22pt;
+  }
+  
+  .textHuge3 {
+    font-size: 18pt;
+  }
+  
+  .textHuge4 {
+    font-size: 20pt;
+  }
+  
+  .italicted{
+    font-style: italic;
+  }
+  
+  .textUnderlined {
+    text-decoration: underline;
+  }
+  .textLink {
+    cursor: pointer;
+  }
+  
+  .textBlack{
+    color: black;
+  }
+  
+  .marginLeft1{
+    margin-left: 80px;
+  }
+  
+  .marginLeft2{
+    margin-left: 35px;
+  }
+  
+  .marginLeft3{
+    margin-left: 70px;
+  }
+  
+  .marginLeft4{
+    margin-left: 70px;
+    padding-top: 5px;
+    padding-bottom: 15px;
+  }
+  .marginLeft5{
+    margin-left: 2rem;
+  }
+  
+  .marginLeft6{
+    margin-left: 50px;
+    padding-top: 5px;
+    padding-bottom: 15px;
+  }
+  
+  .marginLeft7{
+    margin-left: 3px;  
+  }
+  
+  .marginLeft8 {
+    margin-left: 2rem;
+    margin-bottom: 0;
+  }
+  
+  .marginRight {
+    margin-right: 50rem;
+  }
+  
+  .marginTop{
+    margin-top: -15px;  
+    font-size: 10px;
+  }
+  
+  .marginTop2{
+    margin-top: 25px;
+  }
+  
+  .marginBottom1 {
+    margin-bottom: .2rem;
+  }
+  
+  .marginBottom2 {
+    margin-bottom: 1rem;
+  }
+  
+  .marginTop3{
+    margin-top: 20px
+  }
+  
+  .noMarginBottom{
+    margin-bottom: 0;
+  }
+  
+  .paddingTopSmall{
+    padding-top: 18px;
+  }
+  
+  .fontSmall{
+    font-size: 12px;
+    width: 130px;
+  }
+  
+  .primaryDiv {
+    background-color: var(--main-darkblue-color);
+    color: #fff;
+    
+  }
+  
+  .secondaryDiv {
+    color: var(--main-text-black-color);
+    background-color: var(--main-light-text-input);
+    
+  } 
+  
+  .primaryDiv, .secondaryDiv {
+    padding: 3px 4px;
+    border-radius: 4px;
+  }
+  
+  .inlineBlockDisplay {
+    display: inline-block;
+    margin: 2px 5px 3px 0;
+    
+  }
+  
+  .tableLabel {
+    width: 130px;
+    height: auto;
+    /* position: relative; */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .justify {
+    text-align: justify;
+    letter-spacing: .02rem;
+  }
+  
+  .justify-left {
+    text-align: left;
+  }
+  
+  .content{
+    /* letter-spacing: .01rem; */
+    line-height: 24px;
+    color: #444F5C;
+    font-size: 1rem;
+  }
+  
+  .label{
+    display: inline-block;
+    color: #444F5C;
+    margin-left: 1rem;
+    margin-bottom: 0;
+  }
+  
+  .labelCustom {
+    display: inline-block;
+    color: #444F5C;
+    margin-right: 7rem;
+    margin-bottom: 0;
+  }
+  
+  .labelCustom2 {
+    display: inline-block;
+    color: #444F5C;
+    margin-right: 16rem;
+    margin-bottom: 0;
+  }
+  
+  @media screen and (max-width: 1200.98px){
+    .tableLabel {
+      width: 115px;
+    }
+  }
+  
+  @media screen and (max-width: 1077.98px){
+    .tableLabel {
+      width: 100px;
+    }
+  }
+  
+  @media screen and (max-width: 948.98px){
+    .tableLabel {
+      width: 80px;
+    }
+  }
+  
+  @media screen and (max-width: 744.98px){
+    .tableLabel {
+      width: 60px;
+    }
+  }
