@@ -40,20 +40,21 @@ function Navbar() {
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
           <ProfileWrapper>
-          {/* <Popover
-            className="item-container"
+          <Popover
+            // className="item-container"
             placement="bottomRight"
             content={contentPopOver}
             trigger="click"
-            visible={visible}
-            onVisibleChange={()=>setVisible(true)}
-          > */}
+            // visible={visible}
+            // onVisibleChange={()=>setVisible(true)}
+          >
             <Avatar
+              className='ava-profile'
               style={{margin: 'unset'}}
-              size={64}
+              size={48}
               icon={<UserOutlined />}
             />
-            {/* </Popover> */}
+            </Popover>
           </ProfileWrapper>
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
@@ -66,7 +67,7 @@ function Navbar() {
             {SidebarData.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>
-                  <Link to={item.path}  onClick={showSidebar}>
+                  <Link to={item.path} onClick={showSidebar}>
                     {item.icon}
                     <span>{item.title}</span>
                   </Link>

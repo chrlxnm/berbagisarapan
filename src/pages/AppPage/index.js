@@ -4,7 +4,6 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import EmptyPage from '../EmptyPage';
 import FooterComponent from '../../components/Footer/footerComponent';
-import Header from '../../components/Header';
 import HomePage from '../HomePage';
 import { Layout } from 'antd';
 import LoginPage from '../LoginPage';
@@ -25,20 +24,18 @@ const AppPage = () => {
 
     return(
     <>
-            <Router>
-                <Navbar/>
-                <div>
+        <Router>
+            <Navbar/>
                 <Switch>
-                <Layout className={'content-homepage'}>
-                    <Content className="content-page">
-                        <Route path="/home" component={HomePage} />
-                        <Route path="/reports" component={EmptyPage} />
-                        <Route path="*" component={HomePage} />
-                    </Content>
-                </Layout>
+                    <Layout className={'content-homepage'}>
+                        <Content className="content-page">
+                            <Route path="/home" component={HomePage} />
+                            <Route path="/reports" component={EmptyPage} />
+                            {/* <Route component={HomePage} /> */}
+                        </Content>
+                    </Layout>
                 </Switch>
-                </div>
-            </Router>
+        </Router>
         <FooterComponent/>
     </>
     )

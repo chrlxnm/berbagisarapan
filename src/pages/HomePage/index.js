@@ -8,9 +8,9 @@ import { Label } from "../../components";
 class HomePage extends PureComponent {
   render() {
     return (
-        <Card className="groupCard" style={{borderRadius:16, marginBottom: '2rem'}}>
+        <Card className="home" style={{borderRadius:16, marginBottom: '2rem'}}>
             <div className="empty-screen-container">
-                <Label label='Home Page' isBlue isBold />
+                <h1> Home Page </h1>
             </div>
         </Card>
     );

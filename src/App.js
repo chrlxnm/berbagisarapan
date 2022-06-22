@@ -1,7 +1,5 @@
 import './App.css';
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
 import AppErrorBoundary from './pages/AppErrorBoundary';
 import AppPage from './pages/AppPage';
 
