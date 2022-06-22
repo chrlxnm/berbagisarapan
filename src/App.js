@@ -1,4 +1,5 @@
 import './App.css';
+import "antd/dist/antd.css";
 
 import AppErrorBoundary from './pages/AppErrorBoundary';
 import AppPage from './pages/AppPage';

@@ -19,6 +19,7 @@
     display: flex;
     justify-content: center;
     position: fixed;
+    z-index: 9999;
     top: 0;
     left: -100%;
     transition: 850ms;
@@ -67,7 +68,7 @@
     align-items: center;
   }
   
-  span {
+  .nav-menu-items span {
     margin-left: 16px;
   }
 

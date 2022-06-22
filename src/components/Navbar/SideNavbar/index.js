@@ -41,12 +41,10 @@ function Navbar() {
           </Link>
           <ProfileWrapper>
           <Popover
-            // className="item-container"
+            className="item-container"
             placement="bottomRight"
             content={contentPopOver}
             trigger="click"
-            // visible={visible}
-            // onVisibleChange={()=>setVisible(true)}
           >
             <Avatar
               className='ava-profile'
