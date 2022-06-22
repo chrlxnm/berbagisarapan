@@ -6,8 +6,9 @@
     justify-content: center;
     align-items: center;
 }
-.mandiri-copyright{
+.comp-copyright{
     font-family: "Open Sans";
     color: #fff;
     font-size: 8pt;
+    margin: unset;
 }
