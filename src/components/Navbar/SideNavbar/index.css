@@ -2,7 +2,7 @@
     background-color: #060b26;
     height: 80px;
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
   }
   
@@ -31,7 +31,7 @@
   
   .nav-text {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     padding: 8px 0px 8px 16px;
     list-style: none;
@@ -63,10 +63,36 @@
     width: 100%;
     height: 80px;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
   }
   
   span {
     margin-left: 16px;
   }
+
+  .ava-profile span {
+    margin: 12px;
+    /* text-align: center; */
+}
+
+  .other-services-p {
+    color: #8597ac;
+    cursor: pointer;
+    padding: 0.5vw;
+  }
+  
+  .other-services-p:hover {
+    background-color: #f3f7fb !important;
+    cursor: pointer;
+    padding: 0.5vw;
+  }
+
+  
+.ant-popover-inner-content {
+  padding: 10px;
+}
+
+.ant-popover {
+  width: max-content;
+}

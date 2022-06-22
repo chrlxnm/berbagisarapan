@@ -1,14 +1,15 @@
 import "./styles.css"
 
-import { Card, Checkbox, Col, Dropdown, Form, Input, Layout, Menu, Pagination, Popover, Row, Select, Table, Typography } from 'antd';
+import { Checkbox, Col, Dropdown, Form, Input, Layout, Menu, Pagination, Popover, Row, Select, Table, Typography } from 'antd';
 import React, { PureComponent } from "react";
 
+import Card from "../../components/Card";
 import { Label } from "../../components";
 
 class EmptyPage extends PureComponent {
   render() {
     return (
-        <Card className="groupCard" style={{borderRadius:16, marginBottom: '2rem'}}>
+        <Card className="groupCard">
             <div className="empty-screen-container">
                 <Label label='Under Construction' isBlue />
             </div>
