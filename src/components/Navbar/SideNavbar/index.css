@@ -81,6 +81,8 @@
     color: #8597ac;
     cursor: pointer;
     padding: 0.5vw;
+    margin-bottom: unset;
+    border-radius: 8px;
   }
   
   .other-services-p:hover {
@@ -94,6 +96,6 @@
   padding: 10px;
 }
 
-.ant-popover {
-  width: max-content;
+.ant-popover-inner {
+  border-radius: 8px;
 }
