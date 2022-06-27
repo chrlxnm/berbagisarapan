@@ -113,15 +113,17 @@ font-family: 'Poppins';
 font-style: normal;
 font-weight: 300;
 font-size: 16px;
-line-height: 160%;
+line-height: 100%;
+color: #4F4F4F;
 `
 const LoginTitle = styled.p`
 font-family: 'Poppins';
 font-style: normal;
 font-weight: 600;
 font-size: 20px;
-line-height: 160%;
+line-height: 100%;
 margin-top: 2rem;
+color: #2C2C2C;
 `
 
 const Button = styled(ButtonAntd)`
@@ -147,7 +149,7 @@ const Button = styled(ButtonAntd)`
 
 const Col = styled(ColAntd)`
   position: absolute;
-  top: 20%;
+  top: 10%;
   padding: 0 1rem;
 `
 

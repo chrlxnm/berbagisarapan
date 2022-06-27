@@ -20,8 +20,46 @@
     background: rgba(255, 255, 255, 0.3);
   }
   
+  .uncollapse-side-bar {
+    max-width: 230px !important;
+    min-width: 230px !important;
+    width: 230px !important;
+    display: flex;
+  }
+  .uncollapse-side-bar .ant-layout-sider-children {
+    width: 230px !important;
+  }
+
+  .ant-layout-sider{
+    background: unset !important;
+  }
+  
+  .ant-menu-dark.ant-menu-submenu-popup .ant-menu-sub {
+    background: #ffffff !important;
+    padding: 0rem 8px;
+    border-radius: 8px;
+  }
+  .ant-menu-dark.ant-menu-submenu-popup .ant-menu-sub .ant-menu-item {
+    color: #000000;
+    border-radius: 4px;
+  }
+  .ant-menu-dark.ant-menu-submenu-popup .ant-menu-sub .ant-menu-item-active, .ant-menu-item-selected {
+    background-color: #3E903B !important;
+    color: #FCFCFC !important;
+  }
+  .ant-tooltip-arrow-content {
+    --antd-arrow-background-color: #3E903B !important;
+  }
+  .ant-tooltip-inner{
+    border-radius: 8px;
+    background-color: #3E903B !important;
+  }
   .site-layout .site-layout-background {
     background: #fff;
+    height: 100vh;
+    max-height: 100vh;
+    margin: unset !important;
+    padding: 0px 24px !important;
   }
 
   .app-page .ant-menu {
@@ -52,6 +90,7 @@
     font-style: normal;
     font-weight: 300;
     font-size: 14px;
+    border-radius: 8px;
     line-height: 160%;
     /* or 22px */
 
@@ -64,7 +103,22 @@
 
   .app-page .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
     background: #3E903B;
-    border-radius: 8px;
+    color: #ffffff;
+  }
+
+  .app-page .ant-sub-menu .ant-menu-item-selected {
+  padding-left: 30px !important;
+  }
+
+  .app-page .ant-menu-item-only-child {
+    padding-left: 30px !important;
+  }
+
+  .app-page .ant-menu-submenu-arrow::before {
+    background: #000000 !important;
+  }
+  .app-page .ant-menu-submenu-arrow::after {
+    background: #000000 !important;
   }
   .app-page .ant-menu-dark .ant-menu-item:hover, .ant-menu-dark .ant-menu-item-active, .ant-menu-dark .ant-menu-submenu-active, .ant-menu-dark .ant-menu-submenu-open, .ant-menu-dark .ant-menu-submenu-selected, .ant-menu-dark .ant-menu-submenu-title:hover {
   color: #000000;
