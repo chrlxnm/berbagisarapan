@@ -47,21 +47,3 @@
       min-height: 100vh;
     }
   }
-  
-  @media all and (min-width: 480px) and (max-width: 768px) { 
-    .AssignUserSearchbox{
-      width: 12rem;
-    }
-    .contentAssignUser{
-      min-height: 100vh;
-    }
-  }
-  
-  @media all and (max-width: 480px) { 
-    .AssignUserSearchbox{
-      width: 12rem;
-    }
-    .contentAssignUser{
-      min-height: 100vh;
-    }
-  }

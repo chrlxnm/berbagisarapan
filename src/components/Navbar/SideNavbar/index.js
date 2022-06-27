@@ -4,15 +4,15 @@ import * as AiIcons from 'react-icons/ai';
 import * as FaIcons from 'react-icons/fa';
 
 import { Avatar, Popover } from 'antd';
+import { LogoutOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
 
 import { IconContext } from 'react-icons';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './data';
-import { UserOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
 
-function Navbar() {
+function Navbar(props) {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
@@ -24,11 +24,12 @@ function Navbar() {
       <p className='other-services-p'
       onClick={()=>{
         setVisible(false);
-      }}>Profile</p>
+      }}><SettingOutlined /> Profile</p>
       <p className='other-services-p'
       onClick={()=>{
         setVisible(false);
-      }}>Logout</p>
+        props.setToken(null);
+      }}><LogoutOutlined /> Logout</p>
     </div>
   );
 
