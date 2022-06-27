@@ -17,6 +17,67 @@
     padding-top: 1vh;
   }
 
+  svg{
+    height: 1.5em;
+    margin-right: 5px;
+    width: 1em;
+    vertical-align: middle;
+  }
+
+.btnAdd{
+  background: #3E903B;
+  font-weight: bold;
+  border: none;
+  height: 44px;
+  border-radius: 8px;
+  width: 88px;
+}
+
+thead[class*="ant-table-thead"] th{
+  background-color: rgba(62, 144, 59, 0.05) !important;
+  font-weight: 600;
+}
+
+.btnDownload{
+  background: #FFFF;
+  color: #398537;
+  font-weight: bold;
+  border-color: #3E903B ;
+  height: 44px;
+  border-radius: 8px;
+  width: 125px;
+  margin-right: 10px;
+}
+
+
+
+.btnAdd:hover{
+  background: #398537;
+  border: none;
+}
+.rowSearch{
+  margin-top: 1.5%;
+}
+
+.tableData{
+  margin-top: 2%;
+}
+
+.daftarpenggunaSearchBox{
+  width: 20%;
+  border-radius: 8px;
+  height: 44px;
+}
+
+.btnGroup{
+  float: right;
+  display: flex;
+  /* justify-content: space-between; */
+  margin: 0 10px 0 10px;
+}
+.ant-card-body{
+  width: 100%;
+}
 
   @media screen and (min-width: 1600px){
     .content-page{
