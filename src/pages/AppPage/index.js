@@ -78,11 +78,11 @@ const AppPage = () => {
                             label: 'Menu Transaksi',
                             children:[{
                                 key: 'sub31',
-                                label: 'Daftar Pengguna'
+                                label: 'Donasi Harian'
                                 },
                                 {
                                 key: 'sub32',
-                                label: 'Daftar Donatur'
+                                label: 'Laporan Harian'
                                 }]
                             },
                         ]}
