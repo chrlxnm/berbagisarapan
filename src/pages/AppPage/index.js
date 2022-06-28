@@ -35,10 +35,11 @@ const AppPage = () => {
     <>
         <Router>
             <Switch>
-                <Layout className='app-page' hasSider>
+                <Layout className='app-page'>
                     <Sider className={`main-side-bar ${!collapsed?'uncollapse-side-bar':''}`} trigger={null} collapsible collapsed={collapsed} style={{
                         height: '100vh',
-                        position: 'sticky',
+                        overflow: 'auto',
+                        position: 'fixed',
                         left: 0,
                         top: 0,
                         bottom: 0,
@@ -89,25 +90,26 @@ const AppPage = () => {
                         <SettingWrapper>
                             {!collapsed ? 
                             <><NameText>Gilang Ilham</NameText>
-                            <EmailText>gilangilham@gmail.com</EmailText>
-                            <ButtonWrapper>
+                            <EmailText>gilangilham@gmail.com</EmailText></>
+                            :<></>}
+                            <ButtonWrapper className={collapsed? 'btn-collapsed':''}>
                                 <ButtonSider>
                                 <SettingOutlined style={{color: 'black'}}/>
                                 </ButtonSider>
                                 <ButtonSider onClick={()=>setToken(null)}>
                                 <LogoutOutlined style={{color: '#BB0001'}}/>
                                 </ButtonSider>
-                            </ButtonWrapper></>
-                            :<></>}
+                            </ButtonWrapper>
                         </SettingWrapper>
                     </Sider>
-                    <Layout className="site-layout">
+                    <Layout className="site-layout" style={{ marginLeft: collapsed? '80px' : '228px', }}>
                         <Content
                         className="site-layout-background"
                         style={{
                             margin: '24px 16px',
                             padding: 24,
                             minHeight: 280,
+                            overflow: "initial"
                         }}>
                             <Route path="/home" component={HomePage} />
                             <Route path="/reports" component={EmptyPage} />

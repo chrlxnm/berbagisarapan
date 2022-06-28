@@ -49,6 +49,7 @@ gap: 1rem;
 justify-content: center;
 display: flex;
 `
+
 export const ButtonSider = styled.div`
 width: 36px;
 height: 36px;
