@@ -1,14 +1,17 @@
 import "./styles.css"
-
-import { Card, Checkbox, Col, Dropdown, Form, Input, Layout, Menu, Pagination, Popover, Row, Select, Table, Typography,Button,Space,Divider } from 'antd';
-import React, { PureComponent } from "react";
-import { SearchOutlined,PlusOutlined } from '@ant-design/icons';
 import './styled.js'
-import { Label } from "../../components";
+
 import * as AiIcons from 'react-icons/ai';
-import * as FiIcons from 'react-icons/fi';
 import * as FaIcons from 'react-icons/fa';
-import { WrapperPagination,WrapperSelect,styleBtnDownload } from "./styled.js";
+import * as FiIcons from 'react-icons/fi';
+
+import { Button, Card, Checkbox, Col, Divider, Dropdown, Form, Input, Layout, Menu, Pagination, Popover, Row, Select, Space, Table, Typography } from 'antd';
+import { PlusOutlined, SearchOutlined } from '@ant-design/icons';
+import React, { PureComponent } from "react";
+import { WrapperPagination, WrapperSelect, styleBtnDownload } from "./styled.js";
+
+import { Label } from "../../components";
+
 class HomePage extends PureComponent {
 
  
@@ -224,12 +227,12 @@ class HomePage extends PureComponent {
                  />
             </Row>
 
-            <Divider />
+            <Divider style={{marginTop: '1rem'}} />
 
-            <Row xl={24}>
+            <Row xl={24} style={{marginTop: '1rem', marginBottom: '1rem'}}>
               <Col xl={10} style={{display:'flex'}}>
                 <Space>
-                  <h3>Data yang ditampilkan</h3>
+                  <h3 style={{marginBottom: 'unset'}}>Data yang ditampilkan</h3>
                   <WrapperSelect>
                     <Select  defaultValue={10} >
                       <Option value={10}>10</Option>

@@ -1,3 +1,7 @@
+.home {
+  display: flex;
+  /* height: 84vh; */
+}
 .empty-screen-container{
     display: flex;
     flex-direction: row;
@@ -125,4 +129,8 @@ thead[class*="ant-table-thead"] th{
     .contentAssignUser{
       min-height: 100vh;
     }
+  }
+
+  .ant-card-bordered {
+    border: unset;
   }
