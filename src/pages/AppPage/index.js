@@ -3,11 +3,12 @@ import './style.css';
 import { ButtonSider, ButtonWrapper, EmailText, Logo, NameText, SettingWrapper } from './styles';
 import { FileTextOutlined, HomeOutlined, LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined, SettingOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useHistory } from 'react';
 import { Redirect, Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import EmptyPage from '../EmptyPage';
 import HomePage from '../HomePage';
+import DaftarPengguna from '../MenuTransaksi/DaftarPengguna';
 import LoginPage from '../LoginPage';
 import logoCB from "../../assets/images/cb-logo.svg";
 import useToken from '../../helpers/utils';
@@ -21,10 +22,33 @@ const AppPage = () => {
             setCollapsed(true)
         }
     }
+    // const router = useHistory()
     useEffect(()=> {
         window.addEventListener("resize", handleResize)
     },[]);
+
     const [collapsed, setCollapsed] = useState(false);
+    const [current,setCurrent] = useState('1');
+
+
+    const onClick = (e) => {
+            setCurrent(e.key)
+    }
+
+    const route = (e) => {
+        console.log(e)
+        switch(e){
+            case '1':
+             return  <HomePage></HomePage>
+            case 'sub21':
+                return  <DaftarPengguna></DaftarPengguna>
+            case 'sub22':
+                return   <EmptyPage></EmptyPage>
+            default:
+                return  <EmptyPage></EmptyPage>
+        }
+    }
+
     console.log('re', token)
     if (!token){
         return (
@@ -52,12 +76,14 @@ const AppPage = () => {
                         theme="dark"
                         popupClassName="submenu-pop-up"
                         mode="inline"
+                        onClick={onClick}
                         defaultSelectedKeys={['1']}
                         items={[
                             {
                             key: '1',
                             icon: <HomeOutlined />,
                             label: 'Beranda',
+                            path:'/home'
                             },
                             {
                             key: '2',
@@ -65,7 +91,8 @@ const AppPage = () => {
                             label: 'Menu Utama',
                             children:[{
                                 key: 'sub21',
-                                label: 'Daftar Pengguna'
+                                label: 'Daftar Pengguna',
+                                path:'/reports'
                                 },
                                 {
                                 key: 'sub22',
@@ -111,17 +138,22 @@ const AppPage = () => {
                             minHeight: 280,
                             overflow: "initial"
                         }}>
-                            <Route path="/home" component={HomePage} />
+                            {route(current)}
+                            {/* <Route path="/home" component={HomePage} />
                             <Route path="/reports" component={EmptyPage} />
                             <Route exact path="/">
                                 <Redirect to="/home" />
-                            </Route>
+                            </Route> */}
                         </Content>
                     </Layout>
                 </Layout>
             </Switch>
         </Router>
+        {
+            current === 1 ? <EmptyPage></EmptyPage> :''
+        }
     </>
+    
     )
 }
 

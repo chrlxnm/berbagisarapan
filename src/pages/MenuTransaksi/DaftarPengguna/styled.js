@@ -27,6 +27,16 @@ export const WrapperSelect = styled.div`
  }
 `
 
+export const WrapperSelectWithHeight = styled.div` 
+ & .ant-select:not(.ant-select-customize-input) .ant-select-selector{
+    border-radius:6px;
+    height:50px;
+ }
+ & .ant-select-single .ant-select-selector .ant-select-selection-item, .ant-select-single .ant-select-selector .ant-select-selection-placeholder {
+    line-height: 50px;
+}
+`
+
 export const styleBtnDownload = styled.div`
  &   .ant-btn-background-ghost.ant-btn-primary {
         color: #3E903B;
