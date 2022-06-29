@@ -83,7 +83,6 @@ const AppPage = () => {
                             key: '1',
                             icon: <HomeOutlined />,
                             label: 'Beranda',
-                            path:'/home'
                             },
                             {
                             key: '2',
@@ -92,7 +91,6 @@ const AppPage = () => {
                             children:[{
                                 key: 'sub21',
                                 label: 'Daftar Pengguna',
-                                path:'/reports'
                                 },
                                 {
                                 key: 'sub22',
