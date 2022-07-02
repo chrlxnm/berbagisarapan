@@ -12,6 +12,7 @@ import DaftarPengguna from '../MenuTransaksi/DaftarPengguna';
 import LoginPage from '../LoginPage';
 import logoCB from "../../assets/images/cb-logo.svg";
 import useToken from '../../helpers/utils';
+import DaftarDonatur from '../MenuTransaksi/DaftarDonatur';
 
 const { Content, Sider } = Layout;
 
@@ -43,7 +44,7 @@ const AppPage = () => {
             case 'sub21':
                 return  <DaftarPengguna></DaftarPengguna>
             case 'sub22':
-                return   <EmptyPage></EmptyPage>
+                return  <DaftarDonatur></DaftarDonatur>
             default:
                 return  <EmptyPage></EmptyPage>
         }
