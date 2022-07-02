@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-
-
 export const WrapperPagination = styled.div`
   display: flex;
   width: 100%;
@@ -33,4 +31,32 @@ export const styleBtnDownload = styled.div`
         border-color: #3E903B;
         text-shadow: none;
     }
+`
+
+export const WrapperSearchFilter = styled.div`
+gap: 1rem;
+display: flex;
+`
+
+export const ButtonFilter = styled.div`
+  width: 44px;
+  border-radius: 8px;
+  background-color: #fff;
+  height: 44px;
+  color: #3E903B;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+      background: #f0efed;
+    }
+
+  & svg {
+    height: unset !important;
+    margin-right: 0 !important;
+    width: unset !important;
+    vertical-align: middle;
+  }
 `

@@ -59,6 +59,12 @@ thead[class*="ant-table-thead"] th{
   background: #398537;
   border: none;
 }
+
+.btnAdd:focus{
+  background: #398537;
+  border: none;
+}
+
 .rowSearch{
   margin-top: 1.5%;
 }
