@@ -8,9 +8,10 @@ import { WrapperSelectWithHeight } from "../../styled.js";
 const CustomModalAddPengguna = ({
     title,
     isVisible,
-    handleCancel
-
+    handleCancel,
+    content,
 }) => {
+    console.log(title)
     const [form] = Form.useForm();
     const {Option} = Select
     const style = { background: '#0092ff', padding: '8px 0' };
@@ -37,14 +38,6 @@ const CustomModalAddPengguna = ({
              height={731}
         >
               <Form>
-                {/* <Row xl={24}>
-                    <Col className='labelLeft label' xl={12} span={6}>
-                        <h3>Name</h3>
-                    </Col>
-                    <Col className='labelRight label' xl={12} span={6}>
-                        <h3>Username</h3>
-                    </Col>
-                </Row> */}
                 <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                     <Col className="gutter-row" span={12} >
                             <h3 className='labelField'>Name</h3>
