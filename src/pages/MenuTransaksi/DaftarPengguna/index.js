@@ -10,11 +10,28 @@ import { PlusOutlined, SearchOutlined } from '@ant-design/icons';
 import React, { PureComponent,useState } from "react";
 import { WrapperPagination, WrapperSelect, styleBtnDownload } from "./styled.js";
 import CustomModalAddPengguna from "./component/CustomModalAddPengguna";
+import CustomModalEditPengguna from "./component/CustomModalEditPengguna";
 import { Label } from "../../../components";
 
 console.log('masuk')
 const DaftarPengguna = () => {
 
+
+    const handleChangeEdit = (record) => {
+        console.log(record)
+        setModalEditPengguna({
+            title:'Edit Data',
+            visible:true,
+            content:record,
+            handleCancel: () => {
+                setModalEditPengguna({
+                    ...modalEditPengguna,
+                    visible: false
+                });
+            }
+        })
+    }
+ 
     const columns = [
       {
         title: 'Name',
@@ -73,7 +90,7 @@ const DaftarPengguna = () => {
         render: (_, record) => (
           <Space size="middle">    
             <FaIcons.FaRegTrashAlt style={{width:'24px', height:'24px',color:'#BB0001'}}/>
-            <FiIcons.FiEdit style={{width:'24px', height:'24px',color:'#3E903B'}} />
+            <FiIcons.FiEdit style={{width:'24px', height:'24px',color:'#3E903B'}} onClick={()=>handleChangeEdit(record)} />
           </Space>
         ),
       },
@@ -87,27 +104,35 @@ const DaftarPengguna = () => {
         handleCancel: null,
     });
 
+    const [modalEditPengguna, setModalEditPengguna] = useState({
+        title: '',
+        content: '',
+        visible: false,
+        handleOk: null,
+        handleCancel: null,
+    });
+
 
     const { Option } = Select;
     const dummyData =  [
       {
         key: '1',
-        name: 'John Sins',
+        name: 'John samsoe',
         username: 'aselolejos',
-        email: 'emailjingan@email.com',
+        email: 'emaildududu@email.com',
         mobilePhone: '123456789010',
-        sex:'Pria',
-        division:'Staff',
+        sex:'Wanita',
+        division:'Perkap',
         team:'Staff',
         class:'Staff',
         levelAdmin:'Staff',
-        isActive:'Yes',
+        isActive:'No',
       },
       {
         key: '2',
-        name: 'John Sins',
+        name: 'John budi',
         username: 'aselolejos',
-        email: 'emailjingan@email.com',
+        email: 'emaillalala@email.com',
         mobilePhone: '123456789010',
         sex:'Pria',
         division:'Staff',
@@ -207,6 +232,12 @@ const DaftarPengguna = () => {
                     handleCancel={modalAddPengguna.handleCancel}
                 />
 
+                <CustomModalEditPengguna
+                   title={modalEditPengguna.title}
+                   isVisible={modalEditPengguna.visible}
+                   handleCancel={modalEditPengguna.handleCancel}
+                   content={modalEditPengguna.content}
+                />
 
             <Row><h1 style={{fontSize:'24px',fontWeight:'bold'}}>Daftar Pengguna</h1></Row>
             <Row><h1 style={{fontSize:'14px', color:'#828282'}}>Daftar Pengguna</h1></Row>
@@ -234,7 +265,9 @@ const DaftarPengguna = () => {
                                 handleCancel: () => {
                                     setModalInputPengguna({
                                         ...modalAddPengguna,
+                                        title:'Add Data',
                                         visible: false,
+                                        content: modalEditPengguna.content
                                     });
                                 }
                             })
