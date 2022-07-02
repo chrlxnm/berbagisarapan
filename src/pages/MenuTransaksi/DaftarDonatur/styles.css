@@ -1,0 +1,157 @@
+.home {
+    display: flex;
+    /* height: 84vh; */
+  }
+  .empty-screen-container{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+  }
+  .groupCard{
+      width: 100%;
+      margin-bottom: 2rem;
+      background-color: #fff;
+      height: 100%;
+    }
+  
+    .content-homepage{
+      margin-top: -1vh;
+      background-color: #f3f7fb;
+      padding-top: 1vh;
+    }
+  
+    svg{
+      height: 1.5em;
+      margin-right: 5px;
+      width: 1em;
+      vertical-align: middle;
+    }
+  
+  .btnAdd{
+    background: #3E903B;
+    font-weight: bold;
+    border: none;
+    height: 44px;
+    border-radius: 8px;
+    width: 88px;
+  }
+  .btnCustom{
+    background: #FFFF;
+    height: 44px;
+    border-radius: 8px;
+    width: 44px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .btnCustom:hover{
+    background: #FFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .btnCustom:focus{
+    background: #FFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  thead[class*="ant-table-thead"] th{
+    background-color: rgba(62, 144, 59, 0.05) !important;
+    font-weight: 600;
+  }
+  
+  .btnDownload{
+    background: #FFFF;
+    color: #398537;
+    font-weight: bold;
+    border-color: #3E903B ;
+    height: 44px;
+    border-radius: 8px;
+    width: 125px;
+    margin-right: 10px;
+  }
+  
+  
+  
+  .btnAdd:hover{
+    background: #398537;
+    border: none;
+  }
+  
+  .btnAdd:focus{
+    background: #398537;
+    border: none;
+  }
+  
+  .rowSearch{
+    margin-top: 1.5%;
+  }
+  
+  .tableData{
+    margin-top: 2%;
+  }
+  
+  .daftarDonaturSearchBox{
+    width: 100%;
+    border-radius: 8px;
+    height: 44px;
+  }
+  
+  .btnGroup{
+    float: right;
+    display: flex;
+    /* justify-content: space-between; */
+    margin: 0 10px 0 10px;
+  }
+  .ant-card-body{
+    width: 100%;
+  }
+  
+    @media screen and (min-width: 1600px){
+      .content-page{
+        min-height: 100vh;
+      }
+    }
+    
+    @media all and (min-width: 1400px) and (max-width:1600px){
+      .content-page{
+        min-height: 95vh;
+      }
+    }
+    
+    @media all and (min-width: 1300px) and (max-width: 1400px) {
+      .content-page{
+        min-height: 78vh;
+      }
+    }
+    
+    @media all and (min-width: 1024px) and (max-width: 1280px) {
+      .content-page{
+        min-height: 100vh;
+      }
+    }
+    
+    @media all and (min-width: 768px) and (max-width: 1024px) { 
+      .content-page{
+        min-height: 100vh;
+      }
+    }
+    
+    @media all and (min-width: 480px) and (max-width: 768px) { 
+      .AssignUserSearchbox{
+        width: 12rem;
+      }
+      .contentAssignUser{
+        min-height: 100vh;
+      }
+    }
+    
+    @media all and (max-width: 480px) { 
+      .AssignUserSearchbox{
+        width: 12rem;
+      }
+      .contentAssignUser{
+        min-height: 100vh;
+      }
+    }
+  
+    .ant-card-bordered {
+      border: unset;
+    }
