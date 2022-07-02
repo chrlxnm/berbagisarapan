@@ -2,21 +2,17 @@ import { AppContentWrapper, AppFooter, AppFooterWrapper } from '../AppContentWra
 
 import { AppHeaderWrapper } from './style';
 import { Layout } from 'antd';
+import logoCB from "../../assets/images/cb-logo.svg";
 
 const AppSiteLayoutWrapper = ({ children }) => {
     return (
         <Layout>
             <AppHeaderWrapper>
-                <img src={'CoreLogo'} alt='logo' style={{ width: '12rem' }} />
+                <img src={logoCB} alt='logo' style={{ width: '3rem' }} />
             </AppHeaderWrapper>
             <AppContentWrapper>
                 {children}
             </AppContentWrapper>
-            <AppFooterWrapper>
-                <AppFooter>
-                    © 2021 PT Bank Mandiri Persero TBK
-                </AppFooter>
-            </AppFooterWrapper>
         </Layout>
     )
 }

@@ -129,3 +129,14 @@
     gap: 1rem !important;
     justify-items: center !important;
   }
+
+  .ant-menu .ant-menu-item-selected a, a:hover {
+    color :#FCFCFC !important;
+  }
+  .ant-menu-submenu-popup .ant-menu .ant-menu-item-active a {
+    color :#FCFCFC !important;
+  }
+
+  .ant-menu a, a:hover {
+    color :#000000 !important;
+  }

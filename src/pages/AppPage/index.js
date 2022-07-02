@@ -3,10 +3,10 @@ import './style.css';
 import { ButtonSider, ButtonWrapper, EmailText, Logo, NameText, SettingWrapper } from './styles';
 import { FileTextOutlined, HomeOutlined, LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined, SettingOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
+import { Link, Redirect, Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import { Redirect, Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
-import EmptyPage from '../EmptyPage';
+import DaftarDonatur from '../MenuUtama/DaftarDonatur';
 import HomePage from '../HomePage';
 import LoginPage from '../LoginPage';
 import logoCB from "../../assets/images/cb-logo.svg";
@@ -50,14 +50,13 @@ const AppPage = () => {
                             />
                         <Menu
                         theme="dark"
-                        popupClassName="submenu-pop-up"
                         mode="inline"
                         defaultSelectedKeys={['1']}
                         items={[
                             {
                             key: '1',
                             icon: <HomeOutlined />,
-                            label: 'Beranda',
+                            label: <Link to="beranda">Beranda</Link>,
                             },
                             {
                             key: '2',
@@ -65,11 +64,11 @@ const AppPage = () => {
                             label: 'Menu Utama',
                             children:[{
                                 key: 'sub21',
-                                label: 'Daftar Pengguna'
+                                label: <Link to="daftar-pengguna">Daftar Pengguna</Link>
                                 },
                                 {
                                 key: 'sub22',
-                                label: 'Daftar Donatur'
+                                label: <Link to="daftar-donatur">Daftar Donatur</Link>
                                 }]
                             },
                             {
@@ -78,11 +77,11 @@ const AppPage = () => {
                             label: 'Menu Transaksi',
                             children:[{
                                 key: 'sub31',
-                                label: 'Donasi Harian'
+                                label: <Link to="donasi-harian">Donasi Harian</Link>
                                 },
                                 {
                                 key: 'sub32',
-                                label: 'Laporan Harian'
+                                label: <Link to="laporan-harian">Laporan Harian</Link>
                                 }]
                             },
                         ]}
@@ -111,8 +110,13 @@ const AppPage = () => {
                             minHeight: 280,
                             overflow: "initial"
                         }}>
-                            <Route path="/home" component={HomePage} />
-                            <Route path="/reports" component={EmptyPage} />
+                            <Route path="/beranda" component={HomePage} />
+                            <Route path="/daftar-pengguna">
+                                <HomePage />
+                            </ Route>
+                            <Route path="/daftar-donatur">
+                                <DaftarDonatur />
+                            </ Route>
                             <Route exact path="/">
                                 <Redirect to="/home" />
                             </Route>
