@@ -18,11 +18,10 @@ const Akun = () => {
               <Row className="form-row" xl={24} justify={'center'} style={{marginTop: '2rem'}}>
                 <Form 
                 form={form}
-                style={{width: '50%'}}
+                style={{width: '35%'}}
                 layout="vertical"
                 requiredMark={'optional'}>
                   <Form.Item
-                    label="Nama"
                     name="nama"
                     rules={[
                       {
@@ -31,10 +30,11 @@ const Akun = () => {
                       },
                     ]}
                   >
+                    <Label>Nama</Label>
                     <Input placeholder="Masukkan nama disini" />
                   </Form.Item>
                   <Form.Item
-                    label="Username"
+                    style={{marginTop: '1rem'}}
                     name="username"
                     rules={[
                       {
@@ -42,11 +42,12 @@ const Akun = () => {
                         message: "Mohon masukkan username anda!",
                       },
                     ]}
-                  >
+                  > 
+                    <Label>Username</Label>
                     <Input placeholder="Masukkan username disini" />
                   </Form.Item>
                   <Form.Item
-                    label="Email"
+                    style={{marginTop: '1rem'}}
                     name="email"
                     rules={[
                       {
@@ -55,10 +56,11 @@ const Akun = () => {
                       },
                     ]}
                   >
+                    <Label>Email</Label>
                     <Input placeholder="Masukkan email disini" />
                   </Form.Item>
                   <Form.Item
-                    label="Nomor HP"
+                    style={{marginTop: '1rem'}}
                     name="noHP"
                     rules={[
                       {
@@ -67,6 +69,7 @@ const Akun = () => {
                       },
                     ]}
                   >
+                    <Label>Nomor HP</Label>
                     <Input placeholder="Masukkan nomor HP disini" />
                   </Form.Item>
                   
@@ -90,7 +93,7 @@ const Button = styled(ButtonAntd)`
   background: #3E903B;
   border-radius: 6px;
   height: 40px;
-  margin-top: 1rem;
+  margin-top: 2rem;
 
   font-family: 'Poppins';
   font-style: normal;
@@ -111,4 +114,19 @@ const Button = styled(ButtonAntd)`
 const Input = styled(InputAntd)`
   border-radius: 6px;
   height: 40px;
+`
+
+const Label = styled.p`
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 100%;
+/* or 22px */
+
+font-feature-settings: 'tnum' on, 'lnum' on;
+
+/* Hitam */
+
+color: #2C2C2C;
 `

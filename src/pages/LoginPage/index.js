@@ -147,6 +147,9 @@ const Button = styled(ButtonAntd)`
   &:hover {
     background: #76b374;
   }
+  &:focus {
+    background: #3E903B !important;
+  }
 `
 
 const Col = styled(ColAntd)`
