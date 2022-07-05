@@ -49,3 +49,9 @@ dist/
 *.flv
 *.mov
 *.wmv
+
+#firebase
+firebase-debug.log
+/.firebase
+/.github
+.firebaserc
