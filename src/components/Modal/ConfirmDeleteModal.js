@@ -18,7 +18,7 @@ function ConfirmDeleteModal({visible, handleCancel, handleOk}) {
             </Row>
             <Row>
                 <Space>
-                    <ButtonSecondary> Batal </ButtonSecondary>
+                    <ButtonSecondary onClick={handleCancel}> Batal </ButtonSecondary>
                     <ButtonPrimary onClick={handleOk}> OK </ButtonPrimary>
                 </Space>
             </Row>
