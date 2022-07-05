@@ -32,6 +32,7 @@ export default class Login extends Component {
         <SiluetLogoWrapper>
         <SiluetLogo src={logoCB} />
         </SiluetLogoWrapper>
+        <SiluetLogo2 src={logoCB} />
             <Row justify="space-around">
               <Col
                 xs={{ span: 24, offset: 0 }}
@@ -163,11 +164,23 @@ const SiluetLogoWrapper = styled.div`
 `
 
 const SiluetLogo = styled.img`
-width: 114.6px;
-height: 276px;
-left: 100px;
-top: 0px;
+position: absolute;
+width: 465px;
+height: 255px;
+left: -160.9px;
+top: 21.1px;
 
-opacity: 0.05;
-transform: matrix(-0.83, -0.56, -0.56, 0.83, 0, 0);
+opacity: 0.1;
+transform: rotate(132.75deg);
   `
+const SiluetLogo2 = styled.img`
+position: absolute;
+width: 465px;
+height: 255px;
+right: -160.9px;
+bottom: 21.45px;
+
+background: url(.png);
+opacity: 0.1;
+transform: rotate(-47.25deg);
+    `

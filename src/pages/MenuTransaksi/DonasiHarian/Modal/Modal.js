@@ -32,7 +32,8 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                             name={'noWA'}
                             rules={[{ required: true, message: 'Please fill agama' }]}
                         >    
-                            <Input 
+                            <Input
+                                placeholder='No WA'
                                 name={'noWA'}
                             />
                         </Form.Item>
@@ -44,7 +45,8 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                                 name={'nama'}
                                 rules={[{ required: true, message: 'Please fill hobi' }]}
                             >  
-                                <Input 
+                                <Input
+                                    placeholder='Nama'
                                     name={'nama'}
                                 />
                         </Form.Item>
@@ -64,7 +66,8 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                             name={'tanggal'}
                             rules={[{ required: true, message: 'Please fill kota' }]}
                         >    
-                            <Input 
+                            <Input
+                                placeholder='Tanggal' 
                                 name={'tanggal'}
                             />
                         </Form.Item>
@@ -76,7 +79,8 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                                 name={'donasi'}
                                 rules={[{ required: true, message: 'Please fill alamat' }]}
                             >  
-                                <Input 
+                                <Input
+                                    placeholder='Donasi' 
                                     name={'donasi'}
                                 />
                         </Form.Item>
@@ -96,7 +100,8 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                             name={'program'}
                             rules={[{ required: true, message: 'Please fill berapakali' }]}
                         >    
-                            <Input 
+                            <Input
+                                placeholder='Program'
                                 name={'program'}
                             />
                         </Form.Item>
@@ -108,7 +113,8 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                                 name={'url'}
                                 rules={[{ required: true, message: 'Please fill totalDonasi' }]}
                             >  
-                                <Input 
+                                <Input
+                                    placeholder='URL Bukti'
                                     name={'url'}
                                 />
                         </Form.Item>
@@ -128,7 +134,8 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                             name={'namaBank'}
                             rules={[{ required: true, message: 'Please fill Date Added' }]}
                         >    
-                            <Input 
+                            <Input
+                                placeholder='Nama Bank'
                                 name={'namaBank'}
                             />
                         </Form.Item>
@@ -140,7 +147,8 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                                 name={'admin'}
                                 rules={[{ required: true, message: 'Please fill Program Favorit' }]}
                             >  
-                                <Input 
+                                <Input
+                                    placeholder='Admin'
                                     name={'admin'}
                                 />
                         </Form.Item>

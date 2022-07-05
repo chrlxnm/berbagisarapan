@@ -18,6 +18,9 @@ import FilterModal from './Modal/FilterModal';
 import { dummy } from "./dummy";
 
 const DaftarDonatur = () => {
+  const [customColumns, setCustomColumns] = useState([
+    'no','panggilan', 'nama', 'noWA', 'email', 'agama', 'hobi', 'kota', 'alamat', 'jumlah', 'action'
+  ])
   const [filterModal, setFilterModal] = useState(false)
 
   const handleCancelFilterModal = () => {
@@ -49,7 +52,8 @@ const DaftarDonatur = () => {
     })
   }
 
-  const handleOkModalCustom = () => {
+  const handleOkModalCustom = (checked) => {
+    setCustomColumns([...checked, 'no', 'action'])
     setModalCustom({
       ...modalCustom,
       visible: false
@@ -65,10 +69,6 @@ const DaftarDonatur = () => {
   const handleDelete = () => {
     setVisibleDeleteModal(false)
   }
-
-  const [customColumn, setCustomColumns] = useState([
-    'no','panggilan', 'nama', 'noWA', 'email', 'agama', 'hobi', 'kota', 'alamat', 'jumlah'
-  ])
 
   const handleChangeEdit = (record) => {
     setModal({
@@ -140,7 +140,7 @@ const DaftarDonatur = () => {
           </Space>
         ),
       },
-    ];
+    ].filter(item=> customColumns?.includes(item.key))
 
     const [modalAddDonatur, setModalInputDonatur] = useState({
         title: 'Add Data',
@@ -184,7 +184,7 @@ const DaftarDonatur = () => {
 
           <CustomColumnModal 
           visible={modalCustom?.visible}
-          existingColumns = {customColumn}
+          existingColumns = {customColumns}
           handleCancel={handleCancelModalCustom}
           handleOk={handleOkModalCustom}
           title={modalCustom?.title}

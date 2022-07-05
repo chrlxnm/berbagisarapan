@@ -57,7 +57,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             name={'name'}
                             rules={[{ required: true, message: 'Please fill agama' }]}
                         >    
-                            <Input 
+                            <Input
+                                placeholder='Name'
                                 name={'name'}
                             />
                         </Form.Item>
@@ -69,7 +70,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                                 name={'username'}
                                 rules={[{ required: true, message: 'Please fill hobi' }]}
                             >  
-                                <Input 
+                                <Input
+                                    placeholder='Username'
                                     name={'username'}
                                 />
                         </Form.Item>
@@ -89,7 +91,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             name={'email'}
                             rules={[{ required: true, message: 'Please fill kota' }]}
                         >    
-                            <Input 
+                            <Input
+                                placeholder='Email'
                                 disabled={data}
                                 name={'email'}
                             />
@@ -102,7 +105,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                                 name={'mobilePhone'}
                                 rules={[{ required: true, message: 'Please fill alamat' }]}
                             >  
-                                <Input 
+                                <Input
+                                placeholder='Mobile Phone'
                                     name={'mobilePhone'}
                                 />
                         </Form.Item>
@@ -124,6 +128,7 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                         >    
                             <Select 
                                 name={'sex'}
+                                placeholder='Sex'
                                 options = {OPTION_SEX}
                             />
                         </Form.Item>
@@ -134,7 +139,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             name={'division'}
                             rules={[{ required: true, message: 'Please fill berapakali' }]}
                         >    
-                            <Input 
+                            <Input
+                                placeholder='Division'
                                 name={'division'}
                             />
                         </Form.Item>
@@ -154,7 +160,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             name={'team'}
                             rules={[{ required: true, message: 'Please fill berapakali' }]}
                         >    
-                            <Input 
+                            <Input
+                                placeholder='Team'
                                 name={'team'}
                             />
                         </Form.Item>
@@ -165,7 +172,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             name={'class'}
                             rules={[{ required: true, message: 'Please fill berapakali' }]}
                         >    
-                            <Input 
+                            <Input
+                                placeholder='Class'
                                 name={'class'}
                             />
                         </Form.Item>
@@ -185,7 +193,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             name={'levelAdmin'}
                             rules={[{ required: true, message: 'Please fill berapakali' }]}
                         >    
-                            <Select 
+                            <Select
+                                placeholder='Level Admin'
                                 options={OPTION_LEVEL_ADMIN}
                                 name={'levelAdmin'}
                             />
@@ -197,7 +206,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             name={'isActive'}
                             rules={[{ required: true, message: 'Please fill berapakali' }]}
                         >    
-                            <Select 
+                            <Select
+                                placeholder='Is Active'
                                 options={OPTION_IS_ACTIVE}
                                 name={'isActive'}
                             />

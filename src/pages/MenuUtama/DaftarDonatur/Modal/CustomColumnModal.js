@@ -1,14 +1,12 @@
 import './style.css'
 
-import { Checkbox, Col, Input as InputAntd, Row, Select as SelectAntd, Space } from 'antd'
+import { Checkbox, Col, Input as InputAntd, Row, Select as SelectAntd } from 'antd'
 import React, { useState } from 'react'
 
 import { ButtonPrimary } from '../../../../components/Button/Button';
 import Modal from '../../../../components/Modal/Modal'
 import { columns } from './columnList';
 import styled from 'styled-components';
-
-const { Option } = SelectAntd;
 
 function CustomColumnModal({visible, existingColumns, handleCancel,handleOk, title}) {
     const [checked, setChecked] = useState(existingColumns);
@@ -17,7 +15,7 @@ function CustomColumnModal({visible, existingColumns, handleCancel,handleOk, tit
     return (
         <Modal 
         isModalVisible={visible}
-        handleOk={handleOk}
+        // handleOk={()=>handleOk(checked)}
         title={title}
         handleCancel={()=>{
             handleCancel()}}
@@ -45,7 +43,7 @@ function CustomColumnModal({visible, existingColumns, handleCancel,handleOk, tit
             </Checkbox.Group>
             
             <Row justify='center' style={{marginTop: '2rem'}}>
-                    <ButtonPrimary onClick={handleOk} style={{width: '25%'}}>
+                    <ButtonPrimary onClick={()=>handleOk(checked)} style={{width: '25%'}}>
                         Terapkan
                     </ButtonPrimary>
             </Row>
