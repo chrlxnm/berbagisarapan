@@ -38,7 +38,6 @@ const AppPage = () => {
             setCurrent(e.key)
     }
 
-    console.log('re', token)
     if (!token){
         return (
             <LoginPage setToken={setToken} />
@@ -111,9 +110,13 @@ const AppPage = () => {
                                 <SettingOutlined style={{color: 'black'}}/>
                                 </ButtonSider>
                                 </Link>
-                                <ButtonSider onClick={()=>setToken(null)}>
+                                <Link to="" >
+                                <ButtonSider onClick={()=>{
+                                    setToken(null);
+                                    }}>
                                 <LogoutOutlined style={{color: '#BB0001'}}/>
                                 </ButtonSider>
+                                </ Link>
                             </ButtonWrapper>
                         </SettingWrapper>
                     </Sider>
@@ -126,6 +129,15 @@ const AppPage = () => {
                             minHeight: 280,
                             overflow: "initial"
                         }}>
+                            <Route
+                                exact
+                                path="/"
+                                render={() => {
+                                    return (
+                                    <Redirect to="/beranda" />
+                                    )
+                                }}
+                            />
                             <Route path="/beranda" component={Beranda} />
                             <Route path="/daftar-pengguna">
                                 <DaftarPengguna />
