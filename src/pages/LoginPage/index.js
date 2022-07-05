@@ -9,19 +9,30 @@ import {
 } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import React, { Component } from "react";
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 
+import { app } from '../../services/firebase';
 import logoCB from "../../assets/images/cb-logo.svg";
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 function onChange(checked) {
   console.log(`switch to ${checked}`);
 }
 export default class Login extends Component {
   render() {
-    console.log('cek props', this.props)
     const onFinish = (values) => {
-      console.log("Success:", values);
-      this.props.setToken('true')
+    const authentication = getAuth();
+        try {
+        signInWithEmailAndPassword(authentication, values.email, values.password)
+            .then((response) => {
+                this.props.setToken(response._tokenResponse.refreshToken)
+                // localStorage.setItem('token', response._tokenResponse.refreshToken)
+            })
+        }
+        catch (err) {
+            console.log(err)
+        }
     };
 
     const onFinishFailed = (errorInfo) => {
