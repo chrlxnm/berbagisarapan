@@ -135,15 +135,6 @@ const AppPage = () => {
                             minHeight: 280,
                             overflow: "initial"
                         }}>
-                            <Route
-                                exact
-                                path="/"
-                                render={() => {
-                                    return (
-                                    <Redirect to="/beranda" />
-                                    )
-                                }}
-                            />
                             <Route path="/beranda" component={Beranda} />
                             <Route path="/daftar-pengguna">
                                 <DaftarPengguna />
