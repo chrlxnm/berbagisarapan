@@ -1,0 +1,18 @@
+.ant-pagination-item, .ant-pagination-item-link {
+    border-radius: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.ant-pagination-item-active {
+    color: #fff;
+    background: #3E903B;
+    border-color: #3E903B;
+}
+.ant-pagination-item:hover {
+    border-color: #3E903B;
+}
+
+.ant-pagination-item-active a{
+    color: #fff;
+}
