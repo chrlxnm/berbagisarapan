@@ -20,7 +20,8 @@ const Akun = () => {
                 form={form}
                 style={{width: '35%'}}
                 layout="vertical"
-                requiredMark={'optional'}>
+                requiredMark={'optional'}
+                >
                   <Form.Item
                     name="nama"
                     rules={[
@@ -31,7 +32,7 @@ const Akun = () => {
                     ]}
                   >
                     <Label>Nama</Label>
-                    <Input placeholder="Masukkan nama disini" />
+                    <Input name='nama' placeholder="Masukkan nama disini" />
                   </Form.Item>
                   <Form.Item
                     style={{marginTop: '1rem'}}
@@ -72,14 +73,11 @@ const Akun = () => {
                     <Label>Nomor HP</Label>
                     <Input placeholder="Masukkan nomor HP disini" />
                   </Form.Item>
-                  
-                  <Button
-                      type="primary"
-                      htmlType="submit"
-                      style={{ width: "100%" }}
-                    >
-                      Simpan
-                    </Button>
+                    <ButtonPrimary 
+                    htmlType='submit'
+                    style={{ width: "100%", marginTop: '2rem' }}>
+                    Simpan
+                    </ButtonPrimary>
                 </Form>
               </Row>
           </Card>
@@ -87,29 +85,6 @@ const Akun = () => {
 }
 
 export default Akun
-
-
-const Button = styled(ButtonAntd)`
-  background: #3E903B;
-  border-radius: 6px;
-  height: 40px;
-  margin-top: 2rem;
-
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 160%;
-  /* or 22px */
-
-  text-align: center;
-  font-feature-settings: 'tnum' on, 'lnum' on;
-
-  color: #FFFFFF;
-  &:hover {
-    background: #76b374;
-  }
-`
 
 const Input = styled(InputAntd)`
   border-radius: 6px;

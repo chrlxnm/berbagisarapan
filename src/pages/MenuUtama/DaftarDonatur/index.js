@@ -58,20 +58,13 @@ const DaftarDonatur = () => {
     'no','panggilan', 'nama', 'noWA', 'email', 'agama', 'hobi', 'kota', 'alamat', 'jumlah'
   ])
 
-    const handleChangeEdit = (record) => {
-        console.log(record)
-        setModalEditDonatur({
-            title:'Edit Data',
-            visible:true,
-            content:record,
-            handleCancel: () => {
-                setModalEditDonatur({
-                    ...modalEditDonatur,
-                    visible: false
-                });
-            }
-        })
-    }
+  const handleChangeEdit = (record) => {
+    setModal({
+      visible: true,
+      title: 'Edit Data',
+      data: record
+    })
+}
  
     const columns = [
       {
@@ -86,13 +79,13 @@ const DaftarDonatur = () => {
       },
       {
         title: 'Nama',
-        dataIndex: 'name',
-        key: 'name',
+        dataIndex: 'nama',
+        key: 'nama',
       },
       {
         title: 'Whatsapp',
-        key: 'whatsapp',
-        dataIndex: 'whatsapp',
+        key: 'noWA',
+        dataIndex: 'noWA',
        
       },
       {
@@ -122,16 +115,16 @@ const DaftarDonatur = () => {
       },
       {
         title: 'Berapa Kali',
-        key: 'berapakali',
-        dataIndex: 'berapakali',
+        key: 'berapaKali',
+        dataIndex: 'berapaKali',
       },
       {
         title: 'Action',
         key: 'action',
         render: (_, record) => (
           <Space size="middle">    
-            <FaIcons.FaRegTrashAlt style={{width:'24px', height:'24px',color:'#BB0001'}}/>
-            <FiIcons.FiEdit style={{width:'24px', height:'24px',color:'#3E903B'}} onClick={()=>handleChangeEdit(record)} />
+            <FaIcons.FaRegTrashAlt style={{width:'24px', height:'24px',color:'#BB0001', cursor: 'pointer'}}/>
+            <FiIcons.FiEdit style={{width:'24px', height:'24px',color:'#3E903B', cursor: 'pointer'}} onClick={()=>handleChangeEdit(record)} />
           </Space>
         ),
       },
@@ -167,7 +160,9 @@ const DaftarDonatur = () => {
           visible={modal?.visible}
           handleCancel={handleCancelModal}
           handleOk={handleOkModal}
-          title={modal?.title} />
+          title={modal?.title} 
+          data={modal?.data}
+          />
 
           <CustomColumnModal 
           visible={modalCustom?.visible}

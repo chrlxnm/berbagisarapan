@@ -37,18 +37,11 @@ const DaftarPengguna = () => {
   }
 
     const handleChangeEdit = (record) => {
-        console.log(record)
-        setModalEditPengguna({
-            title:'Edit Data',
-            visible:true,
-            content:record,
-            handleCancel: () => {
-                setModalEditPengguna({
-                    ...modalEditPengguna,
-                    visible: false
-                });
-            }
-        })
+          setModal({
+            visible: true,
+            title: 'Edit Data',
+            data: record
+          })
     }
  
     const columns = [
@@ -108,8 +101,8 @@ const DaftarPengguna = () => {
         key: 'action',
         render: (_, record) => (
           <Space size="middle">    
-            <FaIcons.FaRegTrashAlt style={{width:'24px', height:'24px',color:'#BB0001'}}/>
-            <FiIcons.FiEdit style={{width:'24px', height:'24px',color:'#3E903B'}} onClick={()=>handleChangeEdit(record)} />
+            <FaIcons.FaRegTrashAlt style={{width:'24px', height:'24px',color:'#BB0001', cursor: 'pointer'}}/>
+            <FiIcons.FiEdit style={{width:'24px', height:'24px',color:'#3E903B', cursor: 'pointer'}} onClick={()=>handleChangeEdit(record)} />
           </Space>
         ),
       },
@@ -143,7 +136,8 @@ const DaftarPengguna = () => {
           visible={modal?.visible}
           handleCancel={handleCancelModal}
           handleOk={handleOkModal}
-          title={modal?.title} />
+          title={modal?.title}
+          data={modal?.data} />
 
             <Row><h1 style={{fontSize:'24px',fontWeight:'bold'}}>Daftar Pengguna</h1></Row>
             <Row><h1 style={{fontSize:'14px', color:'#828282'}}>Daftar Pengguna</h1></Row>
