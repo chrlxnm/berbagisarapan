@@ -10,7 +10,7 @@ export default class FooterComponent extends PureComponent {
       <div>  
         <div className='blue-bottom'>
           <p className='comp-copyright'>
-            © Visi Maha Karya
+            © Berbagi Sarapan
           </p>
         </div>
       </div>

@@ -2,21 +2,39 @@ import "./styles.css"
 import './styled.js'
 
 import * as AiIcons from 'react-icons/ai';
+import * as BsIcons from 'react-icons/bs';
 import * as FaIcons from 'react-icons/fa';
 import * as FiIcons from 'react-icons/fi';
-import * as BsIcons from 'react-icons/bs';
 
 import { Button, Card, Checkbox, Col, Divider, Dropdown, Form, Input, Layout, Menu, Pagination, Popover, Row, Select, Space, Table, Typography } from 'antd';
 import { PlusOutlined, SearchOutlined } from '@ant-design/icons';
-import React, { PureComponent,useState } from "react";
+import React, { PureComponent, useState } from "react";
 import { WrapperPagination, WrapperSelect, styleBtnDownload } from "./styled.js";
+
+import AddModal from "./Modal/AddEditModal";
 import CustomModalAddDonatur from "./component/CustomModalAddDonatur";
 import CustomModalEditDonatur from "./component/CustomModalEditDonatur";
 import { Label } from "../../../components";
+import { dummy } from "./dummy";
 
 console.log('masuk')
 const DaftarDonatur = () => {
-
+  const [modal, setModal] = useState({
+    visible: false,
+    title: 'Add Data',
+  })
+  const handleOkModal = () => {
+    setModal({
+      ...modal,
+      visible: false
+    })
+  }
+  const handleCancelModal = () => {
+    setModal({
+      ...modal,
+      visible: false
+    })
+  }
 
     const handleChangeEdit = (record) => {
         console.log(record)
@@ -36,7 +54,8 @@ const DaftarDonatur = () => {
     const columns = [
       {
         title: 'No',
-        key: 'no'
+        key: 'no',
+        render:(text, record) => <p>{record.key+1}</p>
       },
       {
         title: 'Panggilan',
@@ -114,127 +133,19 @@ const DaftarDonatur = () => {
 
 
     const { Option } = Select;
-    const dummyData =  [
-      {
-        key: '1',
-        panggilan: 'mamang',
-        name: 'mang',
-        whatsapp: 'emaildududu@email.com',
-        email: 'email@123.com',
-        agama:'Islam',
-        hobi:'Golf',
-        kota:'Bekasi',
-        alamat:'Jalan mawar',
-        berapakali:'2',
-        totalDonasi:10000,
-        dataAdded:'07-12-22',
-        programFavorit:'SCTV',
-        kategori:'Lorem',
-        hasilSurvey:'Lorem',
-        keterangan:'test',
-        admin:'Yes',
-        lastUpdate:'08-12-22'
-      },
-      {
-        key: '2',
-        panggilan: 'mamang',
-        name: 'mang',
-        whatsapp: 'emaildududu@email.com',
-        email: 'email@123.com',
-        agama:'Islam',
-        hobi:'Golf',
-        kota:'Bekasi',
-        alamat:'Jalan mawar',
-        berapakali:'2',
-        totalDonasi:20000,
-        dataAdded:'07-12-22',
-        programFavorit:'SCTV',
-        kategori:'Lorem',
-        hasilSurvey:'Lorem',
-        keterangan:'test',
-        admin:'No',
-        lastUpdate:'08-12-22'
-      },
-      {
-        key: '3',
-        panggilan: 'mamang',
-        name: 'mang',
-        whatsapp: 'emaildududu@email.com',
-        email: 'email@123.com',
-        agama:'Islam',
-        hobi:'Golf',
-        kota:'Bekasi',
-        alamat:'Jalan mawar',
-        berapakali:'2',
-        totalDonasi:30000,
-        dataAdded:'07-12-23',
-        programFavorit:'SCTV',
-        kategori:'Lorem',
-        hasilSurvey:'Lorem',
-        keterangan:'test',
-        admin:'Yes',
-        lastUpdate:'08-12-22'
-      },
-      {
-        key: '4',
-        panggilan: 'mamang',
-        name: 'mang',
-        whatsapp: 'emaildududu@email.com',
-        email: 'email@123.com',
-        agama:'Islam',
-        hobi:'Golf',
-        kota:'Bekasi',
-        alamat:'Jalan mawar',
-        berapakali:'2',
-        totalDonasi:10000,
-        dataAdded:'07-12-22',
-        programFavorit:'SCTV',
-        kategori:'Ipsum',
-        hasilSurvey:'Ipsum',
-        keterangan:'test',
-        admin:'Yes',
-        lastUpdate:'08-12-22'
-      },
-      {
-        key: '5',
-        panggilan: 'mamang',
-        name: 'mang',
-        whatsapp: 'emaildududu@email.com',
-        email: 'email@123.com',
-        agama:'Islam',
-        hobi:'Golf',
-        kota:'Bekasi',
-        alamat:'Jalan mawar',
-        berapakali:'2',
-        totalDonasi:40000,
-        dataAdded:'07-12-22',
-        programFavorit:'SCTV',
-        kategori:'Lorem',
-        hasilSurvey:'Lorem',
-        keterangan:'test',
-        admin:'Yes',
-        lastUpdate:'08-12-22'
-      }
-      
-    ];
+    
+    const dummyData =  dummy()
 
    
     return (
         
         <Card className="home" style={{ borderRadius:16}}>
             {console.log(modalAddDonatur.visible)}
-                <CustomModalAddDonatur
-                    title={modalAddDonatur.title}
-                    isVisible={modalAddDonatur.visible}
-                    handleCancel={modalAddDonatur.handleCancel}
-                />
-
-               <CustomModalEditDonatur
-                    title={modalEditDonatur.title}
-                    isVisible={modalEditDonatur.visible}
-                    handleCancel={modalEditDonatur.handleCancel}
-                    content={modalEditDonatur.content}
-               />
+          <AddModal 
+          visible={modal?.visible}
+          handleCancel={handleCancelModal}
+          handleOk={handleOkModal}
+          title={modal?.title} />
 
             <Row><h1 style={{fontSize:'24px',fontWeight:'bold'}}>Daftar Donatur</h1></Row>
             <Row><h1 style={{fontSize:'14px', color:'#828282'}}>Daftar Donatur</h1></Row>
@@ -262,16 +173,10 @@ const DaftarDonatur = () => {
                         </Button>
                       <Button className="btnAdd" type="primary"
                         onClick={()=> {
-                            setModalInputDonatur({
-                                visible:true,
-                                handleCancel: () => {
-                                    setModalInputDonatur({
-                                        ...modalAddDonatur,
-                                        title:'Add Data',
-                                        visible: false,
-                                    });
-                                }
-                            })
+                          setModal({
+                            visible: true,
+                            title: 'Add Data'
+                          })
                         }}
                       icon={<AiIcons.AiOutlinePlus />}>
                         Add
@@ -285,11 +190,11 @@ const DaftarDonatur = () => {
                   style={{width:"100%"}} 
                   columns={columns} 
                   dataSource={dummyData}
-                  pagination={false} 
+                  pagination={true} 
                  />
             </Row>
 
-            <Divider style={{marginTop: '1rem'}} />
+            {/* <Divider style={{marginTop: '1rem'}} />
 
             <Row xl={24} style={{marginTop: '1rem', marginBottom: '1rem'}}>
               <Col xl={10} style={{display:'flex'}}>
@@ -315,7 +220,7 @@ const DaftarDonatur = () => {
                     />
               </WrapperPagination>
               </Col>
-            </Row>
+            </Row> */}
             
         </Card>
     );

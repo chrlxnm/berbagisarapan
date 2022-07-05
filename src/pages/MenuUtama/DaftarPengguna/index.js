@@ -2,20 +2,39 @@ import "./styles.css"
 import './styled.js'
 
 import * as AiIcons from 'react-icons/ai';
+import * as BsIcons from 'react-icons/bs';
 import * as FaIcons from 'react-icons/fa';
 import * as FiIcons from 'react-icons/fi';
 
 import { Button, Card, Checkbox, Col, Divider, Dropdown, Form, Input, Layout, Menu, Pagination, Popover, Row, Select, Space, Table, Typography } from 'antd';
 import { PlusOutlined, SearchOutlined } from '@ant-design/icons';
-import React, { PureComponent,useState } from "react";
+import React, { PureComponent, useState } from "react";
 import { WrapperPagination, WrapperSelect, styleBtnDownload } from "./styled.js";
+
+import AddModal from "./Modal/AddEditModal";
 import CustomModalAddPengguna from "./component/CustomModalAddPengguna";
 import CustomModalEditPengguna from "./component/CustomModalEditPengguna";
 import { Label } from "../../../components";
+import { dummy } from "./dummy";
 
 console.log('masuk')
 const DaftarPengguna = () => {
-
+  const [modal, setModal] = useState({
+    visible: false,
+    title: 'Add Data',
+  })
+  const handleOkModal = () => {
+    setModal({
+      ...modal,
+      visible: false
+    })
+  }
+  const handleCancelModal = () => {
+    setModal({
+      ...modal,
+      visible: false
+    })
+  }
 
     const handleChangeEdit = (record) => {
         console.log(record)
@@ -114,136 +133,24 @@ const DaftarPengguna = () => {
 
 
     const { Option } = Select;
-    const dummyData =  [
-      {
-        key: '1',
-        name: 'John samsoe',
-        username: 'aselolejos',
-        email: 'emaildududu@email.com',
-        mobilePhone: '123456789010',
-        sex:'Pria',
-        division:'Staff',
-        team:'Staff',
-        class:'Staff',
-        levelAdmin:'Staff',
-        isActive:'No',
-      },
-      {
-        key: '2',
-        name: 'John budi',
-        username: 'aselolejos',
-        email: 'emaillalala@email.com',
-        mobilePhone: '123456789010',
-        sex:'Pria',
-        division:'Staff',
-        team:'Staff',
-        class:'Staff',
-        levelAdmin:'Staff',
-        isActive:'Yes',
-      },
-      {
-        key: '3',
-        name: 'John Sins',
-        username: 'aselolejos',
-        email: 'emailjingan@email.com',
-        mobilePhone: '123456789010',
-        sex:'Pria',
-        division:'Staff',
-        team:'Staff',
-        class:'Staff',
-        levelAdmin:'Staff',
-        isActive:'Yes',
-      },
-      {
-        key: '4',
-        name: 'John Sins',
-        username: 'aselolejos',
-        email: 'emailjingan@email.com',
-        mobilePhone: '123456789010',
-        sex:'Pria',
-        division:'Staff',
-        team:'Staff',
-        class:'Staff',
-        levelAdmin:'Staff',
-        isActive:'Yes',
-      },
-      {
-        key: '5',
-        name: 'John Sins',
-        username: 'aselolejos',
-        email: 'emailjingan@email.com',
-        mobilePhone: '123456789010',
-        sex:'Pria',
-        division:'Staff',
-        team:'Staff',
-        class:'Staff',
-        levelAdmin:'Staff',
-        isActive:'Yes',
-      },
-      {
-        key: '6',
-        name: 'John Sins',
-        username: 'aselolejos',
-        email: 'emailjingan@email.com',
-        mobilePhone: '123456789010',
-        sex:'Pria',
-        division:'Staff',
-        team:'Staff',
-        class:'Staff',
-        levelAdmin:'Staff',
-        isActive:'Yes',
-      },
-      {
-        key: '7',
-        name: 'John Sins',
-        username: 'aselolejos',
-        email: 'emailjingan@email.com',
-        mobilePhone: '123456789010',
-        sex:'Pria',
-        division:'Staff',
-        team:'Staff',
-        class:'Staff',
-        levelAdmin:'Staff',
-        isActive:'Yes',
-      },
-      {
-        key: '8',
-        name: 'John Sins',
-        username: 'aselolejos',
-        email: 'emailjingan@email.com',
-        mobilePhone: '123456789010',
-        sex:'Pria',
-        division:'Staff',
-        team:'Staff',
-        class:'Staff',
-        levelAdmin:'Staff',
-        isActive:'Yes',
-      },
-    ];
+    const dummyData =  dummy()
 
    
     return (
-        
         <Card className="home" style={{ borderRadius:16}}>
             {console.log(modalAddPengguna.visible)}
-                <CustomModalAddPengguna
-                    title={modalAddPengguna.title}
-                    isVisible={modalAddPengguna.visible}
-                    handleCancel={modalAddPengguna.handleCancel}
-                />
-
-                <CustomModalEditPengguna
-                   title={modalEditPengguna.title}
-                   isVisible={modalEditPengguna.visible}
-                   handleCancel={modalEditPengguna.handleCancel}
-                   content={modalEditPengguna.content}
-                />
+          <AddModal 
+          visible={modal?.visible}
+          handleCancel={handleCancelModal}
+          handleOk={handleOkModal}
+          title={modal?.title} />
 
             <Row><h1 style={{fontSize:'24px',fontWeight:'bold'}}>Daftar Pengguna</h1></Row>
             <Row><h1 style={{fontSize:'14px', color:'#828282'}}>Daftar Pengguna</h1></Row>
             <Row className="rowSearch" xl={24}>
                 <Col xl={20}>
                 <Input 
+                style={{marginRight:'1rem'}}
                   placeholder='Cari disini'
                   size='large'
                   className="daftarpenggunaSearchBox"
@@ -252,6 +159,7 @@ const DaftarPengguna = () => {
                   // onKeyPress={(e)=>handleInputState(e)}
                   prefix={<SearchOutlined />}
                   />
+                  <Button className="btnCustom" type="primary" style={{padding:'0'}}><BsIcons.BsFilter style={{width:'24px', height:'24px',color:'#3E903B', margin:'0'}}/></Button>
                 </Col>
                 <Col xl={4}>
                   <div className="btnGroup">
@@ -260,17 +168,10 @@ const DaftarPengguna = () => {
                         </Button>
                       <Button className="btnAdd" type="primary"
                         onClick={()=> {
-                            setModalInputPengguna({
-                                visible:true,
-                                handleCancel: () => {
-                                    setModalInputPengguna({
-                                        ...modalAddPengguna,
-                                        title:'Add Data',
-                                        visible: false,
-                                        content: modalEditPengguna.content
-                                    });
-                                }
-                            })
+                          setModal({
+                            visible: true,
+                            title: 'Add Data'
+                          })
                         }}
                       icon={<AiIcons.AiOutlinePlus />}>
                         Add
@@ -284,11 +185,11 @@ const DaftarPengguna = () => {
                   style={{width:"100%"}} 
                   columns={columns} 
                   dataSource={dummyData}
-                  pagination={false} 
+                  pagination={true} 
                  />
             </Row>
 
-            <Divider style={{marginTop: '1rem'}} />
+            {/* <Divider style={{marginTop: '1rem'}} />
 
             <Row xl={24} style={{marginTop: '1rem', marginBottom: '1rem'}}>
               <Col xl={10} style={{display:'flex'}}>
@@ -314,7 +215,7 @@ const DaftarPengguna = () => {
                     />
               </WrapperPagination>
               </Col>
-            </Row>
+            </Row> */}
             
         </Card>
     );

@@ -3,16 +3,18 @@ import './style.css';
 import { ButtonSider, ButtonWrapper, EmailText, Logo, NameText, SettingWrapper } from './styles';
 import { FileTextOutlined, HomeOutlined, LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined, SettingOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
-import React, { useEffect, useState,useHistory } from 'react';
-import { Redirect, Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Link, Redirect, Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import React, { useEffect, useHistory, useState } from 'react';
 
-import EmptyPage from '../EmptyPage';
-import HomePage from '../HomePage';
-import DaftarPengguna from '../MenuTransaksi/DaftarPengguna';
+import Akun from '../Akun';
+import Beranda from '../Beranda';
+import DaftarDonatur from '../MenuUtama/DaftarDonatur';
+import DaftarPengguna from '../MenuUtama/DaftarPengguna';
+import DonasiHarian from '../MenuTransaksi/DonasiHarian';
+import LaporanHarian from '../MenuTransaksi/LaporanHarian';
 import LoginPage from '../LoginPage';
 import logoCB from "../../assets/images/cb-logo.svg";
 import useToken from '../../helpers/utils';
-import DaftarDonatur from '../MenuTransaksi/DaftarDonatur';
 
 const { Content, Sider } = Layout;
 
@@ -34,20 +36,6 @@ const AppPage = () => {
 
     const onClick = (e) => {
             setCurrent(e.key)
-    }
-
-    const route = (e) => {
-        console.log(e)
-        switch(e){
-            case '1':
-             return  <HomePage></HomePage>
-            case 'sub21':
-                return  <DaftarPengguna></DaftarPengguna>
-            case 'sub22':
-                return  <DaftarDonatur></DaftarDonatur>
-            default:
-                return  <EmptyPage></EmptyPage>
-        }
     }
 
     console.log('re', token)
@@ -75,7 +63,6 @@ const AppPage = () => {
                             />
                         <Menu
                         theme="dark"
-                        popupClassName="submenu-pop-up"
                         mode="inline"
                         onClick={onClick}
                         defaultSelectedKeys={['1']}
@@ -83,7 +70,7 @@ const AppPage = () => {
                             {
                             key: '1',
                             icon: <HomeOutlined />,
-                            label: 'Beranda',
+                            label: <Link to="beranda">Beranda</Link>,
                             },
                             {
                             key: '2',
@@ -91,11 +78,11 @@ const AppPage = () => {
                             label: 'Menu Utama',
                             children:[{
                                 key: 'sub21',
-                                label: 'Daftar Pengguna',
+                                label: <Link to="daftar-pengguna">Daftar Pengguna</Link>
                                 },
                                 {
                                 key: 'sub22',
-                                label: 'Daftar Donatur'
+                                label: <Link to="daftar-donatur">Daftar Donatur</Link>
                                 }]
                             },
                             {
@@ -104,11 +91,11 @@ const AppPage = () => {
                             label: 'Menu Transaksi',
                             children:[{
                                 key: 'sub31',
-                                label: 'Donasi Harian'
+                                label: <Link to="donasi-harian">Donasi Harian</Link>
                                 },
                                 {
                                 key: 'sub32',
-                                label: 'Laporan Harian'
+                                label: <Link to="laporan-harian">Laporan Harian</Link>
                                 }]
                             },
                         ]}
@@ -119,9 +106,11 @@ const AppPage = () => {
                             <EmailText>gilangilham@gmail.com</EmailText></>
                             :<></>}
                             <ButtonWrapper className={collapsed? 'btn-collapsed':''}>
+                            <Link to="akun">
                                 <ButtonSider>
                                 <SettingOutlined style={{color: 'black'}}/>
                                 </ButtonSider>
+                                </Link>
                                 <ButtonSider onClick={()=>setToken(null)}>
                                 <LogoutOutlined style={{color: '#BB0001'}}/>
                                 </ButtonSider>
@@ -137,20 +126,27 @@ const AppPage = () => {
                             minHeight: 280,
                             overflow: "initial"
                         }}>
-                            {route(current)}
-                            {/* <Route path="/home" component={HomePage} />
-                            <Route path="/reports" component={EmptyPage} />
-                            <Route exact path="/">
-                                <Redirect to="/home" />
-                            </Route> */}
+                            <Route path="/beranda" component={Beranda} />
+                            <Route path="/daftar-pengguna">
+                                <DaftarPengguna />
+                            </ Route>
+                            <Route path="/daftar-donatur">
+                                <DaftarDonatur />
+                            </ Route>
+                            <Route path="/donasi-harian">
+                                <DonasiHarian />
+                            </ Route>
+                            <Route path="/laporan-harian">
+                                <LaporanHarian />
+                            </ Route>
+                            <Route path="/akun">
+                                <Akun />
+                            </ Route>
                         </Content>
                     </Layout>
                 </Layout>
             </Switch>
         </Router>
-        {
-            current === 1 ? <EmptyPage></EmptyPage> :''
-        }
     </>
     
     )

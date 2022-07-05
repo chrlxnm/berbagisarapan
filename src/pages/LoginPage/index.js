@@ -50,6 +50,7 @@ export default class Login extends Component {
                   onFinishFailed={onFinishFailed}
                   layout="vertical"
                   className="row-col"
+                  requiredMark={'optional'}
                 >
                   <Form.Item
                     className="email"
@@ -130,6 +131,7 @@ const Button = styled(ButtonAntd)`
   background: #3E903B;
   border-radius: 6px;
   height: 40px;
+  margin-top: 1rem;
 
   font-family: 'Poppins';
   font-style: normal;
@@ -144,6 +146,9 @@ const Button = styled(ButtonAntd)`
   color: #FFFFFF;
   &:hover {
     background: #76b374;
+  }
+  &:focus {
+    background: #3E903B !important;
   }
 `
 

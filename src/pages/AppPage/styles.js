@@ -1,15 +1,16 @@
+import { Link as LinkAntd } from "react-router-dom"
 import styled from "styled-components"
 
 export const Logo =styled.img`
-width: 31px;
-height: 75px;
+max-width: 80%;
+max-height: 80%;
 margin-top: 2rem;
 margin-bottom: 1rem;
 `
 
 export const SettingWrapper = styled.div`
 position: absolute;
-bottom: 2rem;
+bottom: 1rem;
 text-align: center;
 width: 100%;
 `

@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { Divider, Modal, Radio, Select, Form, InputNumber,Input,Row,Col, Space } from 'antd';
 import './styles.css';
-import { Label } from '../../../../../components';
 import '../../styled.js'
+
+import { Col, Divider, Form, Input, InputNumber, Modal, Radio, Row, Select, Space } from 'antd';
+import React, { useEffect, useState } from 'react';
+
+import { Label } from '../../../../../components';
 import { WrapperSelectWithHeight } from "../../styled.js";
 
 const CustomModalEditPengguna = ({
@@ -43,6 +45,7 @@ const CustomModalEditPengguna = ({
                 border:'none',
                 width:'150px',
                 height:'50px',
+                display:'none',
                 borderRadius:'6px'
              }}}
              okText='Simpan'

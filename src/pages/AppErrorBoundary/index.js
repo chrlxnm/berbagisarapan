@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import AppSiteLayoutWrapper from '../../components/AppSiteLayoutWrapper/AppSiteLayoutWrapper';
 import { AppStdParagraph } from '../../components/AppSiteLayoutWrapper/style';
 import { ErrorBoundaryContentWrapper } from './style';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 class AppErrorBoundary extends React.Component {
     constructor(props) {
@@ -28,7 +28,7 @@ class AppErrorBoundary extends React.Component {
                 <AppSiteLayoutWrapper>
                     <ErrorBoundaryContentWrapper>
                         <AppStdParagraph>Mohon Maaf, terjadi sebuah kesalahan.</AppStdParagraph>
-                        <AppStdParagraph>Silahkan Refresh halaman dan hubungi Customer Services.</AppStdParagraph>
+                        <AppStdParagraph>Silahkan Refresh halaman</AppStdParagraph>
                     </ErrorBoundaryContentWrapper>
                 </AppSiteLayoutWrapper>
             );
