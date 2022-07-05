@@ -8,10 +8,18 @@
 }
 
 .custom-modal-bs .ant-modal-body {
-    height: calc(70vh - 54px);
+    max-height: calc(70vh - 54px);
     overflow-y: auto;
 }
 
 .custom-modal-bs .ant-modal-footer {
     display: none;
 }
+
+/* .delete-modal .ant-modal-footer {
+    display: none;
+}
+
+.delete-modal {
+    top: calc(50vh - 144px) !important;
+} */

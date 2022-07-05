@@ -9,16 +9,26 @@ import * as FiIcons from 'react-icons/fi';
 import { Button, Card, Checkbox, Col, Divider, Dropdown, Form, Input, Layout, Menu, Pagination, Popover, Row, Select, Space, Table, Typography } from 'antd';
 import { PlusOutlined, SearchOutlined } from '@ant-design/icons';
 import React, { PureComponent, useState } from "react";
-import { WrapperPagination, WrapperSelect, styleBtnDownload } from "./styled.js";
 
 import AddModal from "./Modal/AddEditModal";
-import CustomModalAddPengguna from "./component/CustomModalAddPengguna";
-import CustomModalEditPengguna from "./component/CustomModalEditPengguna";
-import { Label } from "../../../components";
+import ConfirmDeleteModal from "../../../components/Modal/ConfirmDeleteModal";
+import FilterModal from './Modal/FilterModal';
 import { dummy } from "./dummy";
 
-console.log('masuk')
 const DaftarPengguna = () => {
+  const [filterModal, setFilterModal] = useState(false)
+
+  const handleCancelFilterModal = () => {
+    setFilterModal(false)
+  }
+
+  const handleOkFilterModal = () => {
+    setFilterModal(false)
+  }
+  const [visibleDeleteModal, setVisibleDeleteModal] = useState(false)
+  const handleDelete = () => {
+    setVisibleDeleteModal(false)
+  }
   const [modal, setModal] = useState({
     visible: false,
     title: 'Add Data',
@@ -37,18 +47,11 @@ const DaftarPengguna = () => {
   }
 
     const handleChangeEdit = (record) => {
-        console.log(record)
-        setModalEditPengguna({
-            title:'Edit Data',
-            visible:true,
-            content:record,
-            handleCancel: () => {
-                setModalEditPengguna({
-                    ...modalEditPengguna,
-                    visible: false
-                });
-            }
-        })
+          setModal({
+            visible: true,
+            title: 'Edit Data',
+            data: record
+          })
     }
  
     const columns = [
@@ -108,8 +111,8 @@ const DaftarPengguna = () => {
         key: 'action',
         render: (_, record) => (
           <Space size="middle">    
-            <FaIcons.FaRegTrashAlt style={{width:'24px', height:'24px',color:'#BB0001'}}/>
-            <FiIcons.FiEdit style={{width:'24px', height:'24px',color:'#3E903B'}} onClick={()=>handleChangeEdit(record)} />
+            <FaIcons.FaRegTrashAlt style={{width:'24px', height:'24px',color:'#BB0001', cursor: 'pointer'}} onClick={()=>setVisibleDeleteModal(true)}/>
+            <FiIcons.FiEdit style={{width:'24px', height:'24px',color:'#3E903B', cursor: 'pointer'}} onClick={()=>handleChangeEdit(record)} />
           </Space>
         ),
       },
@@ -138,12 +141,26 @@ const DaftarPengguna = () => {
    
     return (
         <Card className="home" style={{ borderRadius:16}}>
-            {console.log(modalAddPengguna.visible)}
+
           <AddModal 
           visible={modal?.visible}
           handleCancel={handleCancelModal}
           handleOk={handleOkModal}
-          title={modal?.title} />
+          title={modal?.title}
+          data={modal?.data} 
+          />
+
+          <FilterModal 
+          visible={filterModal}
+          handleCancel={handleCancelFilterModal}
+          handleOk={handleOkFilterModal} 
+          />
+          
+          <ConfirmDeleteModal 
+          visible={visibleDeleteModal}
+          handleCancel={()=> setVisibleDeleteModal(false)}
+          handleOk={handleDelete}
+          />
 
             <Row><h1 style={{fontSize:'24px',fontWeight:'bold'}}>Daftar Pengguna</h1></Row>
             <Row><h1 style={{fontSize:'14px', color:'#828282'}}>Daftar Pengguna</h1></Row>
@@ -159,7 +176,9 @@ const DaftarPengguna = () => {
                   // onKeyPress={(e)=>handleInputState(e)}
                   prefix={<SearchOutlined />}
                   />
-                  <Button className="btnCustom" type="primary" style={{padding:'0'}}><BsIcons.BsFilter style={{width:'24px', height:'24px',color:'#3E903B', margin:'0'}}/></Button>
+                  <Button className="btnCustom" type="primary" style={{padding:'0'}} onClick={()=> setFilterModal(true)}>
+                    <BsIcons.BsFilter style={{width:'24px', height:'24px',color:'#3E903B', margin:'0'}}/>
+                    </Button>
                 </Col>
                 <Col xl={4}>
                   <div className="btnGroup">
