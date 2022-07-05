@@ -8,6 +8,7 @@ import { ButtonPrimary, ButtonSecondary } from '../../../components/Button/Butto
 import React, { useState } from 'react'
 
 import AddModal from './Modal/Modal';
+import FilterModal from './Modal/FilterModal';
 import HeaderTitle from '../../../components/HeaderTitle/HeaderTitle';
 import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.svg';
 import { ReactComponent as IconFilter2 } from '../../../assets/svg/icon-filter2.svg';
@@ -15,6 +16,15 @@ import { SearchOutlined } from '@ant-design/icons';
 import { dummy } from './dummy';
 
 const LaporanHarian = () => {
+  const [filterModal, setFilterModal] = useState(false)
+
+  const handleCancelFilterModal = () => {
+    setFilterModal(false)
+  }
+
+  const handleOkFilterModal = () => {
+    setFilterModal(false)
+  }
   const [modal, setModal] = useState({
     visible: false,
     title: 'Add Data',
@@ -89,7 +99,15 @@ const LaporanHarian = () => {
         handleCancel={handleCancelModal}
         handleOk={handleOkModal}
         title={modal?.title} 
-        record={modal?.record}/>
+        record={modal?.record}
+        />
+        
+        <FilterModal 
+          visible={filterModal}
+          handleCancel={handleCancelFilterModal}
+          handleOk={handleOkFilterModal} 
+          />
+
           <Card className="home" style={{ borderRadius:16}}>
               <HeaderTitle title={"Laporan Harian"} subTitle={"Laporan Harian"} />
               <Row className="rowSearch" xl={24}>
@@ -104,7 +122,7 @@ const LaporanHarian = () => {
                     // onKeyPress={(e)=>handleInputState(e)}
                     prefix={<SearchOutlined />}
                     />
-                    <ButtonFilter>
+                    <ButtonFilter onClick={()=> setFilterModal(true)}>
                       <IconFilter1 style={{marginRight: 'unset !important'}} />
                     </ButtonFilter>
                     </WrapperSearchFilter>

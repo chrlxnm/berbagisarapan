@@ -12,14 +12,21 @@ import React, { PureComponent, useState } from "react";
 import { WrapperPagination, WrapperSelect, styleBtnDownload } from "./styled.js";
 
 import AddModal from "./Modal/AddEditModal";
+import ConfirmDeleteModal from "../../../components/Modal/ConfirmDeleteModal";
 import CustomColumnModal from "./Modal/CustomColumnModal";
-import CustomModalAddDonatur from "./component/CustomModalAddDonatur";
-import CustomModalEditDonatur from "./component/CustomModalEditDonatur";
-import { Label } from "../../../components";
+import FilterModal from './Modal/FilterModal';
 import { dummy } from "./dummy";
 
-console.log('masuk')
 const DaftarDonatur = () => {
+  const [filterModal, setFilterModal] = useState(false)
+
+  const handleCancelFilterModal = () => {
+    setFilterModal(false)
+  }
+
+  const handleOkFilterModal = () => {
+    setFilterModal(false)
+  }
   const [modal, setModal] = useState({
     visible: false,
     title: 'Add Data',
@@ -28,6 +35,7 @@ const DaftarDonatur = () => {
     visible: false,
     title: 'Customize Columns',
   })
+  const [visibleDeleteModal, setVisibleDeleteModal] = useState(false)
   const handleOkModal = () => {
     setModal({
       ...modal,
@@ -52,6 +60,10 @@ const DaftarDonatur = () => {
       ...modalCustom,
       visible: false
     })
+  }
+
+  const handleDelete = () => {
+    setVisibleDeleteModal(false)
   }
 
   const [customColumn, setCustomColumns] = useState([
@@ -123,7 +135,7 @@ const DaftarDonatur = () => {
         key: 'action',
         render: (_, record) => (
           <Space size="middle">    
-            <FaIcons.FaRegTrashAlt style={{width:'24px', height:'24px',color:'#BB0001', cursor: 'pointer'}}/>
+            <FaIcons.FaRegTrashAlt style={{width:'24px', height:'24px',color:'#BB0001', cursor: 'pointer'}} onClick={()=>setVisibleDeleteModal(true)}/>
             <FiIcons.FiEdit style={{width:'24px', height:'24px',color:'#3E903B', cursor: 'pointer'}} onClick={()=>handleChangeEdit(record)} />
           </Space>
         ),
@@ -155,13 +167,19 @@ const DaftarDonatur = () => {
     return (
         
         <Card className="home" style={{ borderRadius:16}}>
-            {console.log(modalAddDonatur.visible)}
+
           <AddModal 
           visible={modal?.visible}
           handleCancel={handleCancelModal}
           handleOk={handleOkModal}
           title={modal?.title} 
           data={modal?.data}
+          />
+          
+          <FilterModal 
+          visible={filterModal}
+          handleCancel={handleCancelFilterModal}
+          handleOk={handleOkFilterModal} 
           />
 
           <CustomColumnModal 
@@ -170,6 +188,12 @@ const DaftarDonatur = () => {
           handleCancel={handleCancelModalCustom}
           handleOk={handleOkModalCustom}
           title={modalCustom?.title}
+          />
+
+          <ConfirmDeleteModal 
+          visible={visibleDeleteModal}
+          handleCancel={()=> setVisibleDeleteModal(false)}
+          handleOk={handleDelete}
           />
 
             <Row><h1 style={{fontSize:'24px',fontWeight:'bold'}}>Daftar Donatur</h1></Row>
@@ -187,7 +211,9 @@ const DaftarDonatur = () => {
                         prefix={<SearchOutlined />}
                         />
                    
-                    <Button className="btnCustom" type="primary" style={{padding:'0'}}><BsIcons.BsFilter style={{width:'24px', height:'24px',color:'#3E903B', margin:'0'}}/></Button>
+                    <Button className="btnCustom" type="primary" style={{padding:'0'}} onClick={()=> setFilterModal(true)}>
+                      <BsIcons.BsFilter style={{width:'24px', height:'24px',color:'#3E903B', margin:'0'}}/>
+                      </Button>
                     <Button className="btnCustom" 
                     type="primary"
                     style={{padding:'0'}}

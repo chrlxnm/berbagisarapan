@@ -8,6 +8,7 @@ import { ButtonPrimary, ButtonSecondary } from '../../../components/Button/Butto
 import React, { useState } from 'react'
 
 import AddModal from './Modal/Modal';
+import FilterModal from './Modal/FilterModal';
 import HeaderTitle from '../../../components/HeaderTitle/HeaderTitle';
 import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.svg';
 import { ReactComponent as IconFilter2 } from '../../../assets/svg/icon-filter2.svg';
@@ -19,6 +20,15 @@ const DonasiHarian = () => {
       visible: false,
       title: 'Add Data',
     })
+    const [filterModal, setFilterModal] = useState(false)
+
+    const handleCancelFilterModal = () => {
+      setFilterModal(false)
+    }
+
+    const handleOkFilterModal = () => {
+      setFilterModal(false)
+    }
 
     const handleOkModal = () => {
       setModal({
@@ -98,6 +108,11 @@ const DonasiHarian = () => {
           handleCancel={handleCancelModal}
           handleOk={handleOkModal}
           title={modal?.title} />
+          <FilterModal 
+          visible={filterModal}
+          handleCancel={handleCancelFilterModal}
+          handleOk={handleOkFilterModal} />
+
           <Card className="home" style={{ borderRadius:16}}>
               <HeaderTitle title={"Donasi Harian"} subTitle={"Donasi Harian"} />
               <Row className="rowSearch" xl={24}>
@@ -112,7 +127,7 @@ const DonasiHarian = () => {
                     // onKeyPress={(e)=>handleInputState(e)}
                     prefix={<SearchOutlined />}
                     />
-                    <ButtonFilter>
+                    <ButtonFilter onClick={()=> setFilterModal(true)}>
                       <IconFilter1 style={{marginRight: 'unset !important'}} />
                     </ButtonFilter>
                     </WrapperSearchFilter>
