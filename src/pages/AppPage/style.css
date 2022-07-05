@@ -141,3 +141,15 @@
     color :#000000 !important;
   }
 
+  .ant-menu-vertical .ant-menu-submenu-selected {
+    background: green;
+    color: white;
+    border-radius: 8px;
+  }
+
+  .ant-layout-sider-children {
+  transition: all 0.6s !important;
+  }
+  .ant-layout-sider{
+    transition: all 0.6s ;
+  }
