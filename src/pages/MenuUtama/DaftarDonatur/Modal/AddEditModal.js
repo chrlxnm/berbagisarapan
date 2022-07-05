@@ -64,7 +64,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             name={'panggilan'}
                             rules={[{ required: true, message: 'Please fill agama' }]}
                         >    
-                            <Input 
+                            <Input
+                                placeholder='Panggilan'
                                 name={'panggilan'}
                             />
                         </Form.Item>
@@ -76,7 +77,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                                 name={'nama'}
                                 rules={[{ required: true, message: 'Please fill hobi' }]}
                             >  
-                                <Input 
+                                <Input
+                                    placeholder='Nama'
                                     name={'nama'}
                                 />
                         </Form.Item>
@@ -96,7 +98,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             name={'noWA'}
                             rules={[{ required: true, message: 'Please fill kota' }]}
                         >    
-                            <Input 
+                            <Input
+                                placeholder='No WA' 
                                 disabled={data}
                                 name={'noWA'}
                             />
@@ -109,7 +112,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                                 name={'email'}
                                 rules={[{ required: true, message: 'Please fill alamat' }]}
                             >  
-                                <Input 
+                                <Input
+                                    placeholder='Email' 
                                     name={'email'}
                                 />
                         </Form.Item>
@@ -130,6 +134,7 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             rules={[{ required: true, message: 'Please fill agama' }]}
                         >    
                             <Input
+                                placeholder='Agama'
                                 name={'agama'}
                             />
                         </Form.Item>
@@ -140,7 +145,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             name={'hobi'}
                             rules={[{ required: true, message: 'Please fill hobi' }]}
                         >    
-                            <Input 
+                            <Input
+                                placeholder='Hobi' 
                                 name={'hobi'}
                             />
                         </Form.Item>
@@ -160,7 +166,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             name={'kota'}
                             rules={[{ required: true, message: 'Please fill kota' }]}
                         >    
-                            <Input 
+                            <Input
+                                placeholder='Kota'
                                 name={'kota'}
                             />
                         </Form.Item>
@@ -171,7 +178,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             name={'alamat'}
                             rules={[{ required: true, message: 'Please fill alamat' }]}
                         >    
-                            <Input 
+                            <Input
+                                placeholder='Alamat' 
                                 name={'alamat'}
                             />
                         </Form.Item>
@@ -191,7 +199,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             name={'berapaKali'}
                             rules={[{ required: true, message: 'Please fill berapa kali' }]}
                         >    
-                            <Input 
+                            <Input
+                                placeholder='Berapa Kali' 
                                 disabled={data}
                                 name={'berapaKali'}
                             />
@@ -204,6 +213,7 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             rules={[{ required: true, message: 'Please fill total donasi' }]}
                         >    
                             <Input
+                                placeholder='Total Donasi'
                                 disabled={data}
                                 name={'totalDonasi'}
                             />
@@ -225,6 +235,7 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             rules={[{ required: true, message: 'Please fill date added' }]}
                         >    
                             <Input
+                                placeholder='Date Added'
                                 name={'dateAdded'}
                             />
                         </Form.Item>
@@ -236,6 +247,7 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             rules={[{ required: true, message: 'Please fill program favorit' }]}
                         >    
                             <Input
+                                placeholder='Program Favorit'
                                 disabled={data}
                                 name={'programFavorit'}
                             />
@@ -256,7 +268,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             name={'kategori'}
                             rules={[{ required: true, message: 'Please fill kategori' }]}
                         >    
-                            <Select 
+                            <Select
+                                placeholder='Kategori' 
                                 options={OPTION_KATEGORI}
                                 name={'kategori'}
                             />
@@ -269,6 +282,7 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             rules={[{ required: true, message: 'Please fill hasil survey' }]}
                         >    
                             <Input
+                                placeholder='HasilSurvey'
                                 name={'hasilSurvey'}
                             />
                         </Form.Item>
@@ -289,6 +303,7 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             rules={[{ required: true, message: 'Please fill keterangan' }]}
                         >    
                             <Input
+                                placeholder='Keterangan'
                                 name={'keterangan'}
                             />
                         </Form.Item>
@@ -299,7 +314,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             name={'admin'}
                             rules={[{ required: true, message: 'Please fill admin' }]}
                         >    
-                            <Select 
+                            <Select
+                                placeholder='Admin'
                                 options={OPTION_ADMIN}
                                 name={'admin'}
                             />
@@ -318,6 +334,7 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             rules={[{ required: true, message: 'Please fill last update' }]}
                         >    
                             <Input
+                                placeholder='Last Update'
                             disabled={data}
                                 name={'lastUpdate'}
                             />

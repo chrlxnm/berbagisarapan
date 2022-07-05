@@ -1,12 +1,9 @@
-import { Col, DatePicker as DatePickerAntd, Form, Input as InputAntd, Row, Select as SelectAntd, Space } from 'antd'
-import { OPTION_ADMIN, OPTION_KATEGORI } from '../../../../helpers/constants';
+import { Col, DatePicker as DatePickerAntd, Form, Input as InputAntd, Row, Space } from 'antd'
 import React, { useEffect } from 'react'
 
 import { ButtonPrimary } from '../../../../components/Button/Button';
 import Modal from '../../../../components/Modal/Modal'
 import styled from 'styled-components';
-
-const { Option } = SelectAntd;
 
 function FilterModal({visible,handleCancel,handleOk, title}) {
     const [form] = Form.useForm();
@@ -41,6 +38,7 @@ function FilterModal({visible,handleCancel,handleOk, title}) {
                             name={'noWA'}
                         >    
                             <Input 
+                                placeholder='No WA'
                                 name={'noWA'}
                             />
                         </Form.Item>
@@ -51,7 +49,8 @@ function FilterModal({visible,handleCancel,handleOk, title}) {
                         <Form.Item
                                 name={'nama'}
                             >  
-                                <Input 
+                                <Input
+                                    placeholder='Nama'
                                     name={'nama'}
                                 />
                         </Form.Item>
@@ -71,6 +70,7 @@ function FilterModal({visible,handleCancel,handleOk, title}) {
                             name={'admin'}
                         >    
                             <Input 
+                                placeholder='Admin'
                                 name={'admin'}
                             />
                         </Form.Item>
@@ -82,6 +82,7 @@ function FilterModal({visible,handleCancel,handleOk, title}) {
                                 name={'program'}
                             >  
                                 <Input 
+                                    placeholder='Program'
                                     name={'program'}
                                 />
                         </Form.Item>
@@ -101,29 +102,34 @@ function FilterModal({visible,handleCancel,handleOk, title}) {
                             name={'namaBank'}
                         >    
                             <Input
+                                placeholder='Nama Bank'
                                 name={'namaBank'}
                             />
                         </Form.Item>
                    
                     </Col>
                     <Col className='rightSide' xl={12}>  
-                    <Space>
+                    <DateWrapper>
                         <Form.Item
+                            style={{width: '45%'}}
                             name={'tanggalMulai'}
                         >    
                             <DatePicker 
+                                placeholder='Tanggal Mulai'
                                 name={'tanggalMulai'}
                             />
                         </Form.Item>
                         
                         <Form.Item
+                            style={{width: '45%'}}
                             name={'tanggalBerakhir'}
                         >    
                             <DatePicker 
+                                placeholder='Tanggal Selesai'
                                 name={'tanggalBerakhir'}
                             />
                         </Form.Item>
-                        </Space>
+                        </DateWrapper>
                     </Col>
                 </Row> 
                 <Row justify='center'>
@@ -145,5 +151,11 @@ height: 40px !important;
 
 const DatePicker = styled(DatePickerAntd)`
 height: 40px !important;
+width: 100%;
 border-radius: 6px !important;
+`
+
+const DateWrapper = styled.div`
+display: flex;
+gap: 10%;
 `

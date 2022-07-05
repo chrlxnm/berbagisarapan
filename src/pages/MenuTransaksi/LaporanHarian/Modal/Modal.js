@@ -33,6 +33,7 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                             rules={[{ required: true, message: 'Please fill agama' }]}
                         >    
                             <Input 
+                                placeholder='No WA'
                                 name={'noWA'}
                             />
                         </Form.Item>
@@ -45,6 +46,7 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                                 rules={[{ required: true, message: 'Please fill hobi' }]}
                             >  
                                 <Input 
+                                    placeholder='Nama'
                                     name={'nama'}
                                 />
                         </Form.Item>
@@ -64,7 +66,8 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                             name={'laporan'}
                             rules={[{ required: true, message: 'Please fill kota' }]}
                         >    
-                            <Input 
+                            <Input
+                                placeholder='Laporan'
                                 name={'laporan'}
                             />
                         </Form.Item>
@@ -76,7 +79,8 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                                 name={'tanggal'}
                                 rules={[{ required: true, message: 'Please fill alamat' }]}
                             >  
-                                <Input 
+                                <Input
+                                    placeholder='Tanggal'
                                     name={'tanggal'}
                                 />
                         </Form.Item>
@@ -93,7 +97,8 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                             name={'admin'}
                             rules={[{ required: true, message: 'Please fill berapakali' }]}
                         >    
-                            <Input 
+                            <Input
+                                placeholder='Admin'
                                 name={'admin'}
                             />
                         </Form.Item>
