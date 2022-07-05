@@ -1,0 +1,8 @@
+.checkbox-custom .ant-checkbox-checked .ant-checkbox-inner {
+    background-color: #3E903B;
+    border-color: #3E903B;
+}
+
+.wrapper-checked {
+    border: 1px solid #3E903B !important;
+}
