@@ -1,13 +1,19 @@
+import './style.css'
+
+import { Modal as ModalAntd } from 'antd';
 import React from 'react'
 
-const Modal = (title, isModalVisible, handleOk, handleCancel) => {
+const Modal = ({title, isModalVisible, handleOk, handleCancel, children}) => {
     return (
         <>
-          <Modal title={title} visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-          </Modal>
+          <ModalAntd 
+          className='custom-modal-bs' 
+          title={title} 
+          visible={isModalVisible} 
+          onOk={handleOk} 
+          onCancel={handleCancel}>
+            {children}
+          </ModalAntd>
         </>
       );
 }

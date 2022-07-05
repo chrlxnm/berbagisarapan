@@ -8,22 +8,13 @@ import React, { useEffect, useHistory, useState } from 'react';
 
 import Akun from '../Akun';
 import Beranda from '../Beranda';
-import DaftarDonatur from '../MenuTransaksi/DaftarDonatur';
-import DaftarPengguna from '../MenuTransaksi/DaftarPengguna';
+import DaftarDonatur from '../MenuUtama/DaftarDonatur';
+import DaftarPengguna from '../MenuUtama/DaftarPengguna';
 import DonasiHarian from '../MenuTransaksi/DonasiHarian';
 import LaporanHarian from '../MenuTransaksi/LaporanHarian';
 import LoginPage from '../LoginPage';
 import logoCB from "../../assets/images/cb-logo.svg";
 import useToken from '../../helpers/utils';
-
-// import DaftarDonatur from '../MenuUtama/DaftarDonatur';
-
-
-
-
-
-
-
 
 const { Content, Sider } = Layout;
 
