@@ -48,9 +48,14 @@ const AppPage = () => {
         <Router>
             <Switch>
                 <Layout className='app-page'>
-                    <Sider className={`main-side-bar ${!collapsed?'uncollapse-side-bar':''}`} trigger={null} collapsible collapsed={collapsed} style={{
+                    <Sider 
+                    className={`main-side-bar ${!collapsed?'uncollapse-side-bar':''}`} 
+                    trigger={null} 
+                    collapsible 
+                    collapsed={collapsed} 
+                    style={{
                         height: '100vh',
-                        overflow: 'auto',
+                        overflow: 'unset',
                         position: 'fixed',
                         left: 0,
                         top: 0,
@@ -120,7 +125,7 @@ const AppPage = () => {
                             </ButtonWrapper>
                         </SettingWrapper>
                     </Sider>
-                    <Layout className="site-layout" style={{ marginLeft: collapsed? '80px' : '228px', }}>
+                    <Layout className="site-layout" style={{ marginLeft: collapsed? '80px' : '228px',transition: 'all 0.6s'}}>
                         <Content
                         className="site-layout-background"
                         style={{
