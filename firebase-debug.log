@@ -1,0 +1,50 @@
+[debug] [2022-07-05T16:37:08.249Z] ----------------------------------------------------------------------
+[debug] [2022-07-05T16:37:08.251Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\CHRLXNM\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-07-05T16:37:08.252Z] CLI Version:   11.2.0
+[debug] [2022-07-05T16:37:08.252Z] Platform:      win32
+[debug] [2022-07-05T16:37:08.252Z] Node Version:  v16.15.0
+[debug] [2022-07-05T16:37:08.253Z] Time:          Tue Jul 05 2022 23:37:08 GMT+0700 (Western Indonesia Time)
+[debug] [2022-07-05T16:37:08.254Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-07-05T16:37:08.262Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-07-05T16:37:08.263Z] > authorizing via signed-in user (choianam1987@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\SELF PROJECT\DONATION WEB\vimaya-ui
+
+[debug] [2022-07-05T16:41:45.218Z] ----------------------------------------------------------------------
+[debug] [2022-07-05T16:41:45.221Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\CHRLXNM\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-07-05T16:41:45.221Z] CLI Version:   11.2.0
+[debug] [2022-07-05T16:41:45.222Z] Platform:      win32
+[debug] [2022-07-05T16:41:45.222Z] Node Version:  v16.15.0
+[debug] [2022-07-05T16:41:45.223Z] Time:          Tue Jul 05 2022 23:41:45 GMT+0700 (Western Indonesia Time)
+[debug] [2022-07-05T16:41:45.224Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-07-05T16:41:45.232Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-07-05T16:41:45.233Z] > authorizing via signed-in user (choianam1987@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\SELF PROJECT\DONATION WEB\vimaya-ui
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-07-05T16:42:24.591Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100

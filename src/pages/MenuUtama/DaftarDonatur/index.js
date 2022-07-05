@@ -12,6 +12,7 @@ import React, { PureComponent, useState } from "react";
 import { WrapperPagination, WrapperSelect, styleBtnDownload } from "./styled.js";
 
 import AddModal from "./Modal/AddEditModal";
+import CustomColumnModal from "./Modal/CustomColumnModal";
 import CustomModalAddDonatur from "./component/CustomModalAddDonatur";
 import CustomModalEditDonatur from "./component/CustomModalEditDonatur";
 import { Label } from "../../../components";
@@ -22,6 +23,10 @@ const DaftarDonatur = () => {
   const [modal, setModal] = useState({
     visible: false,
     title: 'Add Data',
+  })
+  const [modalCustom, setModalCustom] = useState({
+    visible: false,
+    title: 'Customize Columns',
   })
   const handleOkModal = () => {
     setModal({
@@ -35,6 +40,23 @@ const DaftarDonatur = () => {
       visible: false
     })
   }
+
+  const handleOkModalCustom = () => {
+    setModalCustom({
+      ...modalCustom,
+      visible: false
+    })
+  }
+  const handleCancelModalCustom = () => {
+    setModalCustom({
+      ...modalCustom,
+      visible: false
+    })
+  }
+
+  const [customColumn, setCustomColumns] = useState([
+    'no','panggilan', 'nama', 'noWA', 'email', 'agama', 'hobi', 'kota', 'alamat', 'jumlah'
+  ])
 
     const handleChangeEdit = (record) => {
         console.log(record)
@@ -147,6 +169,14 @@ const DaftarDonatur = () => {
           handleOk={handleOkModal}
           title={modal?.title} />
 
+          <CustomColumnModal 
+          visible={modalCustom?.visible}
+          existingColumns = {customColumn}
+          handleCancel={handleCancelModalCustom}
+          handleOk={handleOkModalCustom}
+          title={modalCustom?.title}
+          />
+
             <Row><h1 style={{fontSize:'24px',fontWeight:'bold'}}>Daftar Donatur</h1></Row>
             <Row><h1 style={{fontSize:'14px', color:'#828282'}}>Daftar Donatur</h1></Row>
             <Row className="rowSearch" xl={24}>
@@ -163,7 +193,17 @@ const DaftarDonatur = () => {
                         />
                    
                     <Button className="btnCustom" type="primary" style={{padding:'0'}}><BsIcons.BsFilter style={{width:'24px', height:'24px',color:'#3E903B', margin:'0'}}/></Button>
-                    <Button className="btnCustom"   type="primary" style={{padding:'0'}}><AiIcons.AiOutlineLayout style={{width:'24px', height:'24px',color:'#3E903B', margin:'0'}}/></Button>
+                    <Button className="btnCustom" 
+                    type="primary"
+                    style={{padding:'0'}}
+                    onClick={()=>{
+                      setModalCustom({...modalCustom,
+                        visible:true
+                      })
+                    }}
+                    >
+                      <AiIcons.AiOutlineLayout style={{width:'24px', height:'24px',color:'#3E903B', margin:'0'}}/>
+                      </Button>
                   </Space>
                 </Col>
                 <Col xl={4}>
