@@ -9,6 +9,9 @@ import * as FiIcons from 'react-icons/fi';
 import { Button, Card, Checkbox, Col, Divider, Dropdown, Form, Input, Layout, Menu, Pagination, Popover, Row, Select, Space, Table, Typography } from 'antd';
 import { PlusOutlined, SearchOutlined } from '@ant-design/icons';
 import React, { PureComponent, useState } from "react";
+import { WrapperPagination, WrapperSelect, styleBtnDownload,ButtonFilter,WrapperSearchFilter } from "./styled.js";
+import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.svg';
+
 
 import AddModal from "./Modal/AddEditModal";
 import ConfirmDeleteModal from "../../../components/Modal/ConfirmDeleteModal";
@@ -165,7 +168,8 @@ const DaftarPengguna = () => {
             <Row><h1 style={{fontSize:'24px',fontWeight:'bold'}}>Daftar Pengguna</h1></Row>
             <Row><h1 style={{fontSize:'14px', color:'#828282'}}>Daftar Pengguna</h1></Row>
             <Row className="rowSearch" xl={24}>
-                <Col xl={20}>
+              <Col xl={20}>
+              <WrapperSearchFilter>
                 <Input 
                 style={{marginRight:'1rem'}}
                   placeholder='Cari disini'
@@ -176,9 +180,10 @@ const DaftarPengguna = () => {
                   // onKeyPress={(e)=>handleInputState(e)}
                   prefix={<SearchOutlined />}
                   />
-                  <Button className="btnCustom" type="primary" style={{padding:'0'}} onClick={()=> setFilterModal(true)}>
-                    <BsIcons.BsFilter style={{width:'24px', height:'24px',color:'#3E903B', margin:'0'}}/>
-                    </Button>
+                  <ButtonFilter onClick={()=> setFilterModal(true)}>
+                    <IconFilter1 style={{marginRight: 'unset !important'}} />
+                  </ButtonFilter>
+                  </WrapperSearchFilter>
                 </Col>
                 <Col xl={4}>
                   <div className="btnGroup">
