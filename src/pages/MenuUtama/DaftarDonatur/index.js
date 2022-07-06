@@ -198,8 +198,8 @@ const DaftarDonatur = () => {
 
             <Row><h1 style={{fontSize:'24px',fontWeight:'bold'}}>Daftar Donatur</h1></Row>
             <Row><h1 style={{fontSize:'14px', color:'#828282'}}>Daftar Donatur</h1></Row>
-            <Row className="rowSearch" xl={24}>
-                <Col xl={20}>
+            <Row className="rowSearch" gutter={[0, 16]}>
+                <Col span={20}>
                 <Space>
                     <Input 
                         placeholder='Cari disini'
@@ -227,9 +227,10 @@ const DaftarDonatur = () => {
                       </Button>
                   </Space>
                 </Col>
-                <Col xl={4}>
+                <Col span={4}>
                   <div className="btnGroup">
-                        <Button className="btnDownload" type="primary" style={{color:'#3E903B', borderColor:'#3E903B'}} ghost>
+                        <Button className="btnDownload" type="primary" 
+                        style={{color:'#3E903B', borderColor:'#3E903B'}} ghost>
                           Download
                         </Button>
                       <Button className="btnAdd" type="primary"

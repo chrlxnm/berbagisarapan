@@ -68,3 +68,15 @@ export const OPTION_ADMIN = [{
   value: 'Admin 2',
   label: 'Admin 2'
 }]
+
+export const OPTION_WA = () => {
+  const data = [];
+  for (let i = 0; i < 57; i++) {
+  data.push({
+    key: i,
+    value: `08${i}09027${i}`,
+    });
+  }
+  
+  return data;
+}

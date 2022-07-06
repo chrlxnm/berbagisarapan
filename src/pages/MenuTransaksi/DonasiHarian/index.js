@@ -117,8 +117,8 @@ const DonasiHarian = () => {
 
           <Card className="home" style={{ borderRadius:16}}>
               <HeaderTitle title={"Donasi Harian"} subTitle={"Donasi Harian"} />
-              <Row className="rowSearch" xl={24}>
-                  <Col xl={20}>
+              <Row className="rowSearch">
+                  <Col span={20}>
                   <WrapperSearchFilter>
                   <Input 
                     placeholder='Cari disini'
@@ -134,7 +134,7 @@ const DonasiHarian = () => {
                     </ButtonFilter>
                     </WrapperSearchFilter>
                   </Col>
-                  <Col xl={4}>
+                  <Col span={4}>
                     <div style={{display: 'flex',gap:'1rem'}}>
                           <ButtonSecondary>
                             Download

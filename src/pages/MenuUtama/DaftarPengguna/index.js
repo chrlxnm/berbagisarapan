@@ -164,8 +164,8 @@ const DaftarPengguna = () => {
 
             <Row><h1 style={{fontSize:'24px',fontWeight:'bold'}}>Daftar Pengguna</h1></Row>
             <Row><h1 style={{fontSize:'14px', color:'#828282'}}>Daftar Pengguna</h1></Row>
-            <Row className="rowSearch" xl={24}>
-                <Col xl={20}>
+            <Row className="rowSearch">
+                <Col span={20}>
                 <Input 
                 style={{marginRight:'1rem'}}
                   placeholder='Cari disini'
@@ -180,7 +180,7 @@ const DaftarPengguna = () => {
                     <BsIcons.BsFilter style={{width:'24px', height:'24px',color:'#3E903B', margin:'0'}}/>
                     </Button>
                 </Col>
-                <Col xl={4}>
+                <Col span={4}>
                   <div className="btnGroup">
                         <Button className="btnDownload" type="primary" style={{color:'#3E903B', borderColor:'#3E903B'}} ghost>
                           Download

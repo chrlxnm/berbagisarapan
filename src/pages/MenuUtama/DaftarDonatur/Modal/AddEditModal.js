@@ -1,5 +1,5 @@
-import { Col, Form, Input as InputAntd, Row, Select as SelectAntd } from 'antd'
-import { OPTION_ADMIN, OPTION_KATEGORI } from '../../../../helpers/constants';
+import { AutoComplete, Col, Form, Input as InputAntd, Row, Select as SelectAntd } from 'antd'
+import { OPTION_ADMIN, OPTION_KATEGORI, OPTION_WA } from '../../../../helpers/constants';
 import React, { useEffect } from 'react'
 
 import Autocomplete from '../../../../components/AutoComplete/AutoComplete';
@@ -101,7 +101,7 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                         >    
                             <Autocomplete 
                             placeholder='No WA'
-                            suggestions={["089672537919", "087736216512", "082222353", "0821873298", "088327832874"]}
+                            options={OPTION_WA()}
                             />
                         </Form.Item>
                    
