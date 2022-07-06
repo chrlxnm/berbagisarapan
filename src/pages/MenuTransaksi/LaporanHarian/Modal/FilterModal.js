@@ -33,8 +33,8 @@ function FilterModal({visible,handleCancel,handleOk, title}) {
                             <h3 className='labelField'>Nama</h3>
                     </Col>
                 </Row>
-                <Row className='row2' xl={24}>
-                    <Col className='leftSide' xl={12}>  
+                <Row className='row2' span={24}>
+                    <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'noWA'}
                         >    
@@ -46,7 +46,7 @@ function FilterModal({visible,handleCancel,handleOk, title}) {
                    
                     </Col>
                     
-                    <Col className='rightSide' xl={12}>
+                    <Col className='rightSide' span={12}>
                         <Form.Item
                                 name={'nama'}
                             >  
@@ -65,8 +65,8 @@ function FilterModal({visible,handleCancel,handleOk, title}) {
                             <h3 className='labelField'>Program</h3>
                     </Col>
                 </Row>
-                <Row className='row2' xl={24}>
-                    <Col className='leftSide' xl={12}>  
+                <Row className='row2' span={24}>
+                    <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'admin'}
                         >    
@@ -78,7 +78,7 @@ function FilterModal({visible,handleCancel,handleOk, title}) {
                    
                     </Col>
                     
-                    <Col className='rightSide' xl={12}>
+                    <Col className='rightSide' span={12}>
                         <Form.Item
                                 name={'program'}
                             >  
@@ -97,8 +97,8 @@ function FilterModal({visible,handleCancel,handleOk, title}) {
                             <h3 className='labelField'>Tanggal</h3>
                     </Col>
                 </Row>
-                <Row className='row2' xl={24}>
-                    <Col className='leftSide' xl={12}>  
+                <Row className='row2' span={24}>
+                    <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'namaBank'}
                         >    
@@ -109,7 +109,7 @@ function FilterModal({visible,handleCancel,handleOk, title}) {
                         </Form.Item>
                    
                     </Col>
-                    <Col className='rightSide' xl={12}>  
+                    <Col className='rightSide' span={12}>  
                     <DateWrapper>
                         <Form.Item
                             style={{width: '45%'}}

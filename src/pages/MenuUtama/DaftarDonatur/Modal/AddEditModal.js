@@ -59,8 +59,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             <h3 className='labelField'>Nama</h3>
                     </Col>
                 </Row>
-                <Row className='row2' xl={24}>
-                    <Col className='leftSide' xl={12}>  
+                <Row className='row2' span={24}>
+                    <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'panggilan'}
                             rules={[{ required: true, message: 'Please fill agama' }]}
@@ -73,7 +73,7 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                    
                     </Col>
                     
-                    <Col className='rightSide' xl={12}>
+                    <Col className='rightSide' span={12}>
                         <Form.Item
                                 name={'nama'}
                                 rules={[{ required: true, message: 'Please fill hobi' }]}
@@ -93,8 +93,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             <h3 className='labelField'>Email</h3>
                     </Col>
                 </Row>
-                <Row className='row2' xl={24}>
-                    <Col className='leftSide' xl={12}>  
+                <Row className='row2' span={24}>
+                    <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'noWA'}
                             rules={[{ required: true, message: 'Please fill kota' }]}
@@ -107,7 +107,7 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                    
                     </Col>
                     
-                    <Col className='rightSide' xl={12}>
+                    <Col className='rightSide' span={12}>
                         <Form.Item
                                 name={'email'}
                                 rules={[{ required: true, message: 'Please fill alamat' }]}
@@ -127,8 +127,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             <h3 className='labelField'>Hobi</h3>
                     </Col>
                 </Row>
-                <Row className='row2' xl={24}>
-                    <Col className='leftSide' xl={12}>  
+                <Row className='row2' span={24}>
+                    <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'agama'}
                             rules={[{ required: true, message: 'Please fill agama' }]}
@@ -140,7 +140,7 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                         </Form.Item>
                    
                     </Col>
-                    <Col className='rightSide' xl={12}>  
+                    <Col className='rightSide' span={12}>  
                         <Form.Item
                             name={'hobi'}
                             rules={[{ required: true, message: 'Please fill hobi' }]}
@@ -160,8 +160,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             <h3 className='labelField'>Alamat</h3>
                     </Col>
                 </Row>
-                <Row className='row2' xl={24}>
-                    <Col className='leftSide' xl={12}>  
+                <Row className='row2' span={24}>
+                    <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'kota'}
                             rules={[{ required: true, message: 'Please fill kota' }]}
@@ -173,7 +173,7 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                         </Form.Item>
                    
                     </Col>
-                    <Col className='rightSide' xl={12}>  
+                    <Col className='rightSide' span={12}>  
                         <Form.Item
                             name={'alamat'}
                             rules={[{ required: true, message: 'Please fill alamat' }]}
@@ -193,8 +193,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             <h3 className='labelField'>Total Donasi</h3>
                     </Col>
                 </Row>
-                <Row className='row2' xl={24}>
-                    <Col className='leftSide' xl={12}>  
+                <Row className='row2' span={24}>
+                    <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'berapaKali'}
                             rules={[{ required: true, message: 'Please fill berapa kali' }]}
@@ -207,7 +207,7 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                         </Form.Item>
                    
                     </Col>
-                    <Col className='rightSide' xl={12}>  
+                    <Col className='rightSide' span={12}>  
                         <Form.Item
                             name={'totalDonasi'}
                             rules={[{ required: true, message: 'Please fill total donasi' }]}
@@ -228,8 +228,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             <h3 className='labelField'>Program Favorit</h3>
                     </Col>
                 </Row>
-                <Row className='row2' xl={24}>
-                    <Col className='leftSide' xl={12}>  
+                <Row className='row2' span={24}>
+                    <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'dateAdded'}
                             rules={[{ required: true, message: 'Please fill date added' }]}
@@ -241,7 +241,7 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                         </Form.Item>
                    
                     </Col>
-                    <Col className='rightSide' xl={12}>  
+                    <Col className='rightSide' span={12}>  
                         <Form.Item
                             name={'programFavorit'}
                             rules={[{ required: true, message: 'Please fill program favorit' }]}
@@ -262,8 +262,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             <h3 className='labelField'>Hasil Survey</h3>
                     </Col>
                 </Row>
-                <Row className='row2' xl={24}>
-                    <Col className='leftSide' xl={12}>  
+                <Row className='row2' span={24}>
+                    <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'kategori'}
                             rules={[{ required: true, message: 'Please fill kategori' }]}
@@ -276,7 +276,7 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                         </Form.Item>
                    
                     </Col>
-                    <Col className='rightSide' xl={12}>  
+                    <Col className='rightSide' span={12}>  
                         <Form.Item
                             name={'hasilSurvey'}
                             rules={[{ required: true, message: 'Please fill hasil survey' }]}
@@ -296,8 +296,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             <h3 className='labelField'>Admin</h3>
                     </Col>
                 </Row>
-                <Row className='row2' xl={24}>
-                    <Col className='leftSide' xl={12}>  
+                <Row className='row2' span={24}>
+                    <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'keterangan'}
                             rules={[{ required: true, message: 'Please fill keterangan' }]}
@@ -309,7 +309,7 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                         </Form.Item>
                    
                     </Col>
-                    <Col className='rightSide' xl={12}>  
+                    <Col className='rightSide' span={12}>  
                         <Form.Item
                             name={'admin'}
                             rules={[{ required: true, message: 'Please fill admin' }]}
@@ -327,8 +327,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             <h3 className='labelField'>Last Update</h3>
                     </Col>
                 </Row>
-                <Row className='row2' xl={24}>
-                    <Col className='leftSide' xl={12}>  
+                <Row className='row2' span={24}>
+                    <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'lastUpdate'}
                             rules={[{ required: true, message: 'Please fill last update' }]}

@@ -28,8 +28,8 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                             <h3 className='labelField'>Nama</h3>
                     </Col>
                 </Row>
-                <Row className='row2' xl={24}>
-                    <Col className='leftSide' xl={12}>  
+                <Row className='row2' span={24}>
+                    <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'noWA'}
                             rules={[{ required: true, message: 'Please fill agama' }]}
@@ -42,7 +42,7 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                    
                     </Col>
                     
-                    <Col className='rightSide' xl={12}>
+                    <Col className='rightSide' span={12}>
                         <Form.Item
                                 name={'nama'}
                                 rules={[{ required: true, message: 'Please fill hobi' }]}
@@ -62,8 +62,8 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                             <h3 className='labelField'>Donasi</h3>
                     </Col>
                 </Row>
-                <Row className='row2' xl={24}>
-                    <Col className='leftSide' xl={12}>  
+                <Row className='row2' span={24}>
+                    <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'tanggal'}
                             rules={[{ required: true, message: 'Please fill kota' }]}
@@ -76,7 +76,7 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                    
                     </Col>
                     
-                    <Col className='rightSide' xl={12}>
+                    <Col className='rightSide' span={12}>
                         <Form.Item
                                 name={'donasi'}
                                 rules={[{ required: true, message: 'Please fill alamat' }]}
@@ -96,8 +96,8 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                             <h3 className='labelField'>URL Bukti</h3>
                     </Col>
                 </Row>
-                <Row className='row2' xl={24}>
-                    <Col className='leftSide' xl={12}>  
+                <Row className='row2' span={24}>
+                    <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'program'}
                             rules={[{ required: true, message: 'Please fill berapakali' }]}
@@ -110,7 +110,7 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                    
                     </Col>
                     
-                    <Col className='rightSide' xl={12}>
+                    <Col className='rightSide' span={12}>
                         <Form.Item
                                 name={'url'}
                                 rules={[{ required: true, message: 'Please fill totalDonasi' }]}
@@ -130,8 +130,8 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                             <h3 className='labelField'>Admin</h3>
                     </Col>
                 </Row>
-                <Row className='row2' xl={24}>
-                    <Col className='leftSide' xl={12}>  
+                <Row className='row2' span={24}>
+                    <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'namaBank'}
                             rules={[{ required: true, message: 'Please fill Date Added' }]}
@@ -144,7 +144,7 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                    
                     </Col>
                     
-                    <Col className='rightSide' xl={12}>
+                    <Col className='rightSide' span={12}>
                         <Form.Item
                                 name={'admin'}
                                 rules={[{ required: true, message: 'Please fill Program Favorit' }]}
