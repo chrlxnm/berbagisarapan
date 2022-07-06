@@ -1,6 +1,7 @@
 import { Col, Form, Input as InputAntd, Row, Select as SelectAntd } from 'antd'
 import React, { useEffect } from 'react'
 
+import Autocomplete from '../../../components/AutoComplete/AutoComplete';
 import { ButtonPrimary } from '../../../components/Button/Button';
 import Modal from '../../../components/Modal/Modal'
 import styled from 'styled-components';
@@ -42,9 +43,10 @@ function AddModal({visible,handleCancel,handleOk, title, record}) {
                             name={'noWA'}
                             rules={[{ required: true, message: 'Please fill agama' }]}
                         >    
-                            <Input 
-                                name={'noWA'}
-                            />
+                        <Autocomplete 
+                        placeholder='No WA'
+                        suggestions={["089672537919", "087736216512", "082222353", "0821873298", "088327832874"]}
+                        />
                         </Form.Item>
                    
                     </Col>

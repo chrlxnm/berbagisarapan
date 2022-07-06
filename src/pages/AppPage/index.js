@@ -13,6 +13,7 @@ import DaftarPengguna from '../MenuUtama/DaftarPengguna';
 import DonasiHarian from '../MenuTransaksi/DonasiHarian';
 import LaporanHarian from '../MenuTransaksi/LaporanHarian';
 import LoginPage from '../LoginPage';
+import { logOut } from '../../services/Logout';
 import logoCB from "../../assets/images/cb-logo.svg";
 import useToken from '../../helpers/utils';
 
@@ -117,7 +118,7 @@ const AppPage = () => {
                                 </Link>
                                 <Link to="" >
                                 <ButtonSider onClick={()=>{
-                                    setToken(null);
+                                    logOut(setToken)
                                     }}>
                                 <LogoutOutlined style={{color: '#BB0001'}}/>
                                 </ButtonSider>
@@ -134,15 +135,6 @@ const AppPage = () => {
                             minHeight: 280,
                             overflow: "initial"
                         }}>
-                            <Route
-                                exact
-                                path="/"
-                                render={() => {
-                                    return (
-                                    <Redirect to="/beranda" />
-                                    )
-                                }}
-                            />
                             <Route path="/beranda" component={Beranda} />
                             <Route path="/daftar-pengguna">
                                 <DaftarPengguna />

@@ -1,6 +1,7 @@
 import { Col, DatePicker as DatePickerAntd, Form, Input as InputAntd, Row, Space } from 'antd'
 import React, { useEffect } from 'react'
 
+import Autocomplete from '../../../../components/AutoComplete/AutoComplete';
 import { ButtonPrimary } from '../../../../components/Button/Button';
 import Modal from '../../../../components/Modal/Modal'
 import styled from 'styled-components';
@@ -36,11 +37,11 @@ function FilterModal({visible,handleCancel,handleOk, title}) {
                     <Col className='leftSide' xl={12}>  
                         <Form.Item
                             name={'noWA'}
-                        >    
-                            <Input 
-                                placeholder='No WA'
-                                name={'noWA'}
-                            />
+                        >   
+                        <Autocomplete 
+                        placeholder='No WA'
+                        suggestions={["089672537919", "087736216512", "082222353", "0821873298", "088327832874"]}
+                        />
                         </Form.Item>
                    
                     </Col>
