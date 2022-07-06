@@ -135,7 +135,10 @@ const AppPage = () => {
                             minHeight: 280,
                             overflow: "initial"
                         }}>
-                            <Route path="/beranda" component={Beranda} />
+                            <Route path="/beranda">
+                                <Beranda/>
+                            </Route>
+
                             <Route path="/daftar-pengguna">
                                 <DaftarPengguna />
                             </ Route>

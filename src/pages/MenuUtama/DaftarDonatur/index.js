@@ -6,10 +6,13 @@ import * as BsIcons from 'react-icons/bs';
 import * as FaIcons from 'react-icons/fa';
 import * as FiIcons from 'react-icons/fi';
 
+
+import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.svg';
+
 import { Button, Card, Checkbox, Col, Divider, Dropdown, Form, Input, Layout, Menu, Pagination, Popover, Row, Select, Space, Table, Typography } from 'antd';
 import { PlusOutlined, SearchOutlined } from '@ant-design/icons';
 import React, { PureComponent, useState } from "react";
-import { WrapperPagination, WrapperSelect, styleBtnDownload } from "./styled.js";
+import {ButtonFilter } from "./styled.js";
 
 import AddModal from "./Modal/AddEditModal";
 import ConfirmDeleteModal from "../../../components/Modal/ConfirmDeleteModal";
@@ -211,9 +214,9 @@ const DaftarDonatur = () => {
                         prefix={<SearchOutlined />}
                         />
                    
-                    <Button className="btnCustom" type="primary" style={{padding:'0'}} onClick={()=> setFilterModal(true)}>
-                      <BsIcons.BsFilter style={{width:'24px', height:'24px',color:'#3E903B', margin:'0'}}/>
-                      </Button>
+                    <ButtonFilter onClick={()=> setFilterModal(true)}>
+                      <IconFilter1 style={{marginRight: 'unset !important'}} />
+                    </ButtonFilter>
                     <Button className="btnCustom" 
                     type="primary"
                     style={{padding:'0'}}
