@@ -82,6 +82,7 @@ export default class Login extends Component {
                     className="username"
                     label="Password"
                     name="password"
+                    style={{marginTop: '1rem'}}
                     rules={[
                       {
                         required: true,
