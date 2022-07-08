@@ -1,10 +1,10 @@
 import './style.css';
 
 import { ButtonSider, ButtonWrapper, EmailText, Logo, NameText, SettingWrapper } from './styles';
-import { FileTextOutlined, HomeOutlined, LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined, SettingOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
+import { FileTextOutlined, HomeOutlined, LogoutOutlined, SettingOutlined, PullRequestOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import { Link, Redirect, Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import React, { useEffect, useHistory, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Akun from '../Akun';
 import Beranda from '../Beranda';
@@ -84,7 +84,7 @@ const AppPage = () => {
                             },
                             {
                             key: '2',
-                            icon: <VideoCameraOutlined />,
+                            icon: <PullRequestOutlined />,
                             label: 'Menu Utama',
                             children:[{
                                 key: 'sub21',
@@ -140,12 +140,12 @@ const AppPage = () => {
                             minHeight: 280,
                             overflow: "initial"
                         }}>
-                            {token?
                             <Route exact path="/">
                                 <Redirect to="/beranda" />
                             </Route>
-                            :null}
-                            <Route path="/beranda" component={Beranda} />
+                            <Route path="/beranda">
+                                <Beranda/>
+                            </Route>
                             <Route path="/daftar-pengguna">
                                 <DaftarPengguna />
                             </ Route>

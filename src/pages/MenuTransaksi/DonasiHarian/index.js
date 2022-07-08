@@ -13,7 +13,6 @@ import AddModal from './Modal/Modal';
 import FilterModal from './Modal/FilterModal';
 import HeaderTitle from '../../../components/HeaderTitle/HeaderTitle';
 import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.svg';
-import { ReactComponent as IconFilter2 } from '../../../assets/svg/icon-filter2.svg';
 import { SearchOutlined } from '@ant-design/icons';
 import { dummy } from './dummy';
 

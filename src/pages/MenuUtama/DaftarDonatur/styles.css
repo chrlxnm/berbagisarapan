@@ -21,12 +21,12 @@
       padding-top: 1vh;
     }
   
-    svg{
+    /* svg{
       height: 1.5em;
       margin-right: 5px;
       width: 1em;
       vertical-align: middle;
-    }
+    } */
   
   .btnAdd{
     background: #3E903B;

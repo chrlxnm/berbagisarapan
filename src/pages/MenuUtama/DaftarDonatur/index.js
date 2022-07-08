@@ -9,12 +9,13 @@ import * as FiIcons from 'react-icons/fi';
 import { Button, Card, Checkbox, Col, Divider, Dropdown, Form, Input, Layout, Menu, Pagination, Popover, Row, Select, Space, Table, Typography } from 'antd';
 import { PlusOutlined, SearchOutlined } from '@ant-design/icons';
 import React, { PureComponent, useState } from "react";
-import { WrapperPagination, WrapperSelect, styleBtnDownload } from "./styled.js";
 
 import AddModal from "./Modal/AddEditModal";
+import {ButtonFilter} from "./styled.js";
 import ConfirmDeleteModal from "../../../components/Modal/ConfirmDeleteModal";
 import CustomColumnModal from "./Modal/CustomColumnModal";
 import FilterModal from './Modal/FilterModal';
+import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.svg';
 import { dummy } from "./dummy";
 
 const DaftarDonatur = () => {
@@ -88,6 +89,7 @@ const DaftarDonatur = () => {
         title: 'Panggilan',
         dataIndex: 'panggilan',
         key: 'panggilan',
+        sorter: (a,b)=> a.panggilan - b.panggilan
       },
       {
         title: 'Nama',
@@ -141,25 +143,6 @@ const DaftarDonatur = () => {
         ),
       },
     ].filter(item=> customColumns?.includes(item.key))
-
-    const [modalAddDonatur, setModalInputDonatur] = useState({
-        title: 'Add Data',
-        content: '',
-        visible: false,
-        handleOk: null,
-        handleCancel: null,
-    });
-
-    const [modalEditDonatur, setModalEditDonatur] = useState({
-        title: 'Edit Data',
-        content: '',
-        visible: false,
-        handleOk: null,
-        handleCancel: null,
-    });
-
-
-    const { Option } = Select;
     
     const dummyData =  dummy()
 
@@ -211,9 +194,9 @@ const DaftarDonatur = () => {
                         prefix={<SearchOutlined />}
                         />
                    
-                    <Button className="btnCustom" type="primary" style={{padding:'0'}} onClick={()=> setFilterModal(true)}>
-                      <BsIcons.BsFilter style={{width:'24px', height:'24px',color:'#3E903B', margin:'0'}}/>
-                      </Button>
+                    <ButtonFilter onClick={()=> setFilterModal(true)}>
+                      <IconFilter1 style={{marginRight: 'unset !important'}} />
+                    </ButtonFilter>
                     <Button className="btnCustom" 
                     type="primary"
                     style={{padding:'0'}}
