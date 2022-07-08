@@ -40,7 +40,8 @@ const DaftarDonatur = () => {
     title: 'Customize Columns',
   })
   const [visibleDeleteModal, setVisibleDeleteModal] = useState(false)
-  const handleOkModal = () => {
+  const handleOkModal = (data) => {
+    console.log(data)
     setModal({
       ...modal,
       visible: false

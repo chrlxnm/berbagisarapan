@@ -1,10 +1,11 @@
-import { AutoComplete, Col, Form, Input as InputAntd, Row, Select as SelectAntd } from 'antd'
+import { Col, DatePicker as DatePickerAntd, Form, Input as InputAntd, Row, Select as SelectAntd } from 'antd'
 import { OPTION_ADMIN, OPTION_KATEGORI, OPTION_WA } from '../../../../helpers/constants';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Autocomplete from '../../../../components/AutoComplete/AutoComplete';
 import { ButtonPrimary } from '../../../../components/Button/Button';
 import Modal from '../../../../components/Modal/Modal'
+import moment from 'moment';
 import styled from 'styled-components';
 
 const { Option } = SelectAntd;
@@ -25,28 +26,32 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
             alamat: data?.alamat,
             berapaKali: data?.berapaKali,
             totalDonasi: data?.totalDonasi,
-            dateAdded: data?.dateAdded,
+            dateAdded: moment(data?.dateAdded, 'DD-MM-YYYY'),
             programFavorit: data?.programFavorit,
             kategori: data?.kategori,
             hasilSurvey: data?.hasilSurvey,
             keterangan: data?.keterangan,
             admin: data?.admin,
-            lastUpdate: data?.lastUpdate,
+            lastUpdate: moment(data?.lastUpdate, 'DD-MM-YYYY'),
         })}
     },[data])
 
     return (
     <Modal 
     isModalVisible={visible}
-    handleOk={handleOk}
+    handleOk={form.resetFields()}
     title={title}
     handleCancel={()=>{
         form.resetFields()
         handleCancel()}}>
         <Form 
         form={form}
-        onFinish={()=>{
-            handleOk()
+        onFinish={(e)=>{
+            let data = {...e,
+                dateAdded:e?.dateAdded?.format('DD-MM-YYYY'),
+                lastUpdate:e?.lastUpdate?.format('DD-MM-YYYY'),
+            }
+            handleOk(data)
         }}
         onFinishFailed={(e)=>{
             console.log(e)
@@ -95,16 +100,11 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                 </Row>
                 <Row className='row2' span={24}>
                     <Col className='leftSide' span={12}>  
-                        <Form.Item
-                            name={'noWA'}
-                            rules={[{ required: true, message: 'Please fill kota' }]}
-                        >    
-                            <Autocomplete 
+                        <Autocomplete
                             placeholder='No WA'
+                            name='noWA'
                             options={OPTION_WA()}
-                            />
-                        </Form.Item>
-                   
+                        />
                     </Col>
                     
                     <Col className='rightSide' span={12}>
@@ -234,7 +234,8 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             name={'dateAdded'}
                             rules={[{ required: true, message: 'Please fill date added' }]}
                         >    
-                            <Input
+                            <DatePicker 
+                                format={'DD-MM-YYYY'}
                                 placeholder='Date Added'
                                 name={'dateAdded'}
                             />
@@ -333,9 +334,10 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             name={'lastUpdate'}
                             rules={[{ required: true, message: 'Please fill last update' }]}
                         >    
-                            <Input
+                            <DatePicker 
+                                format={'DD-MM-YYYY'}
                                 placeholder='Last Update'
-                            disabled={data}
+                                disabled={data}
                                 name={'lastUpdate'}
                             />
                         </Form.Item>
@@ -367,4 +369,10 @@ const Select = styled(SelectAntd)`
 const Input = styled(InputAntd)`
 height: 40px !important;
   border-radius: 6px !important;
+`
+
+const DatePicker = styled(DatePickerAntd)`
+height: 40px !important;
+width: 100%;
+border-radius: 6px !important;
 `

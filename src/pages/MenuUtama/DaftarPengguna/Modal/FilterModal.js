@@ -1,26 +1,37 @@
 import { Col, DatePicker as DatePickerAntd, Form, Input as InputAntd, Row, Space } from 'antd'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Autocomplete from '../../../../components/AutoComplete/AutoComplete';
 import { ButtonPrimary } from '../../../../components/Button/Button';
 import Modal from '../../../../components/Modal/Modal'
+import { OPTION_WA } from '../../../../helpers/constants';
 import styled from 'styled-components';
 
 function FilterModal({visible,handleCancel,handleOk, title}) {
     const [form] = Form.useForm();
+    
+    const [filteredSuggestions, setFilteredSuggestions] = useState(OPTION_WA());
+
+   const onSearch = (searchText) => {
+    const result = !searchText ? [] : filteredSuggestions?.filter(
+      suggestion =>
+        suggestion?.value.toLowerCase().indexOf(searchText.toLowerCase()) > -1
+    );
+    setFilteredSuggestions(result)
+  };
 
     return (
     <Modal 
     isModalVisible={visible}
-    handleOk={handleOk}
+    handleOk={form.resetFields()}
     title={'Filter'}
     handleCancel={()=>{
         form.resetFields()
         handleCancel()}}>
         <Form 
         form={form}
-        onFinish={()=>{
-            handleOk()
+        onFinish={(data)=>{
+            handleOk(data)
         }}
         onFinishFailed={(e)=>{
             console.log(e)
@@ -35,15 +46,11 @@ function FilterModal({visible,handleCancel,handleOk, title}) {
                 </Row>
                 <Row className='row2' span={24}>
                     <Col className='leftSide' span={12}>  
-                        <Form.Item
-                            name={'noWA'}
-                        >    
-                            <Autocomplete 
+                        <Autocomplete
                             placeholder='No WA'
-                            suggestions={["089672537919", "087736216512", "082222353", "0821873298", "088327832874"]}
-                            />
-                        </Form.Item>
-                   
+                            name='noWA'
+                            options={OPTION_WA()}
+                        />
                     </Col>
                     
                     <Col className='rightSide' span={12}>

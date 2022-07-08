@@ -1,8 +1,8 @@
 import './style.css'
 
+import { AutoComplete as AutoCompleteAntd, Form } from 'antd';
 import React, { useEffect, useState } from "react";
 
-import { AutoComplete as AutoCompleteAntd } from 'antd';
 import styled from 'styled-components';
 
 const Autocomplete = (props) => {console.log('ge',props)
@@ -24,15 +24,16 @@ const Autocomplete = (props) => {console.log('ge',props)
     setFilteredSuggestions(result)
   };
     return (
+      <Form.Item name={props.name}>
         <CustomAutoComplete
           placeholder={props.placeholder}
           onChange={onChange}
           dropdownClassName='dropdownAutoComplete'
           options={filteredSuggestions}
           onSearch={onSearch}
-          // onKeyDown={onKeyDown}
           value={userInput}
         />
+      </Form.Item>
     );
   }
   

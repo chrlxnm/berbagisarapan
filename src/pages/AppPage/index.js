@@ -1,7 +1,7 @@
 import './style.css';
 
 import { ButtonSider, ButtonWrapper, EmailText, Logo, NameText, SettingWrapper } from './styles';
-import { FileTextOutlined, HomeOutlined, LogoutOutlined, SettingOutlined, PullRequestOutlined } from '@ant-design/icons';
+import { FileTextOutlined, HomeOutlined, LogoutOutlined, PullRequestOutlined, SettingOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import { Link, Redirect, Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
@@ -121,13 +121,11 @@ const AppPage = () => {
                                 <SettingOutlined style={{color: 'black'}}/>
                                 </ButtonSider>
                                 </Link>
-                                <Link to="" >
                                 <ButtonSider onClick={()=>{
                                     logOut(setToken)
                                     }}>
                                 <LogoutOutlined style={{color: '#BB0001'}}/>
                                 </ButtonSider>
-                                </ Link>
                             </ButtonWrapper>
                         </SettingWrapper>
                     </Sider>
@@ -141,7 +139,7 @@ const AppPage = () => {
                             overflow: "initial"
                         }}>
                             <Route exact path="/">
-                                <Redirect to="/beranda" />
+                                <Redirect to={!token?"/login":"/beranda"} />
                             </Route>
                             <Route path="/beranda">
                                 <Beranda/>

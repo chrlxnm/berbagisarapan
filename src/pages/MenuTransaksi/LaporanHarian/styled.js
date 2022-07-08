@@ -1,3 +1,6 @@
+import './style.css'
+
+import { AutoComplete as AutoCompleteAntd } from 'antd';
 import styled from 'styled-components';
 
 export const WrapperPagination = styled.div`

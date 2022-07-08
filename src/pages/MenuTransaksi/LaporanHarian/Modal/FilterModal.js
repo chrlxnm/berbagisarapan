@@ -1,26 +1,27 @@
 import { Col, DatePicker as DatePickerAntd, Form, Input as InputAntd, Row, Space } from 'antd'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Autocomplete from '../../../../components/AutoComplete/AutoComplete';
 import { ButtonPrimary } from '../../../../components/Button/Button';
 import Modal from '../../../../components/Modal/Modal'
+import { OPTION_WA } from '../../../../helpers/constants';
 import styled from 'styled-components';
 
 function FilterModal({visible,handleCancel,handleOk, title}) {
     const [form] = Form.useForm();
-
+    
     return (
     <Modal 
     isModalVisible={visible}
-    handleOk={handleOk}
+    handleOk={form.resetFields()}
     title={'Filter'}
     handleCancel={()=>{
         form.resetFields()
         handleCancel()}}>
         <Form 
         form={form}
-        onFinish={()=>{
-            handleOk()
+        onFinish={(data)=>{
+            handleOk(data)
         }}
         onFinishFailed={(e)=>{
             console.log(e)
@@ -35,14 +36,12 @@ function FilterModal({visible,handleCancel,handleOk, title}) {
                 </Row>
                 <Row className='row2' span={24}>
                     <Col className='leftSide' span={12}>  
-                        <Form.Item
-                            name={'noWA'}
-                        >    
-                        <Autocomplete 
-                        placeholder='No WA'
-                        suggestions={["089672537919", "087736216512", "082222353", "0821873298", "088327832874"]}
+                    
+                    <Autocomplete
+                            placeholder='No WA'
+                            name='noWA'
+                            options={OPTION_WA()}
                         />
-                        </Form.Item>
                    
                     </Col>
                     
@@ -79,43 +78,13 @@ function FilterModal({visible,handleCancel,handleOk, title}) {
                     </Col>
                     
                     <Col className='rightSide' span={12}>
-                        <Form.Item
-                                name={'program'}
-                            >  
-                                <Input 
-                                    placeholder='Program'
-                                    name={'program'}
-                                />
-                        </Form.Item>
-                    </Col>
-                </Row>
-                <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-                    <Col className="gutter-row" span={12} >
-                            <h3 className='labelField'>Nama Bank</h3>
-                    </Col>
-                    <Col className="gutter-row" span={12} >
-                            <h3 className='labelField'>Tanggal</h3>
-                    </Col>
-                </Row>
-                <Row className='row2' span={24}>
-                    <Col className='leftSide' span={12}>  
-                        <Form.Item
-                            name={'namaBank'}
-                        >    
-                            <Input
-                                placeholder='Nama Bank'
-                                name={'namaBank'}
-                            />
-                        </Form.Item>
-                   
-                    </Col>
-                    <Col className='rightSide' span={12}>  
                     <DateWrapper>
                         <Form.Item
                             style={{width: '45%'}}
                             name={'tanggalMulai'}
                         >    
                             <DatePicker 
+                                format={'DD-MM-YYYY'}
                                 placeholder='Tanggal Mulai'
                                 name={'tanggalMulai'}
                             />
@@ -126,13 +95,14 @@ function FilterModal({visible,handleCancel,handleOk, title}) {
                             name={'tanggalBerakhir'}
                         >    
                             <DatePicker 
+                                format={'DD-MM-YYYY'}
                                 placeholder='Tanggal Selesai'
                                 name={'tanggalBerakhir'}
                             />
                         </Form.Item>
                         </DateWrapper>
                     </Col>
-                </Row> 
+                </Row>
                 <Row justify='center'>
                     <ButtonPrimary htmlType='submit'>
                         Terapkan

@@ -21,7 +21,8 @@ const LaporanHarian = () => {
     setFilterModal(false)
   }
 
-  const handleOkFilterModal = () => {
+  const handleOkFilterModal = (data) => {
+    console.log('cek data',data);
     setFilterModal(false)
   }
   const [modal, setModal] = useState({

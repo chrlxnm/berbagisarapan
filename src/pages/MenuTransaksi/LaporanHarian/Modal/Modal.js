@@ -1,25 +1,31 @@
 import { Col, Form, Input as InputAntd, Row, Select as SelectAntd } from 'antd'
+import React, { useState } from 'react'
 
 import Autocomplete from '../../../../components/AutoComplete/AutoComplete';
 import { ButtonPrimary } from '../../../../components/Button/Button';
 import Modal from '../../../../components/Modal/Modal'
 import { OPTION_WA } from '../../../../helpers/constants';
-import React from 'react'
 import styled from 'styled-components';
-
-const { Option } = SelectAntd;
 
 function AddModal({visible,handleCancel,handleOk, title}) {
     const [form] = Form.useForm();
+    
   return (
     <Modal 
     isModalVisible={visible}
-    handleOk={handleOk}
+    handleOk={form.resetFields()}
     title={title}
     handleCancel={()=>{
         form.resetFields()
         handleCancel()}}>
-         <Form form={form}>
+         <Form 
+        form={form}
+        onFinish={(data)=>{
+            handleOk(data);
+        }}
+        onFinishFailed={(e)=>{
+            console.log(e)
+        }}>
                 <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                     <Col className="gutter-row" span={12} >
                             <h3 className='labelField'>No WA</h3>
@@ -29,17 +35,12 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                     </Col>
                 </Row>
                 <Row className='row2' span={24}>
-                    <Col className='leftSide' span={12}>  
-                        <Form.Item
-                            name={'noWA'}
-                            rules={[{ required: true, message: 'Please fill agama' }]}
-                        >   
-                        
-                        <Autocomplete 
+                    <Col className='leftSide' span={12}> 
+                        <Autocomplete
                             placeholder='No WA'
+                            name='noWA'
                             options={OPTION_WA()}
-                            />
-                        </Form.Item>
+                        />
                    
                     </Col>
                     
@@ -110,7 +111,7 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                 </Row>
                 
                 <Row justify='center'>
-                    <ButtonPrimary onClick={handleOk}>
+                    <ButtonPrimary htmlType='submit'>
                         Terapkan
                     </ButtonPrimary>
                 </Row>

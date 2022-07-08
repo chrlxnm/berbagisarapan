@@ -30,15 +30,16 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
   return (
     <Modal 
     isModalVisible={visible}
-    handleOk={handleOk}
+    handleOk={
+        form.resetFields()}
     title={title}
     handleCancel={()=>{
         form.resetFields()
         handleCancel()}}>
         <Form 
         form={form}
-        onFinish={()=>{
-            handleOk()
+        onFinish={(data)=>{
+            handleOk(data);
         }}
         onFinishFailed={(e)=>{
             console.log(e)

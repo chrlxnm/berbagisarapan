@@ -31,7 +31,8 @@ const DonasiHarian = () => {
       setFilterModal(false)
     }
 
-    const handleOkModal = () => {
+    const handleOkModal = (data) => {
+      console.log('cek data',data)
       setModal({
         ...modal,
         visible: false

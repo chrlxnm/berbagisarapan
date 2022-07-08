@@ -18,15 +18,6 @@ import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.
 import { dummy } from "./dummy";
 
 const DaftarPengguna = () => {
-  const [filterModal, setFilterModal] = useState(false)
-
-  const handleCancelFilterModal = () => {
-    setFilterModal(false)
-  }
-
-  const handleOkFilterModal = () => {
-    setFilterModal(false)
-  }
   const [visibleDeleteModal, setVisibleDeleteModal] = useState(false)
   const handleDelete = () => {
     setVisibleDeleteModal(false)
@@ -35,7 +26,8 @@ const DaftarPengguna = () => {
     visible: false,
     title: 'Add Data',
   })
-  const handleOkModal = () => {
+  const handleOkModal = (data) => {
+    console.log(data);
     setModal({
       ...modal,
       visible: false
@@ -151,12 +143,6 @@ const DaftarPengguna = () => {
           title={modal?.title}
           data={modal?.data} 
           />
-
-          <FilterModal 
-          visible={filterModal}
-          handleCancel={handleCancelFilterModal}
-          handleOk={handleOkFilterModal} 
-          />
           
           <ConfirmDeleteModal 
           visible={visibleDeleteModal}
@@ -179,9 +165,6 @@ const DaftarPengguna = () => {
                   // onKeyPress={(e)=>handleInputState(e)}
                   prefix={<SearchOutlined />}
                   />
-                  <ButtonFilter onClick={()=> setFilterModal(true)}>
-                    <IconFilter1 style={{marginRight: 'unset !important'}} />
-                  </ButtonFilter>
                   </WrapperSearchFilter>
                 </Col>
                 <Col span={4}>
