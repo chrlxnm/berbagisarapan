@@ -43,7 +43,9 @@ export default class Login extends Component {
         <SiluetLogoWrapper>
         <SiluetLogo src={logoCB} />
         </SiluetLogoWrapper>
+        <SiluetLogoWrapper2>
         <SiluetLogo2 src={logoCB} />
+        </SiluetLogoWrapper2>
             <Row justify="space-around">
               <Col
                 xs={{ span: 24, offset: 0 }}
@@ -82,6 +84,7 @@ export default class Login extends Component {
                     className="username"
                     label="Password"
                     name="password"
+                    style={{marginTop: '1rem'}}
                     rules={[
                       {
                         required: true,
@@ -171,7 +174,14 @@ const Col = styled(ColAntd)`
 `
 
 const SiluetLogoWrapper = styled.div`
-  position: relative;
+  position: absolute;
+`
+const SiluetLogoWrapper2 = styled.div`
+position: fixed;
+top: unset;
+left: unset;
+right: -20vh;
+bottom: 0;
 `
 
 const SiluetLogo = styled.img`
@@ -185,13 +195,9 @@ opacity: 0.1;
 transform: rotate(132.75deg);
   `
 const SiluetLogo2 = styled.img`
-position: absolute;
 width: 465px;
 height: 255px;
-right: -160.9px;
-bottom: 21.45px;
 
-background: url(.png);
 opacity: 0.1;
 transform: rotate(-47.25deg);
     `

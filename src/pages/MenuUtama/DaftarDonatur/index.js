@@ -6,18 +6,16 @@ import * as BsIcons from 'react-icons/bs';
 import * as FaIcons from 'react-icons/fa';
 import * as FiIcons from 'react-icons/fi';
 
-
-import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.svg';
-
 import { Button, Card, Checkbox, Col, Divider, Dropdown, Form, Input, Layout, Menu, Pagination, Popover, Row, Select, Space, Table, Typography } from 'antd';
 import { PlusOutlined, SearchOutlined } from '@ant-design/icons';
 import React, { PureComponent, useState } from "react";
-import {ButtonFilter } from "./styled.js";
 
 import AddModal from "./Modal/AddEditModal";
+import {ButtonFilter} from "./styled.js";
 import ConfirmDeleteModal from "../../../components/Modal/ConfirmDeleteModal";
 import CustomColumnModal from "./Modal/CustomColumnModal";
 import FilterModal from './Modal/FilterModal';
+import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.svg';
 import { dummy } from "./dummy";
 
 const DaftarDonatur = () => {
@@ -42,7 +40,8 @@ const DaftarDonatur = () => {
     title: 'Customize Columns',
   })
   const [visibleDeleteModal, setVisibleDeleteModal] = useState(false)
-  const handleOkModal = () => {
+  const handleOkModal = (data) => {
+    console.log(data)
     setModal({
       ...modal,
       visible: false
@@ -91,6 +90,7 @@ const DaftarDonatur = () => {
         title: 'Panggilan',
         dataIndex: 'panggilan',
         key: 'panggilan',
+        sorter: (a,b)=> a.panggilan - b.panggilan
       },
       {
         title: 'Nama',
@@ -144,25 +144,6 @@ const DaftarDonatur = () => {
         ),
       },
     ].filter(item=> customColumns?.includes(item.key))
-
-    const [modalAddDonatur, setModalInputDonatur] = useState({
-        title: 'Add Data',
-        content: '',
-        visible: false,
-        handleOk: null,
-        handleCancel: null,
-    });
-
-    const [modalEditDonatur, setModalEditDonatur] = useState({
-        title: 'Edit Data',
-        content: '',
-        visible: false,
-        handleOk: null,
-        handleCancel: null,
-    });
-
-
-    const { Option } = Select;
     
     const dummyData =  dummy()
 
@@ -201,8 +182,8 @@ const DaftarDonatur = () => {
 
             <Row><h1 style={{fontSize:'24px',fontWeight:'bold'}}>Daftar Donatur</h1></Row>
             <Row><h1 style={{fontSize:'14px', color:'#828282'}}>Daftar Donatur</h1></Row>
-            <Row className="rowSearch" xl={24}>
-                <Col xl={20}>
+            <Row className="rowSearch" gutter={[0, 16]}>
+                <Col span={20}>
                 <Space>
                     <Input 
                         placeholder='Cari disini'
@@ -230,9 +211,10 @@ const DaftarDonatur = () => {
                       </Button>
                   </Space>
                 </Col>
-                <Col xl={4}>
+                <Col span={4}>
                   <div className="btnGroup">
-                        <Button className="btnDownload" type="primary" style={{color:'#3E903B', borderColor:'#3E903B'}} ghost>
+                        <Button className="btnDownload" type="primary" 
+                        style={{color:'#3E903B', borderColor:'#3E903B'}} ghost>
                           Download
                         </Button>
                       <Button className="btnAdd" type="primary"

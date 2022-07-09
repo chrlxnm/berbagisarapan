@@ -11,7 +11,6 @@ import AddModal from './Modal/Modal';
 import FilterModal from './Modal/FilterModal';
 import HeaderTitle from '../../../components/HeaderTitle/HeaderTitle';
 import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.svg';
-import { ReactComponent as IconFilter2 } from '../../../assets/svg/icon-filter2.svg';
 import { SearchOutlined } from '@ant-design/icons';
 import { dummy } from './dummy';
 
@@ -22,7 +21,8 @@ const LaporanHarian = () => {
     setFilterModal(false)
   }
 
-  const handleOkFilterModal = () => {
+  const handleOkFilterModal = (data) => {
+    console.log('cek data',data);
     setFilterModal(false)
   }
   const [modal, setModal] = useState({
@@ -90,7 +90,7 @@ const LaporanHarian = () => {
   
       const { Option } = Select;
       
-      const dummyData =  dummy()
+      const dummyData =  dummy();
   
      
       return (<>
@@ -110,8 +110,8 @@ const LaporanHarian = () => {
 
           <Card className="home" style={{ borderRadius:16}}>
               <HeaderTitle title={"Laporan Harian"} subTitle={"Laporan Harian"} />
-              <Row className="rowSearch" xl={24}>
-                  <Col xl={20}>
+              <Row className="rowSearch">
+                  <Col span={20}>
                   <WrapperSearchFilter>
                   <Input 
                     placeholder='Cari disini'
@@ -127,7 +127,7 @@ const LaporanHarian = () => {
                     </ButtonFilter>
                     </WrapperSearchFilter>
                   </Col>
-                  <Col xl={4}>
+                  <Col span={4}>
                     <div style={{display: 'flex',gap:'1rem'}}>
                           <ButtonSecondary>
                             Download

@@ -1,29 +1,31 @@
 import { Col, DatePicker as DatePickerAntd, Form, Input as InputAntd, Row, Space } from 'antd'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Autocomplete from '../../../../components/AutoComplete/AutoComplete';
 import { ButtonPrimary } from '../../../../components/Button/Button';
 import Modal from '../../../../components/Modal/Modal'
+import { OPTION_WA } from '../../../../helpers/constants';
 import styled from 'styled-components';
 
 function FilterModal({visible,handleCancel,handleOk, title}) {
     const [form] = Form.useForm();
-
+    
     return (
     <Modal 
     isModalVisible={visible}
-    handleOk={handleOk}
+    handleOk={form.resetFields()}
     title={'Filter'}
     handleCancel={()=>{
         form.resetFields()
         handleCancel()}}>
         <Form 
         form={form}
-        onFinish={()=>{
-            handleOk()
-        }}
-        onFinishFailed={(e)=>{
-            console.log(e)
+        onFinish={(e)=>{
+            let data = {...e,
+                tanggalMulai:e?.tanggalMulai?.format('DD-MM-YYYY'),
+                tanggalBerakhir:e?.tanggalBerakhir?.format('DD-MM-YYYY'),}
+            form.resetFields()
+            handleOk(data)
         }}>
                 <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                     <Col className="gutter-row" span={12} >
@@ -33,20 +35,16 @@ function FilterModal({visible,handleCancel,handleOk, title}) {
                             <h3 className='labelField'>Nama</h3>
                     </Col>
                 </Row>
-                <Row className='row2' xl={24}>
-                    <Col className='leftSide' xl={12}>  
-                        <Form.Item
-                            name={'noWA'}
-                        >   
-                        <Autocomplete 
-                        placeholder='No WA'
-                        suggestions={["089672537919", "087736216512", "082222353", "0821873298", "088327832874"]}
+                <Row className='row2' span={24}>
+                    <Col className='leftSide' span={12}>  
+                        <Autocomplete
+                            placeholder='No WA'
+                            name='noWA'
+                            options={OPTION_WA()}
                         />
-                        </Form.Item>
-                   
                     </Col>
                     
-                    <Col className='rightSide' xl={12}>
+                    <Col className='rightSide' span={12}>
                         <Form.Item
                                 name={'nama'}
                             >  
@@ -65,8 +63,8 @@ function FilterModal({visible,handleCancel,handleOk, title}) {
                             <h3 className='labelField'>Program</h3>
                     </Col>
                 </Row>
-                <Row className='row2' xl={24}>
-                    <Col className='leftSide' xl={12}>  
+                <Row className='row2' span={24}>
+                    <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'admin'}
                         >    
@@ -78,7 +76,7 @@ function FilterModal({visible,handleCancel,handleOk, title}) {
                    
                     </Col>
                     
-                    <Col className='rightSide' xl={12}>
+                    <Col className='rightSide' span={12}>
                         <Form.Item
                                 name={'program'}
                             >  
@@ -97,8 +95,8 @@ function FilterModal({visible,handleCancel,handleOk, title}) {
                             <h3 className='labelField'>Tanggal</h3>
                     </Col>
                 </Row>
-                <Row className='row2' xl={24}>
-                    <Col className='leftSide' xl={12}>  
+                <Row className='row2' span={24}>
+                    <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'namaBank'}
                         >    
@@ -109,7 +107,7 @@ function FilterModal({visible,handleCancel,handleOk, title}) {
                         </Form.Item>
                    
                     </Col>
-                    <Col className='rightSide' xl={12}>  
+                    <Col className='rightSide' span={12}>  
                     <DateWrapper>
                         <Form.Item
                             style={{width: '45%'}}

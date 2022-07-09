@@ -1,24 +1,33 @@
-import { Col, Form, Input as InputAntd, Row, Select as SelectAntd } from 'antd'
+import { Col, DatePicker as DatePickerAntd, Form, Input as InputAntd, Row, Select as SelectAntd } from 'antd'
+import React, { useState } from 'react'
 
 import Autocomplete from '../../../../components/AutoComplete/AutoComplete';
 import { ButtonPrimary } from '../../../../components/Button/Button';
 import Modal from '../../../../components/Modal/Modal'
-import React from 'react'
+import { OPTION_WA } from '../../../../helpers/constants';
 import styled from 'styled-components';
-
-const { Option } = SelectAntd;
 
 function AddModal({visible,handleCancel,handleOk, title}) {
     const [form] = Form.useForm();
   return (
     <Modal 
     isModalVisible={visible}
-    handleOk={handleOk}
+    handleOk={form.resetFields()}
     title={title}
     handleCancel={()=>{
         form.resetFields()
         handleCancel()}}>
-        <Form form={form}>
+        <Form 
+        form={form}
+        onFinish={(e)=>{
+            let data ={...e,
+                    tanggal: e?.tanggal?.format('DD-MM-YYYY')
+                }
+            handleOk(data);
+        }}
+        onFinishFailed={(e)=>{
+            console.log(e)
+        }}>
                 <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                     <Col className="gutter-row" span={12} >
                             <h3 className='labelField'>No WA</h3>
@@ -27,25 +36,16 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                             <h3 className='labelField'>Nama</h3>
                     </Col>
                 </Row>
-                <Row className='row2' xl={24}>
-                    <Col className='leftSide' xl={12}>  
-                        <Form.Item
-                            name={'noWA'}
-                            rules={[{ required: true, message: 'Please fill agama' }]}
-                        >    
-                            {/* <Input
-                                placeholder='No WA'
-                                name={'noWA'}
-                            /> */}
-                            <Autocomplete 
+                <Row className='row2' span={24}>
+                    <Col className='leftSide' span={12}>   
+                        <Autocomplete
                             placeholder='No WA'
-                            suggestions={["089672537919", "087736216512", "082222353", "0821873298", "088327832874"]}
-                            />
-                        </Form.Item>
-                   
+                            name='noWA'
+                            options={OPTION_WA()}
+                        />
                     </Col>
                     
-                    <Col className='rightSide' xl={12}>
+                    <Col className='rightSide' span={12}>
                         <Form.Item
                                 name={'nama'}
                                 rules={[{ required: true, message: 'Please fill hobi' }]}
@@ -65,21 +65,21 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                             <h3 className='labelField'>Donasi</h3>
                     </Col>
                 </Row>
-                <Row className='row2' xl={24}>
-                    <Col className='leftSide' xl={12}>  
+                <Row className='row2' span={24}>
+                    <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'tanggal'}
                             rules={[{ required: true, message: 'Please fill kota' }]}
                         >    
-                            <Input
-                                placeholder='Tanggal' 
+                            <DatePicker 
+                                placeholder='Tanggal'
                                 name={'tanggal'}
                             />
                         </Form.Item>
                    
                     </Col>
                     
-                    <Col className='rightSide' xl={12}>
+                    <Col className='rightSide' span={12}>
                         <Form.Item
                                 name={'donasi'}
                                 rules={[{ required: true, message: 'Please fill alamat' }]}
@@ -99,8 +99,8 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                             <h3 className='labelField'>URL Bukti</h3>
                     </Col>
                 </Row>
-                <Row className='row2' xl={24}>
-                    <Col className='leftSide' xl={12}>  
+                <Row className='row2' span={24}>
+                    <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'program'}
                             rules={[{ required: true, message: 'Please fill berapakali' }]}
@@ -113,7 +113,7 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                    
                     </Col>
                     
-                    <Col className='rightSide' xl={12}>
+                    <Col className='rightSide' span={12}>
                         <Form.Item
                                 name={'url'}
                                 rules={[{ required: true, message: 'Please fill totalDonasi' }]}
@@ -133,8 +133,8 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                             <h3 className='labelField'>Admin</h3>
                     </Col>
                 </Row>
-                <Row className='row2' xl={24}>
-                    <Col className='leftSide' xl={12}>  
+                <Row className='row2' span={24}>
+                    <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'namaBank'}
                             rules={[{ required: true, message: 'Please fill Date Added' }]}
@@ -147,7 +147,7 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                    
                     </Col>
                     
-                    <Col className='rightSide' xl={12}>
+                    <Col className='rightSide' span={12}>
                         <Form.Item
                                 name={'admin'}
                                 rules={[{ required: true, message: 'Please fill Program Favorit' }]}
@@ -160,7 +160,7 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                     </Col>
                 </Row>
                 <Row justify='center'>
-                    <ButtonPrimary onClick={handleOk}>
+                    <ButtonPrimary htmlType='submit'>
                         Terapkan
                     </ButtonPrimary>
                 </Row>
@@ -183,4 +183,10 @@ const Select = styled(SelectAntd)`
 const Input = styled(InputAntd)`
 height: 40px !important;
   border-radius: 6px !important;
+`
+
+const DatePicker = styled(DatePickerAntd)`
+height: 40px !important;
+width: 100%;
+border-radius: 6px !important;
 `

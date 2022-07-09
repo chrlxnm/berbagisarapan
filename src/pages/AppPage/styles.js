@@ -10,7 +10,7 @@ margin-bottom: 1rem;
 
 export const SettingWrapper = styled.div`
 position: absolute;
-bottom: 1rem;
+bottom: 3rem;
 text-align: center;
 width: 100%;
 `

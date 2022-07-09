@@ -1,6 +1,7 @@
+import './styles.css'
+
+import { AutoComplete as AutoCompleteAntd } from 'antd';
 import styled from 'styled-components';
-
-
 
 export const WrapperPagination = styled.div`
   display: flex;
@@ -22,7 +23,7 @@ export const WrapperPagination = styled.div`
 `
 
 export const WrapperSearchFilter = styled.div`
-gap: 1rem;
+gap: 8px;
 display: flex;
 `
 

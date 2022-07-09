@@ -80,7 +80,7 @@
   }
   
   .btnGroup{
-    float: right;
+    /* float: right; */
     display: flex;
     /* justify-content: space-between; */
     margin: 0 10px 0 10px;
@@ -139,4 +139,9 @@
   
     .ant-card-bordered {
       border: unset;
+    }
+
+    .dropdownAutoComplete .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+      background-color: green !important;
+      color: #fff;
     }

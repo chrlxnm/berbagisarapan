@@ -1,10 +1,10 @@
 import './style.css';
 
 import { ButtonSider, ButtonWrapper, EmailText, Logo, NameText, SettingWrapper } from './styles';
-import { FileTextOutlined, HomeOutlined, LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined, SettingOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
+import { FileTextOutlined, HomeOutlined, LogoutOutlined, PullRequestOutlined, SettingOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import { Link, Redirect, Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import React, { useEffect, useHistory, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Akun from '../Akun';
 import Beranda from '../Beranda';
@@ -21,9 +21,15 @@ const { Content, Sider } = Layout;
 
 const AppPage = () => {
     const { token, setToken } = useToken();
+    const [collapsed, setCollapsed] = useState(false);
+    const [allowCollapsed, setAllowCollapsed] = useState(true);
     const handleResize = () => {
         if (window.innerWidth < 720) {
             setCollapsed(true)
+            setAllowCollapsed(false)
+        }else{
+            setCollapsed(false)
+            setAllowCollapsed(true)
         }
     }
     // const router = useHistory()
@@ -31,7 +37,6 @@ const AppPage = () => {
         window.addEventListener("resize", handleResize)
     },[]);
 
-    const [collapsed, setCollapsed] = useState(false);
     const [current,setCurrent] = useState('1');
 
 
@@ -52,8 +57,8 @@ const AppPage = () => {
                     <Sider 
                     className={`main-side-bar ${!collapsed?'uncollapse-side-bar':''}`} 
                     trigger={null} 
-                    collapsible 
-                    collapsed={collapsed} 
+                    collapsible={allowCollapsed}
+                    collapsed={allowCollapsed? collapsed : true} 
                     style={{
                         height: '100vh',
                         overflow: 'unset',
@@ -63,7 +68,7 @@ const AppPage = () => {
                         bottom: 0,
                         }}>
                         <Logo src={logoCB} alt='Logo' className='img-core' onClick = {()=>{
-                            setCollapsed(!collapsed)
+                                setCollapsed(allowCollapsed?!collapsed:true)
                             }}
                             />
                         <Menu
@@ -79,7 +84,7 @@ const AppPage = () => {
                             },
                             {
                             key: '2',
-                            icon: <VideoCameraOutlined />,
+                            icon: <PullRequestOutlined />,
                             label: 'Menu Utama',
                             children:[{
                                 key: 'sub21',
@@ -116,13 +121,11 @@ const AppPage = () => {
                                 <SettingOutlined style={{color: 'black'}}/>
                                 </ButtonSider>
                                 </Link>
-                                <Link to="" >
                                 <ButtonSider onClick={()=>{
                                     logOut(setToken)
                                     }}>
                                 <LogoutOutlined style={{color: '#BB0001'}}/>
                                 </ButtonSider>
-                                </ Link>
                             </ButtonWrapper>
                         </SettingWrapper>
                     </Sider>
@@ -135,10 +138,12 @@ const AppPage = () => {
                             minHeight: 280,
                             overflow: "initial"
                         }}>
+                            <Route exact path="/">
+                                <Redirect to={!token?"/login":"/beranda"} />
+                            </Route>
                             <Route path="/beranda">
                                 <Beranda/>
                             </Route>
-
                             <Route path="/daftar-pengguna">
                                 <DaftarPengguna />
                             </ Route>

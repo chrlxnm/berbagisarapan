@@ -16,3 +16,8 @@
 .ant-pagination-item-active a{
     color: #fff;
 }
+
+.dropdownAutoComplete .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+    background-color: green !important;
+    color: #fff;
+  }

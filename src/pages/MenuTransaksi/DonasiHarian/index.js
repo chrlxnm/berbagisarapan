@@ -13,7 +13,6 @@ import AddModal from './Modal/Modal';
 import FilterModal from './Modal/FilterModal';
 import HeaderTitle from '../../../components/HeaderTitle/HeaderTitle';
 import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.svg';
-import { ReactComponent as IconFilter2 } from '../../../assets/svg/icon-filter2.svg';
 import { SearchOutlined } from '@ant-design/icons';
 import { dummy } from './dummy';
 
@@ -32,7 +31,8 @@ const DonasiHarian = () => {
       setFilterModal(false)
     }
 
-    const handleOkModal = () => {
+    const handleOkModal = (data) => {
+      console.log('cek data',data)
       setModal({
         ...modal,
         visible: false
@@ -117,8 +117,8 @@ const DonasiHarian = () => {
 
           <Card className="home" style={{ borderRadius:16}}>
               <HeaderTitle title={"Donasi Harian"} subTitle={"Donasi Harian"} />
-              <Row className="rowSearch" xl={24}>
-                  <Col xl={20}>
+              <Row className="rowSearch">
+                  <Col span={20}>
                   <WrapperSearchFilter>
                   <Input 
                     placeholder='Cari disini'
@@ -134,7 +134,7 @@ const DonasiHarian = () => {
                     </ButtonFilter>
                     </WrapperSearchFilter>
                   </Col>
-                  <Col xl={4}>
+                  <Col span={4}>
                     <div style={{display: 'flex',gap:'1rem'}}>
                           <ButtonSecondary>
                             Download

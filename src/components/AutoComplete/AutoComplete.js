@@ -1,131 +1,56 @@
 import './style.css'
 
-import React, { Component, Fragment } from "react";
+import { AutoComplete as AutoCompleteAntd, Form } from 'antd';
+import React, { useEffect, useState } from "react";
 
-import { Input as InputAntd } from 'antd';
 import styled from 'styled-components';
 
-class Autocomplete extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeSuggestion: 0,
-      filteredSuggestions: [],
-      showSuggestions: false,
-      userInput: this.props.value
+const Autocomplete = (props) => {console.log('ge',props)
+    const [filteredSuggestions, setFilteredSuggestions] = useState([]);
+    const [userInput, setUserInput] = useState(props?.value);
+    const onChange = e => {
+      setUserInput(e);
     };
-  }
-  onChange = e => {
-    const { suggestions } = this.props;
-    const userInput = e.currentTarget.value;
+    useEffect(()=>{
+      setUserInput(props?.value)
+    },[props])
 
-    const filteredSuggestions = suggestions.filter(
+   const onSearch = (searchText) => {
+    const { options } = props;
+    const result = !searchText ? [] : options?.filter(
       suggestion =>
-        suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
+        suggestion?.value.toLowerCase().indexOf(searchText.toLowerCase()) > -1
     );
-
-    this.setState({
-      activeSuggestion: null,
-      filteredSuggestions,
-      showSuggestions: true,
-      userInput: e.currentTarget.value
-    });
+    setFilteredSuggestions(result)
   };
-
-  onClick = e => {
-    this.setState({
-      activeSuggestion: 0,
-      filteredSuggestions: [],
-      showSuggestions: false,
-      userInput: e.currentTarget.innerText
-    });
-  };
-
-  onKeyDown = e => {
-    const { activeSuggestion, filteredSuggestions } = this.state;
-
-    if (e.keyCode === 13) {
-      this.setState({
-        activeSuggestion: 0,
-        showSuggestions: false,
-        userInput: filteredSuggestions[activeSuggestion]
-      });
-    } else if (e.keyCode === 38) {
-      if (activeSuggestion === 0) {
-        return;
-      }
-      this.setState({ activeSuggestion: activeSuggestion - 1 });
-    }
-    // User pressed the down arrow, increment the index
-    else if (e.keyCode === 40) {
-      if (activeSuggestion - 1 === filteredSuggestions.length) {
-        return;
-      }
-      this.setState({ activeSuggestion: activeSuggestion + 1 });
-    }
-  };
-
-  render() {
-    console.log('cek props',this.props)
-    const {
-      onChange,
-      onClick,
-      onKeyDown,
-      state: {
-        activeSuggestion,
-        filteredSuggestions,
-        showSuggestions,
-        userInput
-      }
-    } = this;
-
-    let suggestionsListComponent;
-
-    if (showSuggestions && userInput) {
-        if (filteredSuggestions.length) {
-          suggestionsListComponent = (
-            <ul class="suggestions">
-              {filteredSuggestions.map((suggestion, index) => {
-                let className;
-  
-                // Flag the active suggestion with a class
-                if (index === activeSuggestion) {
-                  className = "suggestion-active";
-                }
-                return (
-                  <li className={className} key={suggestion} onClick={onClick}>
-                    {suggestion}
-                  </li>
-                );
-              })}
-            </ul>
-          );
-        } else {
-          suggestionsListComponent = (
-            <div class="no-suggestions">
-              <em>No suggestions available.</em>
-            </div>
-          );
-        }
-      }
-
-      return (
-        <Fragment>
-          <Input
-          placeholder={this.props.placeholder}
-            onChange={onChange}
-            onKeyDown={onKeyDown}
-            value={userInput}
-          />
-          {suggestionsListComponent}
-        </Fragment>
-      );
-    }
+    return (
+      <Form.Item name={props.name}>
+        <CustomAutoComplete
+          placeholder={props.placeholder}
+          onChange={onChange}
+          dropdownClassName='dropdownAutoComplete'
+          options={filteredSuggestions}
+          onSearch={onSearch}
+          value={userInput}
+        />
+      </Form.Item>
+    );
   }
   
   export default Autocomplete;
 
-const Input = styled(InputAntd)`
+const CustomAutoComplete = styled(AutoCompleteAntd)`
+  &.ant-select-show-search.ant-select:not(.ant-select-customize-input) .ant-select-selector {
     height: 40px !important;
     border-radius: 6px !important;
+  }
+  &.ant-select-selection-search, .ant-select-selection-placeholder {
+    display: flex;
+    align-self: center;
+  }
+  &.ant-select-single .ant-select-selector .ant-select-selection-search {
+    top: unset !important;
+    bottom: unset !important;
+    align-self: center;
+  }
 `
