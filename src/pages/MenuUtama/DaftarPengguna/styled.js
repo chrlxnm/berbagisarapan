@@ -23,7 +23,7 @@ export const WrapperPagination = styled.div`
 `
 
 export const WrapperSearchFilter = styled.div`
-gap: 1rem;
+gap: 8px;
 display: flex;
 `
 

@@ -156,7 +156,6 @@ const DaftarPengguna = () => {
                 <Col span={20}>
                   <WrapperSearchFilter>
                 <Input 
-                style={{marginRight:'1rem'}}
                   placeholder='Cari disini'
                   size='large'
                   className="daftarpenggunaSearchBox"

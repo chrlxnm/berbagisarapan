@@ -90,7 +90,7 @@ const LaporanHarian = () => {
   
       const { Option } = Select;
       
-      const dummyData =  dummy()
+      const dummyData =  dummy();
   
      
       return (<>

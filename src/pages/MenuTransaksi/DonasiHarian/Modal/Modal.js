@@ -1,4 +1,4 @@
-import { Col, Form, Input as InputAntd, Row, Select as SelectAntd } from 'antd'
+import { Col, DatePicker as DatePickerAntd, Form, Input as InputAntd, Row, Select as SelectAntd } from 'antd'
 import React, { useState } from 'react'
 
 import Autocomplete from '../../../../components/AutoComplete/AutoComplete';
@@ -19,8 +19,11 @@ function AddModal({visible,handleCancel,handleOk, title}) {
         handleCancel()}}>
         <Form 
         form={form}
-        onFinish={(data)=>{
-            handleOk(data)
+        onFinish={(e)=>{
+            let data ={...e,
+                    tanggal: e.tanggal.format('DD-MM-YYYY')
+                }
+            handleOk(data);
         }}
         onFinishFailed={(e)=>{
             console.log(e)
@@ -68,8 +71,8 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                             name={'tanggal'}
                             rules={[{ required: true, message: 'Please fill kota' }]}
                         >    
-                            <Input
-                                placeholder='Tanggal' 
+                            <DatePicker 
+                                placeholder='Tanggal'
                                 name={'tanggal'}
                             />
                         </Form.Item>
@@ -180,4 +183,10 @@ const Select = styled(SelectAntd)`
 const Input = styled(InputAntd)`
 height: 40px !important;
   border-radius: 6px !important;
+`
+
+const DatePicker = styled(DatePickerAntd)`
+height: 40px !important;
+width: 100%;
+border-radius: 6px !important;
 `
