@@ -13,6 +13,10 @@ import HeaderTitle from '../../../components/HeaderTitle/HeaderTitle';
 import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.svg';
 import { SearchOutlined } from '@ant-design/icons';
 import { dummy } from './dummy';
+import errorAlert from "../../../components/alert/errorAlert";
+import successAlert from "../../../components/alert/successAlert";
+
+
 
 const LaporanHarian = () => {
   const [filterModal, setFilterModal] = useState(false)
@@ -31,6 +35,7 @@ const LaporanHarian = () => {
   })
 
   const handleOkModal = () => {
+    successAlert('Berhasil submit')
     setModal({
       ...modal,
       visible: false
