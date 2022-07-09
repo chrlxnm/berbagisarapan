@@ -16,10 +16,12 @@ import ConfirmDeleteModal from "../../../components/Modal/ConfirmDeleteModal";
 import FilterModal from './Modal/FilterModal';
 import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.svg';
 import { dummy } from "./dummy";
-
+import errorAlert from "../../../components/alert/errorAlert";
+import successAlert from "../../../components/alert/successAlert";
 const DaftarPengguna = () => {
   const [visibleDeleteModal, setVisibleDeleteModal] = useState(false)
   const handleDelete = () => {
+    errorAlert('ini error message')
     setVisibleDeleteModal(false)
   }
   const [modal, setModal] = useState({
@@ -28,6 +30,8 @@ const DaftarPengguna = () => {
   })
   const handleOkModal = (data) => {
     console.log(data);
+    successAlert('ini success message')
+
     setModal({
       ...modal,
       visible: false

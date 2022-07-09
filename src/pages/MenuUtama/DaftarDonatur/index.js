@@ -17,6 +17,10 @@ import CustomColumnModal from "./Modal/CustomColumnModal";
 import FilterModal from './Modal/FilterModal';
 import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.svg';
 import { dummy } from "./dummy";
+import errorAlert from "../../../components/alert/errorAlert";
+import successAlert from "../../../components/alert/successAlert";
+
+
 
 const DaftarDonatur = () => {
   const [customColumns, setCustomColumns] = useState([
@@ -41,11 +45,13 @@ const DaftarDonatur = () => {
   })
   const [visibleDeleteModal, setVisibleDeleteModal] = useState(false)
   const handleOkModal = (data) => {
+    errorAlert('gagal')
     console.log(data)
     setModal({
       ...modal,
       visible: false
     })
+
   }
   const handleCancelModal = () => {
     setModal({
@@ -69,6 +75,7 @@ const DaftarDonatur = () => {
   }
 
   const handleDelete = () => {
+    successAlert('ini success message')
     setVisibleDeleteModal(false)
   }
 
