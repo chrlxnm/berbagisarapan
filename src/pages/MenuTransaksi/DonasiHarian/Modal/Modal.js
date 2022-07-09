@@ -21,7 +21,7 @@ function AddModal({visible,handleCancel,handleOk, title}) {
         form={form}
         onFinish={(e)=>{
             let data ={...e,
-                    tanggal: e.tanggal.format('DD-MM-YYYY')
+                    tanggal: e?.tanggal?.format('DD-MM-YYYY')
                 }
             handleOk(data);
         }}

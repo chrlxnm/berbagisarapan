@@ -30,7 +30,11 @@ function FilterModal({visible,handleCancel,handleOk, title}) {
         handleCancel()}}>
         <Form 
         form={form}
-        onFinish={(data)=>{
+        onFinish={(e)=>{
+            let data = {...e,
+                tanggalMulai:e?.tanggalMulai?.format('DD-MM-YYYY'),
+                tanggalBerakhir:e?.tanggalBerakhir?.format('DD-MM-YYYY'),}
+            form.resetFields()
             handleOk(data)
         }}
         onFinishFailed={(e)=>{

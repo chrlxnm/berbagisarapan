@@ -20,8 +20,12 @@ function AddModal({visible,handleCancel,handleOk, title}) {
         handleCancel()}}>
          <Form 
         form={form}
-        onFinish={(data)=>{
-            handleOk(data);
+        onFinish={(e)=>{
+            let data = {...e,
+                tanggal:e?.tanggal?.format('DD-MM-YYYY')
+            }
+            form.resetFields()
+            handleOk(data)
         }}
         onFinishFailed={(e)=>{
             console.log(e)
