@@ -6,7 +6,7 @@ import { Button, Card, Col, Divider, Input, Pagination, Row, Select, Space, Tabl
 import { ButtonFilter, WrapperPagination, WrapperSearchFilter, WrapperSelect } from './styled';
 import { ButtonPrimary, ButtonSecondary } from '../../../components/Button/Button';
 import React, { useEffect, useState } from 'react'
-
+import { downloadExcelData } from '../../../helpers/services';
 import AddModal from './Modal/Modal';
 import FilterModal from './Modal/FilterModal';
 import HeaderTitle from '../../../components/HeaderTitle/HeaderTitle';
@@ -193,7 +193,7 @@ const LaporanHarian = () => {
                   </Col>
                   <Col span={4}>
                     <div style={{display: 'flex',gap:'1rem'}}>
-                          <ButtonSecondary>
+                          <ButtonSecondary onClick={()=> downloadExcelData(data,'laporanHarian')}> 
                             Download
                           </ButtonSecondary>
                         <ButtonPrimary icon={<AiIcons.AiOutlinePlus />}
