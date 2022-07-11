@@ -30,7 +30,7 @@ const LaporanHarian = () => {
     dataPage(dataSource, page);
   },[])
 
-  const handlePaginationChange = (e) => {console.log(e)
+  const handlePaginationChange = (e) => {
     let temp = ({...page,
       current: e
     });
@@ -51,6 +51,30 @@ const LaporanHarian = () => {
     setData(data?.slice((params.current-1)* params.size, params.current * params.size));
     setLoading(false);
   }
+
+  const handleSearch = (e) => {
+    setLoading(true)
+    let searchValue = e.target.value
+    let columns = ["noWA", "nama", "laporan", "tanggal", "admin"]
+    let temp = dataSource.filter((item) => {
+      return columns.some((newItem) => {
+          return (
+              item[newItem]
+                  .toString()
+                  .toLowerCase()
+                  .indexOf(searchValue.toLowerCase()) > -1
+                );
+            });
+        });
+    let tempParams = {...page,
+              current: 1,
+              total: temp.length
+            }
+    dataPage(temp, tempParams)
+    setPage(tempParams)
+    setLoading(false)
+  }
+
   const [filterModal, setFilterModal] = useState(false)
 
   const handleCancelFilterModal = () => {
@@ -58,7 +82,6 @@ const LaporanHarian = () => {
   }
 
   const handleOkFilterModal = (data) => {
-    console.log('cek data',data);
     setFilterModal(false)
   }
   const [modal, setModal] = useState({
@@ -158,7 +181,7 @@ const LaporanHarian = () => {
                     placeholder='Cari disini'
                     size='large'
                     className="daftarpenggunaSearchBox"
-                    // onChange={(e)=>handleInputState(e)}
+                    onChange={handleSearch}
                     // disabled={Number(selectedSearchType)===4}
                     // onKeyPress={(e)=>handleInputState(e)}
                     prefix={<SearchOutlined />}
@@ -189,6 +212,7 @@ const LaporanHarian = () => {
                   <Table 
                     style={{width:"100%"}} 
                     columns={columns} 
+                    loading={loading}
                     dataSource={data}
                     pagination={false} 
                    />

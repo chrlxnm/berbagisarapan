@@ -10,7 +10,7 @@ import styled from 'styled-components';
 function AddModal({visible,handleCancel,handleOk, title, record}) {
     const [form] = Form.useForm();
     useEffect(()=>{
-        if(record){console.log('tes',record)
+        if(record){
         form.setFieldsValue({
             noWA: record?.noWA,
             nama: record?.nama,

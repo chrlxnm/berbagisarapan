@@ -32,19 +32,19 @@ export const columns = () => {
         label:'Alamat'
         },
         {
-        value:'jumlah',
+        value:'berapaKali',
         label:'Berapa Kali'
         }],[
         {
-        value:'donasi',
+        value:'totalDonasi',
         label:'Total Donasi'
         },
         {
-        value:'date',
+        value:'dateAdded',
         label:'Date Added'
         },
         {
-        value:'program',
+        value:'programFavorit',
         label:'Program Favorit'
         }],[
         {
