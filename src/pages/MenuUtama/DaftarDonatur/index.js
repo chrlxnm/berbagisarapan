@@ -19,6 +19,7 @@ import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.
 import { dummy } from "./dummy";
 import errorAlert from "../../../components/alert/errorAlert";
 import successAlert from "../../../components/alert/successAlert";
+import { downloadExcelData } from "../../../helpers/services";
 
 const DaftarDonatur = () => {
   const dataSource =  dummy();
@@ -261,7 +262,7 @@ const DaftarDonatur = () => {
                 <Col span={4}>
                   <div className="btnGroup">
                         <Button className="btnDownload" type="primary" 
-                        style={{color:'#3E903B', borderColor:'#3E903B'}} ghost>
+                        style={{color:'#3E903B', borderColor:'#3E903B'}} onClick={()=> downloadExcelData(data,'daftarDonatur')} ghost>
                           Download
                         </Button>
                       <Button className="btnAdd" type="primary"

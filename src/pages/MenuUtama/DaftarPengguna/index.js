@@ -5,12 +5,12 @@ import * as AiIcons from 'react-icons/ai';
 import * as BsIcons from 'react-icons/bs';
 import * as FaIcons from 'react-icons/fa';
 import * as FiIcons from 'react-icons/fi';
-
+import {CSVLink} from "react-csv"
 import { Button, Card, Checkbox, Col, Divider, Dropdown, Form, Input, Layout, Menu, Pagination, Popover, Row, Select, Space, Table, Typography } from 'antd';
 import { ButtonFilter, WrapperPagination, WrapperSearchFilter, WrapperSelect, styleBtnDownload } from "./styled.js";
 import { PlusOutlined, SearchOutlined } from '@ant-design/icons';
 import React, { PureComponent, useEffect, useState } from "react";
-
+import { downloadExcelData } from "../../../helpers/services";
 import AddModal from "./Modal/AddEditModal";
 import ConfirmDeleteModal from "../../../components/Modal/ConfirmDeleteModal";
 import FilterModal from './Modal/FilterModal';
@@ -164,6 +164,15 @@ const DaftarPengguna = () => {
 
     const { Option } = Select;
     
+  //  const downloadExcel = (data) => {
+  //     const worksheet = XLSX.utils.json_to_sheet(data);
+  //     const workbook = XLSX.utils.book_new();
+  //     XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+  //     //let buffer = XLSX.write(workbook, { bookType: "xlsx", type: "buffer" });
+  //     //XLSX.write(workbook, { bookType: "xlsx", type: "binary" });
+  //     XLSX.writeFile(workbook, "DataSheet.xlsx");
+  //   };
+
     return (
         <Card className="home" style={{ borderRadius:16}}>
 
@@ -199,8 +208,8 @@ const DaftarPengguna = () => {
                 </Col>
                 <Col span={4}>
                   <div className="btnGroup">
-                        <Button className="btnDownload" type="primary" style={{color:'#3E903B', borderColor:'#3E903B'}} ghost>
-                          Download
+                        <Button className="btnDownload" type="primary" style={{color:'#3E903B', borderColor:'#3E903B'}} ghost onClick={()=>downloadExcelData(data,'daftarPengguna')}>
+                        Download
                         </Button>
                       <Button className="btnAdd" type="primary"
                         onClick={()=> {
