@@ -9,7 +9,7 @@ import * as FiIcons from 'react-icons/fi';
 import { Button, Card, Checkbox, Col, Divider, Dropdown, Form, Input, Layout, Menu, Pagination, Popover, Row, Select, Space, Table, Typography } from 'antd';
 import { ButtonFilter, WrapperPagination, WrapperSearchFilter, WrapperSelect, styleBtnDownload } from "./styled.js";
 import { PlusOutlined, SearchOutlined } from '@ant-design/icons';
-import React, { PureComponent, useState } from "react";
+import React, { PureComponent, useEffect, useState } from "react";
 
 import AddModal from "./Modal/AddEditModal";
 import ConfirmDeleteModal from "../../../components/Modal/ConfirmDeleteModal";
@@ -18,7 +18,43 @@ import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.
 import { dummy } from "./dummy";
 import errorAlert from "../../../components/alert/errorAlert";
 import successAlert from "../../../components/alert/successAlert";
+
 const DaftarPengguna = () => {
+  const dataSource =  dummy();
+  let [data, setData] =  useState([]);
+  const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState({
+    size: 10,
+    current: 1,
+    total: dataSource ? dataSource.length : 0,
+  })
+
+  useEffect(() => {
+    dataPage(dataSource, page);
+  },[])
+
+  const handlePaginationChange = (e) => {
+    let temp = ({...page,
+      current: e
+    });
+    setPage(temp);
+    dataPage(dataSource, temp);
+  }
+  const handleSizeChange = (e) => {
+    let temp = ({...page,
+      current: 1,
+      size:e
+    });
+    setPage(temp);
+    dataPage(dataSource, temp);
+  }
+  
+  const dataPage = (data, params) => {
+    setLoading(true);
+    setData(data?.slice((params.current-1)* params.size, params.current * params.size));
+    setLoading(false);
+  }
+
   const [visibleDeleteModal, setVisibleDeleteModal] = useState(false)
   const handleDelete = () => {
     errorAlert('ini error message')
@@ -56,53 +92,63 @@ const DaftarPengguna = () => {
       {
         title: 'Name',
         dataIndex: 'name',
-        key: 'name'
+        key: 'name',
+        sorter: (a, b) => a.name.localeCompare(b.name)
       },
       {
         title: 'Username',
         dataIndex: 'username',
         key: 'username',
+        sorter: (a, b) => a.username.localeCompare(b.username)
       },
       {
         title: 'Email',
         dataIndex: 'email',
         key: 'email',
+        sorter: (a, b) => a.email.localeCompare(b.email)
       },
       {
         title: 'Mobile Phone',
         key: 'mobilePhone',
         dataIndex: 'mobilePhone',
+        sorter: (a, b) => a.mobilePhone.localeCompare(b.mobilePhone)
        
       },
       {
         title: 'Sex',
         key: 'sex',
         dataIndex: 'sex',
+        sorter: (a, b) => a.sex.localeCompare(b.sex)
       },
       {
         title: 'Division',
         key: 'division',
         dataIndex: 'division',
+        sorter: (a, b) => a.division.localeCompare(b.division)
       },
       {
         title: 'Team',
         key: 'team',
         dataIndex: 'team',
+        sorter: (a, b) => a.team.localeCompare(b.team)
       },
       {
         title: 'Class',
         key: 'class',
         dataIndex: 'class',
+        sorter: (a, b) => a.class.localeCompare(b.class)
       },
       {
         title: 'Level Admin',
         key: 'levelAdmin',
         dataIndex: 'levelAdmin',
+        sorter: (a, b) => a.levelAdmin.localeCompare(b.levelAdmin)
       },
       {
         title: 'Is Active',
         key: 'isActive',
         dataIndex: 'isActive',
+        sorter: (a, b) => a.isActive.localeCompare(b.isActive)
       },
       {
         title: 'Action',
@@ -116,27 +162,8 @@ const DaftarPengguna = () => {
       },
     ];
 
-    const [modalAddPengguna, setModalInputPengguna] = useState({
-        title: 'Add Data',
-        content: '',
-        visible: false,
-        handleOk: null,
-        handleCancel: null,
-    });
-
-    const [modalEditPengguna, setModalEditPengguna] = useState({
-        title: '',
-        content: '',
-        visible: false,
-        handleOk: null,
-        handleCancel: null,
-    });
-
-
     const { Option } = Select;
-    const dummyData =  dummy()
-
-   
+    
     return (
         <Card className="home" style={{ borderRadius:16}}>
 
@@ -193,38 +220,41 @@ const DaftarPengguna = () => {
                 <Table 
                   style={{width:"100%"}} 
                   columns={columns} 
-                  dataSource={dummyData}
-                  pagination={true} 
+                  dataSource={data}
+                  pagination={false} 
                  />
             </Row>
 
-            {/* <Divider style={{marginTop: '1rem'}} />
-
+            {/* <Divider style={{marginTop: '1rem'}} /> */}
+  
             <Row xl={24} style={{marginTop: '1rem', marginBottom: '1rem'}}>
-              <Col xl={10} style={{display:'flex'}}>
-                <Space>
-                  <h3 style={{marginBottom: 'unset'}}>Data yang ditampilkan</h3>
-                  <WrapperSelect>
-                    <Select  defaultValue={10} >
-                      <Option value={10}>10</Option>
-                      <Option value={20}>20</Option>
-                      <Option value={50}>50</Option>
-                    </Select>
-                  </WrapperSelect>
-                </Space>
-              </Col>
-              <Col xl={14}>
-              <WrapperPagination>
+                <Col xl={10} style={{display:'flex'}}>
+                  <Space>
+                    <h3 style={{marginBottom: 'unset'}}>Data yang ditampilkan</h3>
+                    <WrapperSelect>
+                      <Select  defaultValue={10} 
+                      onChange={handleSizeChange}>
+                        <Option value={10}>10</Option>
+                        <Option value={20}>20</Option>
+                        <Option value={50}>50</Option>
+                        <Option value={100}>100</Option>
+                      </Select>
+                    </WrapperSelect>
+                  </Space>
+                </Col>
+                <Col xl={14}>
+                <WrapperPagination>
                 <Pagination
-                    // onChange={handlePaginationChange}
-                    showSizeChanger={false}
-                    current={1}
-                    size={10}
-                    total={100}
-                    />
-              </WrapperPagination>
-              </Col>
-            </Row> */}
+                      className='custom-pagination-bs'
+                      onChange={handlePaginationChange}
+                      showSizeChanger={true}
+                      current={page.current}
+                      pageSize={page.size}
+                      total={page.total}
+                      />
+                </WrapperPagination>
+                </Col>
+              </Row>
             
         </Card>
     );

@@ -5,7 +5,7 @@ import * as FiIcons from 'react-icons/fi';
 import { Button, Card, Col, Divider, Input, Pagination, Row, Select, Space, Table } from 'antd';
 import { ButtonFilter, WrapperPagination, WrapperSearchFilter, WrapperSelect } from './styled';
 import { ButtonPrimary, ButtonSecondary } from '../../../components/Button/Button';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import AddModal from './Modal/Modal';
 import FilterModal from './Modal/FilterModal';
@@ -16,9 +16,41 @@ import { dummy } from './dummy';
 import errorAlert from "../../../components/alert/errorAlert";
 import successAlert from "../../../components/alert/successAlert";
 
-
-
 const LaporanHarian = () => {
+  const dataSource =  dummy();
+  let [data, setData] =  useState([]);
+  const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState({
+    size: 10,
+    current: 1,
+    total: dataSource ? dataSource.length : 0,
+  })
+
+  useEffect(() => {
+    dataPage(dataSource, page);
+  },[])
+
+  const handlePaginationChange = (e) => {console.log(e)
+    let temp = ({...page,
+      current: e
+    });
+    setPage(temp);
+    dataPage(dataSource, temp);
+  }
+  const handleSizeChange = (e) => {
+    let temp = ({...page,
+      current: 1,
+      size:e
+    });
+    setPage(temp);
+    dataPage(dataSource, temp);
+  }
+  
+  const dataPage = (data, params) => {
+    setLoading(true);
+    setData(data?.slice((params.current-1)* params.size, params.current * params.size));
+    setLoading(false);
+  }
   const [filterModal, setFilterModal] = useState(false)
 
   const handleCancelFilterModal = () => {
@@ -51,28 +83,32 @@ const LaporanHarian = () => {
         {
           title: 'No WA',
           dataIndex: 'noWA',
-          key: 'noWA'
+          key: 'noWA',
+          sorter: (a, b) => a.noWA.localeCompare(b.noWA)
         },
         {
           title: 'Nama',
           dataIndex: 'nama',
           key: 'nama',
+          sorter: (a, b) => a.nama.localeCompare(b.nama)
         },
         {
           title: 'Laporan',
           dataIndex: 'laporan',
           key: 'laporan',
+          sorter: (a, b) => a.laporan.localeCompare(b.laporan)
         },
         {
           title: 'Tanggal',
           key: 'tanggal',
           dataIndex: 'tanggal',
-         
+          sorter: (a, b) => a.tanggal.localeCompare(b.tanggal)
         },
         {
           title: 'Admin',
           key: 'admin',
           dataIndex: 'admin',
+          sorter: (a, b) => a.admin.localeCompare(b.admin)
         },
         // {
         //   title: 'Action',
@@ -153,38 +189,41 @@ const LaporanHarian = () => {
                   <Table 
                     style={{width:"100%"}} 
                     columns={columns} 
-                    dataSource={dummyData}
-                    // pagination={false} 
+                    dataSource={data}
+                    pagination={false} 
                    />
               </Row>
   
-              {/* <Divider style={{marginTop: '1rem'}} />
+              {/* <Divider style={{marginTop: '1rem'}} /> */}
   
               <Row xl={24} style={{marginTop: '1rem', marginBottom: '1rem'}}>
                 <Col xl={10} style={{display:'flex'}}>
                   <Space>
                     <h3 style={{marginBottom: 'unset'}}>Data yang ditampilkan</h3>
                     <WrapperSelect>
-                      <Select  defaultValue={10} >
+                      <Select  defaultValue={10} 
+                      onChange={handleSizeChange}>
                         <Option value={10}>10</Option>
                         <Option value={20}>20</Option>
                         <Option value={50}>50</Option>
+                        <Option value={100}>100</Option>
                       </Select>
                     </WrapperSelect>
                   </Space>
                 </Col>
                 <Col xl={14}>
                 <WrapperPagination>
-                  <Pagination
-                      // onChange={handlePaginationChange}
-                      showSizeChanger={false}
-                      current={1}
-                      size={10}
-                      total={dummyData.length}
+                <Pagination
+                      className='custom-pagination-bs'
+                      onChange={handlePaginationChange}
+                      showSizeChanger={true}
+                      current={page.current}
+                      pageSize={page.size}
+                      total={page.total}
                       />
                 </WrapperPagination>
                 </Col>
-              </Row> */}
+              </Row>
               
           </Card></>
       );
