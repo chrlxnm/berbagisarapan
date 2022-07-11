@@ -21,3 +21,10 @@
     background-color: green !important;
     color: #fff;
   }
+
+.custom-pagination-bs {
+    display: flex;
+}
+.custom-pagination-bs .ant-pagination-options {
+    display: none;
+}
