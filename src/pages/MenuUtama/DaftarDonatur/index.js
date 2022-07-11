@@ -56,8 +56,32 @@ const DaftarDonatur = () => {
     setLoading(false);
   }
 
+  
+  const handleSearch = (e) => {
+    setLoading(true)
+    let searchValue = e.target.value
+    let columns = ['panggilan', 'nama', 'noWA', 'email', 'agama', 'hobi', 'kota', 'alamat'];
+    let temp = dataSource.filter((item) => {
+      return columns.some((newItem) => {
+          return (
+              item[newItem]
+                  .toString()
+                  .toLowerCase()
+                  .indexOf(searchValue.toLowerCase()) > -1
+                );
+            });
+        });
+    let tempParams = {...page,
+              current: 1,
+              total: temp.length
+            }
+    dataPage(temp, tempParams)
+    setPage(tempParams)
+    setLoading(false)
+  }
+
   const [customColumns, setCustomColumns] = useState([
-    'no','panggilan', 'nama', 'noWA', 'email', 'agama', 'hobi', 'kota', 'alamat', 'jumlah', 'action'
+    'no','panggilan', 'nama', 'noWA', 'email', 'agama', 'hobi', 'kota', 'alamat', 'berapaKali', 'action'
   ])
   const [filterModal, setFilterModal] = useState(false)
 
@@ -181,6 +205,54 @@ const DaftarDonatur = () => {
         sorter: (a, b) => a.berapaKali.localeCompare(b.berapaKali)
       },
       {
+        title: 'Total Donasi',
+        key: 'totalDonasi',
+        dataIndex: 'totalDonasi',
+        sorter: (a, b) => a.berapaKali.localeCompare(b.berapaKali)
+      },
+      {
+        title: 'Date Added',
+        key: 'dateAdded',
+        dataIndex: 'dateAdded',
+        sorter: (a, b) => a.berapaKali.localeCompare(b.berapaKali)
+      },
+      {
+        title: 'Program Favorit',
+        key: 'programFavorit',
+        dataIndex: 'programFavorit',
+        sorter: (a, b) => a.berapaKali.localeCompare(b.berapaKali)
+      },
+      {
+        title: 'Kategori',
+        key: 'kategori',
+        dataIndex: 'kategori',
+        sorter: (a, b) => a.berapaKali.localeCompare(b.berapaKali)
+      },
+      {
+        title: 'Hasil Survey',
+        key: 'hasilSurvey',
+        dataIndex: 'hasilSurvey',
+        sorter: (a, b) => a.berapaKali.localeCompare(b.berapaKali)
+      },
+      {
+        title: 'keterangan',
+        key: 'keterangan',
+        dataIndex: 'keterangan',
+        sorter: (a, b) => a.berapaKali.localeCompare(b.berapaKali)
+      },
+      {
+        title: 'Admin',
+        key: 'admin',
+        dataIndex: 'admin',
+        sorter: (a, b) => a.berapaKali.localeCompare(b.berapaKali)
+      },
+      {
+        title: 'Last Update',
+        key: 'lastUpdate',
+        dataIndex: 'lastUpdate',
+        sorter: (a, b) => a.berapaKali.localeCompare(b.berapaKali)
+      },
+      {
         title: 'Action',
         key: 'action',
         render: (_, record) => (
@@ -236,6 +308,7 @@ const DaftarDonatur = () => {
                         placeholder='Cari disini'
                         size='large'
                         className="daftarDonaturSearchBox"
+                        onChange={handleSearch}
                         // onChange={(e)=>handleInputState(e)}
                         // disabled={Number(selectedSearchType)===4}
                         // onKeyPress={(e)=>handleInputState(e)}

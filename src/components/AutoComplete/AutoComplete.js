@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 
 import styled from 'styled-components';
 
-const Autocomplete = (props) => {console.log('ge',props)
+const Autocomplete = (props) => {
     const [filteredSuggestions, setFilteredSuggestions] = useState([]);
     const [userInput, setUserInput] = useState(props?.value);
     const onChange = e => {

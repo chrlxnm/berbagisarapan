@@ -13,7 +13,6 @@ import React, { PureComponent, useEffect, useState } from "react";
 
 import AddModal from "./Modal/AddEditModal";
 import ConfirmDeleteModal from "../../../components/Modal/ConfirmDeleteModal";
-import FilterModal from './Modal/FilterModal';
 import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.svg';
 import { dummy } from "./dummy";
 import errorAlert from "../../../components/alert/errorAlert";
@@ -53,6 +52,29 @@ const DaftarPengguna = () => {
     setLoading(true);
     setData(data?.slice((params.current-1)* params.size, params.current * params.size));
     setLoading(false);
+  }
+  
+  const handleSearch = (e) => {
+    setLoading(true)
+    let searchValue = e.target.value
+    let columns = ["mobilePhone", "nama", "username", "email", "sex", "division", "team", "class", "levelAdmin", "isActive"];
+    let temp = dataSource.filter((item) => {
+      return columns?.some((newItem) => {
+          return (
+              item[newItem]
+                  ?.toString()
+                  ?.toLowerCase()
+                  ?.indexOf(searchValue.toLowerCase()) > -1
+                );
+            });
+        });
+    let tempParams = {...page,
+              current: 1,
+              total: temp.length
+            }
+    dataPage(temp, tempParams)
+    setPage(tempParams)
+    setLoading(false)
   }
 
   const [visibleDeleteModal, setVisibleDeleteModal] = useState(false)
@@ -190,6 +212,7 @@ const DaftarPengguna = () => {
                   placeholder='Cari disini'
                   size='large'
                   className="daftarpenggunaSearchBox"
+                  onChange={handleSearch}
                   // onChange={(e)=>handleInputState(e)}
                   // disabled={Number(selectedSearchType)===4}
                   // onKeyPress={(e)=>handleInputState(e)}

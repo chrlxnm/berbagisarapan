@@ -40,6 +40,7 @@
 
   .ant-layout-sider{
     background: unset !important;
+    z-index: 999;
   }
   
   .ant-menu-dark.ant-menu-submenu-popup .ant-menu-sub {

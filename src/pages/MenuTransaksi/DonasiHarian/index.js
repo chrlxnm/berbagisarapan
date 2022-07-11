@@ -32,7 +32,7 @@ const DonasiHarian = () => {
     dataPage(dataSource, page);
   },[])
 
-  const handlePaginationChange = (e) => {console.log(e)
+  const handlePaginationChange = (e) => {
     let temp = ({...page,
       current: e
     });
@@ -54,6 +54,29 @@ const DonasiHarian = () => {
     setLoading(false);
   }
 
+  const handleSearch = (e) => {
+    setLoading(true)
+    let searchValue = e.target.value
+    let columns = ["noWA", "nama", "donasi", "tanggal", "program", "url", "namaBank", "admin"];
+    let temp = dataSource.filter((item) => {
+      return columns.some((newItem) => {
+          return (
+              item[newItem]
+                  .toString()
+                  .toLowerCase()
+                  .indexOf(searchValue.toLowerCase()) > -1
+                );
+            });
+        });
+    let tempParams = {...page,
+              current: 1,
+              total: temp.length
+            }
+    dataPage(temp, tempParams)
+    setPage(tempParams)
+    setLoading(false)
+  }
+
     const [modal, setModal] = useState({
       visible: false,
       title: 'Add Data',
@@ -70,7 +93,6 @@ const DonasiHarian = () => {
     }
 
     const handleOkModal = (data) => {
-      console.log('cek data',data)
       errorAlert('gagal submit')
       setModal({
         ...modal,
@@ -168,6 +190,7 @@ const DonasiHarian = () => {
                     placeholder='Cari disini'
                     size='large'
                     className="daftarpenggunaSearchBox"
+                    onChange={handleSearch}
                     // onChange={(e)=>handleInputState(e)}
                     // disabled={Number(selectedSearchType)===4}
                     // onKeyPress={(e)=>handleInputState(e)}
