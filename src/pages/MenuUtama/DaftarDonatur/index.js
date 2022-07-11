@@ -10,6 +10,7 @@ import { Button, Card, Checkbox, Col, Divider, Dropdown, Form, Input, Layout, Me
 import {ButtonFilter, WrapperPagination, WrapperSelect} from "./styled.js";
 import { PlusOutlined, SearchOutlined } from '@ant-design/icons';
 import React, { PureComponent, useEffect, useState } from "react";
+import AlertNew from "../../../components/AlertNew";
 
 import AddModal from "./Modal/AddEditModal";
 import ConfirmDeleteModal from "../../../components/Modal/ConfirmDeleteModal";
@@ -17,14 +18,17 @@ import CustomColumnModal from "./Modal/CustomColumnModal";
 import FilterModal from './Modal/FilterModal';
 import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.svg';
 import { dummy } from "./dummy";
-import errorAlert from "../../../components/alert/errorAlert";
-import successAlert from "../../../components/alert/successAlert";
 import { downloadExcelData } from "../../../helpers/services";
 
 const DaftarDonatur = () => {
   const dataSource =  dummy();
   let [data, setData] =  useState([]);
   const [loading, setLoading] = useState(false);
+  const [visible,setVisible] = useState({
+    isVisible:false,
+    type:'SUCCESS',
+    message:'Berhasil submit'
+  })
   const [page, setPage] = useState({
     size: 10,
     current: 1,
@@ -103,7 +107,9 @@ const DaftarDonatur = () => {
   })
   const [visibleDeleteModal, setVisibleDeleteModal] = useState(false)
   const handleOkModal = (data) => {
-    errorAlert('gagal')
+
+    // errorAlert('gagal')
+    setVisible({...visible,isVisible:true,type:'ERROR',message:'Gagal Submit'})
     console.log(data)
     setModal({
       ...modal,
@@ -133,7 +139,8 @@ const DaftarDonatur = () => {
   }
 
   const handleDelete = () => {
-    successAlert('ini success message')
+    // successAlert('ini success message')
+    setVisible({...visible,isVisible:true,type:'SUCCESS',message:'Berhasil Submit'})
     setVisibleDeleteModal(false)
   }
 
@@ -271,6 +278,15 @@ const DaftarDonatur = () => {
     return (
         
         <Card className="home" style={{ borderRadius:16}}>
+          <AlertNew
+                visible={visible.isVisible}
+                message={visible.message}
+                type={visible.type}
+                onClose={() => {
+                    setVisible({...visible,isVisible:false})
+                    }
+                }
+            />
 
           <AddModal 
           visible={modal?.visible}
