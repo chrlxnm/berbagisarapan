@@ -48,13 +48,13 @@ export const OPTION_IS_ACTIVE = [{
 
 export const OPTION_KATEGORI = [{
   key: 1,
-  value: 'Lorem 1',
-  label: 'Lorem 1'
+  value: 'Kategori 1',
+  label: 'Kategori 1'
   },
   {
   key: 2,
-  value: 'Lorem 2',
-  label: 'Lorem 2'
+  value: 'Kategori 2',
+  label: 'Kategori 2'
 }]
 
 
@@ -68,6 +68,59 @@ export const OPTION_ADMIN = [{
   value: 'Admin 2',
   label: 'Admin 2'
 }]
+
+export const OPTION_BANK = [{
+  key: 1,
+  value: 'Bank Mandiri',
+  label: 'Bank Mandiri'
+  },
+  {
+  key: 2,
+  value: 'BCA',
+  label: 'BCA'
+  },
+  {
+  key: 3,
+  value: 'BRI',
+  label: 'BRI'
+  },
+  {
+  key: 4,
+  value: 'BNI',
+  label: 'BNI'
+  },
+  {
+  key: 5,
+  value: 'Lainnya',
+  label: 'Lainnya'
+  }];
+  
+export const OPTION_PROGRAM = [{
+  key: 1,
+  value: 'Donasi Sarapan',
+  label: 'Donasi Sarapan'
+  },
+  {
+  key: 2,
+  value: 'Donasi Bahan',
+  label: 'DOnasi Bahan'
+  },
+  {
+  key: 3,
+  value: 'Donasi Uang',
+  label: 'Donasi Uang'
+  },
+  {
+  key: 4,
+  value: 'Donasi Tenaga',
+  label: 'Donasi Tenaga'
+  },
+  {
+  key: 5,
+  value: 'Lainnya',
+  label: 'Lainnya'
+  }]
+
 
 export const OPTION_WA = () => {
   const data = [];

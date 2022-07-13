@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Autocomplete from '../../../../components/AutoComplete/AutoComplete';
 import { ButtonPrimary } from '../../../../components/Button/Button';
 import Modal from '../../../../components/Modal/Modal'
-import { OPTION_WA } from '../../../../helpers/constants';
+import { OPTION_BANK, OPTION_PROGRAM, OPTION_WA } from '../../../../helpers/constants';
 import styled from 'styled-components';
 
 function AddModal({visible,handleCancel,handleOk, title}) {
@@ -48,7 +48,7 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                     <Col className='rightSide' span={12}>
                         <Form.Item
                                 name={'nama'}
-                                rules={[{ required: true, message: 'Please fill hobi' }]}
+                                rules={[{ required: true, message: 'Please fill nama' }]}
                             >  
                                 <Input
                                     placeholder='Nama'
@@ -69,7 +69,7 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                     <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'tanggal'}
-                            rules={[{ required: true, message: 'Please fill kota' }]}
+                            rules={[{ required: true, message: 'Please fill tanggal' }]}
                         >    
                             <DatePicker 
                                 placeholder='Tanggal'
@@ -82,7 +82,7 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                     <Col className='rightSide' span={12}>
                         <Form.Item
                                 name={'donasi'}
-                                rules={[{ required: true, message: 'Please fill alamat' }]}
+                                rules={[{ required: true, message: 'Please fill donasi' }]}
                             >  
                                 <Input
                                     placeholder='Donasi' 
@@ -103,11 +103,12 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                     <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'program'}
-                            rules={[{ required: true, message: 'Please fill berapakali' }]}
+                            rules={[{ required: true, message: 'Please fill Program' }]}
                         >    
-                            <Input
+                            <Select
                                 placeholder='Program'
                                 name={'program'}
+                                options={OPTION_PROGRAM}
                             />
                         </Form.Item>
                    
@@ -116,7 +117,6 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                     <Col className='rightSide' span={12}>
                         <Form.Item
                                 name={'url'}
-                                rules={[{ required: true, message: 'Please fill totalDonasi' }]}
                             >  
                                 <Input
                                     placeholder='URL Bukti'
@@ -137,11 +137,12 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                     <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'namaBank'}
-                            rules={[{ required: true, message: 'Please fill Date Added' }]}
+                            rules={[{ required: true, message: 'Please fill Nama Bank' }]}
                         >    
-                            <Input
+                            <Select
                                 placeholder='Nama Bank'
                                 name={'namaBank'}
+                                options={OPTION_BANK}
                             />
                         </Form.Item>
                    
@@ -150,7 +151,7 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                     <Col className='rightSide' span={12}>
                         <Form.Item
                                 name={'admin'}
-                                rules={[{ required: true, message: 'Please fill Program Favorit' }]}
+                                rules={[{ required: true, message: 'Please fill Admin' }]}
                             >  
                                 <Input
                                     placeholder='Admin'

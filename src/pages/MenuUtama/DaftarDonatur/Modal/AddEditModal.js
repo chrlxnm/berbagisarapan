@@ -68,7 +68,6 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                     <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'panggilan'}
-                            rules={[{ required: true, message: 'Please fill agama' }]}
                         >    
                             <Input
                                 placeholder='Panggilan'
@@ -81,7 +80,7 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                     <Col className='rightSide' span={12}>
                         <Form.Item
                                 name={'nama'}
-                                rules={[{ required: true, message: 'Please fill hobi' }]}
+                                rules={[{ required: true, message: 'Please fill nama' }]}
                             >  
                                 <Input
                                     placeholder='Nama'
@@ -110,7 +109,6 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                     <Col className='rightSide' span={12}>
                         <Form.Item
                                 name={'email'}
-                                rules={[{ required: true, message: 'Please fill alamat' }]}
                             >  
                                 <Input
                                     placeholder='Email' 
@@ -131,7 +129,6 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                     <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'agama'}
-                            rules={[{ required: true, message: 'Please fill agama' }]}
                         >    
                             <Input
                                 placeholder='Agama'
@@ -143,7 +140,6 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                     <Col className='rightSide' span={12}>  
                         <Form.Item
                             name={'hobi'}
-                            rules={[{ required: true, message: 'Please fill hobi' }]}
                         >    
                             <Input
                                 placeholder='Hobi' 
@@ -164,7 +160,6 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                     <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'kota'}
-                            rules={[{ required: true, message: 'Please fill kota' }]}
                         >    
                             <Input
                                 placeholder='Kota'
@@ -176,7 +171,6 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                     <Col className='rightSide' span={12}>  
                         <Form.Item
                             name={'alamat'}
-                            rules={[{ required: true, message: 'Please fill alamat' }]}
                         >    
                             <Input
                                 placeholder='Alamat' 
@@ -197,7 +191,6 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                     <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'berapaKali'}
-                            rules={[{ required: true, message: 'Please fill berapa kali' }]}
                         >    
                             <Input
                                 placeholder='Berapa Kali' 
@@ -210,7 +203,6 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                     <Col className='rightSide' span={12}>  
                         <Form.Item
                             name={'totalDonasi'}
-                            rules={[{ required: true, message: 'Please fill total donasi' }]}
                         >    
                             <Input
                                 placeholder='Total Donasi'
@@ -232,7 +224,6 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                     <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'dateAdded'}
-                            rules={[{ required: true, message: 'Please fill date added' }]}
                         >    
                             <DatePicker 
                                 format={'DD-MM-YYYY'}
@@ -245,7 +236,6 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                     <Col className='rightSide' span={12}>  
                         <Form.Item
                             name={'programFavorit'}
-                            rules={[{ required: true, message: 'Please fill program favorit' }]}
                         >    
                             <Input
                                 placeholder='Program Favorit'
@@ -267,7 +257,6 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                     <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'kategori'}
-                            rules={[{ required: true, message: 'Please fill kategori' }]}
                         >    
                             <Select
                                 placeholder='Kategori' 
@@ -280,7 +269,6 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                     <Col className='rightSide' span={12}>  
                         <Form.Item
                             name={'hasilSurvey'}
-                            rules={[{ required: true, message: 'Please fill hasil survey' }]}
                         >    
                             <Input
                                 placeholder='HasilSurvey'
@@ -301,7 +289,6 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                     <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'keterangan'}
-                            rules={[{ required: true, message: 'Please fill keterangan' }]}
                         >    
                             <Input
                                 placeholder='Keterangan'
@@ -332,7 +319,6 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                     <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'lastUpdate'}
-                            rules={[{ required: true, message: 'Please fill last update' }]}
                         >    
                             <DatePicker 
                                 format={'DD-MM-YYYY'}

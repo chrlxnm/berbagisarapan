@@ -5,14 +5,16 @@ import * as AiIcons from 'react-icons/ai';
 import * as BsIcons from 'react-icons/bs';
 import * as FaIcons from 'react-icons/fa';
 import * as FiIcons from 'react-icons/fi';
+
 import { Button, Card, Checkbox, Col, Divider, Dropdown, Form, Input, Layout, Menu, Pagination, Popover, Row, Select, Space, Table, Typography } from 'antd';
 import { ButtonFilter, WrapperPagination, WrapperSearchFilter, WrapperSelect, styleBtnDownload } from "./styled.js";
 import { PlusOutlined, SearchOutlined } from '@ant-design/icons';
 import React, { PureComponent, useEffect, useState } from "react";
-import { downloadExcelData } from "../../../helpers/services";
+
 import AddModal from "./Modal/AddEditModal";
 import ConfirmDeleteModal from "../../../components/Modal/ConfirmDeleteModal";
 import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.svg';
+import { downloadExcelData } from "../../../helpers/services";
 import { dummy } from "./dummy";
 import errorAlert from "../../../components/alert/errorAlert";
 import successAlert from "../../../components/alert/successAlert";
@@ -221,7 +223,7 @@ const DaftarPengguna = () => {
                 </Col>
                 <Col span={4}>
                   <div className="btnGroup">
-                        <Button className="btnDownload" type="primary" style={{color:'#3E903B', borderColor:'#3E903B'}} ghost onClick={()=>downloadExcelData(data,'daftarPengguna')}>
+                        <Button className="btnDownload" type="primary" style={{color:'#3E903B', borderColor:'#3E903B'}} ghost onClick={()=>downloadExcelData(dataSource,'daftarPengguna')}>
                         Download
                         </Button>
                       <Button className="btnAdd" type="primary"

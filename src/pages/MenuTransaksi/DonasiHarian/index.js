@@ -8,13 +8,13 @@ import { Button, Card, Col, Divider, Input, Pagination, Row, Select, Space, Tabl
 import { ButtonFilter, WrapperPagination, WrapperSearchFilter, WrapperSelect } from './styled';
 import { ButtonPrimary, ButtonSecondary } from '../../../components/Button/Button';
 import React, { useEffect, useState } from 'react'
-import { downloadExcelData } from '../../../helpers/services';
 
 import AddModal from './Modal/Modal';
 import FilterModal from './Modal/FilterModal';
 import HeaderTitle from '../../../components/HeaderTitle/HeaderTitle';
 import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.svg';
 import { SearchOutlined } from '@ant-design/icons';
+import { downloadExcelData } from '../../../helpers/services';
 import { dummy } from './dummy';
 import errorAlert from "../../../components/alert/errorAlert";
 import successAlert from "../../../components/alert/successAlert";
@@ -204,7 +204,7 @@ const DonasiHarian = () => {
                   </Col>
                   <Col span={4}>
                     <div style={{display: 'flex',gap:'1rem'}}>
-                          <ButtonSecondary onClick={() => downloadExcelData(data,'DonasiHarian')}>
+                          <ButtonSecondary onClick={() => downloadExcelData(dataSource,'DonasiHarian')}>
                             Download
                           </ButtonSecondary>
                         <ButtonPrimary icon={<AiIcons.AiOutlinePlus />}
