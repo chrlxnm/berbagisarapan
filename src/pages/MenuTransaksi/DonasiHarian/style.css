@@ -28,3 +28,7 @@
 .custom-pagination-bs .ant-pagination-options {
     display: none;
 }
+
+.custom-pagination-bs .ant-pagination-item {
+    display: unset !important;
+}

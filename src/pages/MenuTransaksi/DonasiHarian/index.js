@@ -218,7 +218,7 @@ const DonasiHarian = () => {
                   </Col>
                   <Col span={4}>
                     <div style={{display: 'flex',gap:'1rem'}}>
-                          <ButtonSecondary onClick={() => downloadExcelData(data,'DonasiHarian')}>
+                          <ButtonSecondary onClick={() => downloadExcelData(dataSource,'DonasiHarian')}>
                             Download
                           </ButtonSecondary>
                         <ButtonPrimary icon={<AiIcons.AiOutlinePlus />}

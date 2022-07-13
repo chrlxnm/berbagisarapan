@@ -129,7 +129,7 @@ const AlertCore = ({message, type, onClose}) => {
                 <AlertContentWrapper>
                     <AlertMessageWrapper>
                         <IconShow type={type}/>
-                        <h3>
+                        <h3 style={{marginBottom: 'unset'}}>
                             {message}
                         </h3>
                     </AlertMessageWrapper>
