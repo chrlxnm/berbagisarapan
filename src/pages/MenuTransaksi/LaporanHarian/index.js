@@ -14,8 +14,7 @@ import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.
 import { SearchOutlined } from '@ant-design/icons';
 import { downloadExcelData } from '../../../helpers/services';
 import { dummy } from './dummy';
-import errorAlert from "../../../components/alert/errorAlert";
-import successAlert from "../../../components/alert/successAlert";
+import AlertNew from '../../../components/AlertNew';
 
 const LaporanHarian = () => {
   const dataSource =  dummy();
@@ -77,7 +76,11 @@ const LaporanHarian = () => {
   }
 
   const [filterModal, setFilterModal] = useState(false)
-
+  const [visible,setVisible] = useState({
+    isVisible:false,
+    type:'SUCCESS',
+    message:'Berhasil submit'
+  })
   const handleCancelFilterModal = () => {
     setFilterModal(false)
   }
@@ -91,11 +94,12 @@ const LaporanHarian = () => {
   })
 
   const handleOkModal = () => {
-    successAlert('Berhasil submit')
     setModal({
       ...modal,
       visible: false
     })
+    setVisible({...visible,isVisible:true,type:'SUCCESS',message:'Berhasil Submit'})
+
   }
   const handleCancelModal = () => {
     setModal({
@@ -159,6 +163,16 @@ const LaporanHarian = () => {
   
      
       return (<>
+
+          <AlertNew
+                visible={visible.isVisible}
+                message={visible.message}
+                type={visible.type}
+                onClose={() => {
+                    setVisible({...visible,isVisible:false})
+                    }
+                }
+            />
         <AddModal 
         visible={modal?.visible}
         handleCancel={handleCancelModal}

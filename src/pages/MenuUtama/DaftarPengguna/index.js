@@ -13,6 +13,8 @@ import React, { PureComponent, useEffect, useState } from "react";
 
 import AddModal from "./Modal/AddEditModal";
 import ConfirmDeleteModal from "../../../components/Modal/ConfirmDeleteModal";
+import AlertNew from "../../../components/AlertNew";
+
 import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.svg';
 import { downloadExcelData } from "../../../helpers/services";
 import { dummy } from "./dummy";
@@ -40,6 +42,12 @@ const DaftarPengguna = () => {
     setPage(temp);
     dataPage(dataSource, temp);
   }
+
+  const [visible,setVisible] = useState({
+    isVisible:false,
+    type:'SUCCESS',
+    message:'Berhasil submit'
+  })
   const handleSizeChange = (e) => {
     let temp = ({...page,
       current: 1,
@@ -80,7 +88,7 @@ const DaftarPengguna = () => {
 
   const [visibleDeleteModal, setVisibleDeleteModal] = useState(false)
   const handleDelete = () => {
-    errorAlert('ini error message')
+    setVisible({...visible,isVisible:true,type:'SUCCESS',message:'Berhasil Submit'})
     setVisibleDeleteModal(false)
   }
   const [modal, setModal] = useState({
@@ -89,8 +97,7 @@ const DaftarPengguna = () => {
   })
   const handleOkModal = (data) => {
     console.log(data);
-    successAlert('ini success message')
-
+    setVisible({...visible,isVisible:true,type:'ERROR',message:'Gagal Submit'})
     setModal({
       ...modal,
       visible: false
@@ -189,7 +196,15 @@ const DaftarPengguna = () => {
 
     return (
         <Card className="home" style={{ borderRadius:16}}>
-
+          <AlertNew
+                visible={visible.isVisible}
+                message={visible.message}
+                type={visible.type}
+                onClose={() => {
+                    setVisible({...visible,isVisible:false})
+                    }
+                }
+            />
           <AddModal 
           visible={modal?.visible}
           handleCancel={handleCancelModal}

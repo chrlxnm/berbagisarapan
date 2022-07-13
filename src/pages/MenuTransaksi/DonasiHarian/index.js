@@ -8,16 +8,14 @@ import { Button, Card, Col, Divider, Input, Pagination, Row, Select, Space, Tabl
 import { ButtonFilter, WrapperPagination, WrapperSearchFilter, WrapperSelect } from './styled';
 import { ButtonPrimary, ButtonSecondary } from '../../../components/Button/Button';
 import React, { useEffect, useState } from 'react'
-
+import { downloadExcelData } from '../../../helpers/services';
+import AlertNew from "../../../components/AlertNew";
 import AddModal from './Modal/Modal';
 import FilterModal from './Modal/FilterModal';
 import HeaderTitle from '../../../components/HeaderTitle/HeaderTitle';
 import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.svg';
 import { SearchOutlined } from '@ant-design/icons';
-import { downloadExcelData } from '../../../helpers/services';
 import { dummy } from './dummy';
-import errorAlert from "../../../components/alert/errorAlert";
-import successAlert from "../../../components/alert/successAlert";
 
 const DonasiHarian = () => {
   const dataSource =  dummy();
@@ -27,6 +25,11 @@ const DonasiHarian = () => {
     size: 10,
     current: 1,
     total: dataSource ? dataSource.length : 0,
+  })
+  const [visible,setVisible] = useState({
+    isVisible:false,
+    type:'SUCCESS',
+    message:'Berhasil submit'
   })
 
   useEffect(() => {
@@ -94,7 +97,7 @@ const DonasiHarian = () => {
     }
 
     const handleOkModal = (data) => {
-      errorAlert('gagal submit')
+      setVisible({...visible,isVisible:true,type:'ERROR',message:'Gagal Submit'})
       setModal({
         ...modal,
         visible: false
@@ -172,6 +175,17 @@ const DonasiHarian = () => {
       const { Option } = Select;
       
       return (<>
+                
+            <AlertNew
+                visible={visible.isVisible}
+                message={visible.message}
+                type={visible.type}
+                onClose={() => {
+                    setVisible({...visible,isVisible:false})
+                    }
+                }
+            />
+
           <AddModal 
           visible={modal?.visible}
           handleCancel={handleCancelModal}
