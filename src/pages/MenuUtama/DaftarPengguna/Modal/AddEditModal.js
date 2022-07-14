@@ -5,6 +5,7 @@ import React, { useEffect } from 'react'
 import { ButtonPrimary } from '../../../../components/Button/Button';
 import Modal from '../../../../components/Modal/Modal'
 import styled from 'styled-components';
+import { requiredMark } from '../../../../components/customRequiredMark';
 
 const { Option } = SelectAntd;
 
@@ -46,10 +47,10 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
         }}>
                 <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                     <Col className="gutter-row" span={12} >
-                            <h3 className='labelField'>Name</h3>
+                            <h3 className='labelField'>Name{requiredMark}</h3>
                     </Col>
                     <Col className="gutter-row" span={12}>
-                            <h3 className='labelField'>Username</h3>
+                            <h3 className='labelField'>Username{requiredMark}</h3>
                     </Col>
                 </Row>
                 <Row className='row2' span={24}>
@@ -80,10 +81,10 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                 </Row>
                 <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                     <Col className="gutter-row" span={12} >
-                            <h3 className='labelField'>Email</h3>
+                            <h3 className='labelField'>Email{requiredMark}</h3>
                     </Col>
                     <Col className="gutter-row" span={12}>
-                            <h3 className='labelField'>Mobile Phone</h3>
+                            <h3 className='labelField'>Mobile Phone{requiredMark}</h3>
                     </Col>
                 </Row>
                 <Row className='row2' span={24}>
@@ -115,10 +116,10 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                 </Row>
                 <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                     <Col className="gutter-row" span={12} >
-                            <h3 className='labelField'>Sex</h3>
+                            <h3 className='labelField'>Sex{requiredMark}</h3>
                     </Col>
                     <Col className="gutter-row" span={12} >
-                            <h3 className='labelField'>Division</h3>
+                            <h3 className='labelField'>Division{requiredMark}</h3>
                     </Col>
                 </Row>
                 <Row className='row2'>
@@ -149,10 +150,10 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                 </Row>
                 <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                     <Col className="gutter-row" span={12} >
-                            <h3 className='labelField'>Team</h3>
+                            <h3 className='labelField'>Team{requiredMark}</h3>
                     </Col>
                     <Col className="gutter-row" span={12} >
-                            <h3 className='labelField'>Class</h3>
+                            <h3 className='labelField'>Class{requiredMark}</h3>
                     </Col>
                 </Row>
                 <Row className='row2' span={24}>
@@ -182,10 +183,10 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                 </Row>
                 <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                     <Col className="gutter-row" span={12} >
-                            <h3 className='labelField'>Level Admin</h3>
+                            <h3 className='labelField'>Level Admin{requiredMark}</h3>
                     </Col>
                     <Col className="gutter-row" span={12} >
-                            <h3 className='labelField'>Is Active</h3>
+                            <h3 className='labelField'>Is Active{requiredMark}</h3>
                     </Col>
                 </Row>
                 <Row className='row2' span={24}>

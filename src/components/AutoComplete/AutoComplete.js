@@ -24,7 +24,9 @@ const Autocomplete = (props) => {
     setFilteredSuggestions(result)
   };
     return (
-      <Form.Item name={props.name}>
+      <Form.Item 
+      name={props.name}
+      rules={[{ required: true, message: 'Please fill no WA' }]}>
         <CustomAutoComplete
           {...props}
           onChange={onChange}

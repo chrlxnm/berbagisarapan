@@ -6,6 +6,7 @@ import { ButtonPrimary } from '../../../../components/Button/Button';
 import Modal from '../../../../components/Modal/Modal'
 import { OPTION_WA } from '../../../../helpers/constants';
 import styled from 'styled-components';
+import { requiredMark } from '../../../../components/customRequiredMark';
 
 function AddModal({visible,handleCancel,handleOk, title}) {
     const [form] = Form.useForm();
@@ -38,10 +39,10 @@ function AddModal({visible,handleCancel,handleOk, title}) {
         }}>
                 <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                     <Col className="gutter-row" span={12} >
-                            <h3 className='labelField'>No WA</h3>
+                            <h3 className='labelField'>No WA{requiredMark}</h3>
                     </Col>
                     <Col className="gutter-row" span={12}>
-                            <h3 className='labelField'>Nama</h3>
+                            <h3 className='labelField'>Nama{requiredMark}</h3>
                     </Col>
                 </Row>
                 <Row className='row2' span={24}>
@@ -69,10 +70,10 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                 </Row>
                 <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                     <Col className="gutter-row" span={12} >
-                            <h3 className='labelField'>Laporan</h3>
+                            <h3 className='labelField'>Laporan{requiredMark}</h3>
                     </Col>
                     <Col className="gutter-row" span={12}>
-                            <h3 className='labelField'>Tanggal</h3>
+                            <h3 className='labelField'>Tanggal{requiredMark}</h3>
                     </Col>
                 </Row>
                 <Row className='row2' span={24}>
@@ -103,7 +104,7 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                 </Row>
                 <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                     <Col className="gutter-row" span={12} >
-                            <h3 className='labelField'>Admin</h3>
+                            <h3 className='labelField'>Admin{requiredMark}</h3>
                     </Col>
                 </Row>
                 <Row className='row2' span={24}>
