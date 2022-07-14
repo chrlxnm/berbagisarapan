@@ -16,6 +16,7 @@ import HeaderTitle from '../../../components/HeaderTitle/HeaderTitle';
 import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.svg';
 import { SearchOutlined } from '@ant-design/icons';
 import { dummy } from './dummy';
+import { filterData } from './utils';
 
 const DonasiHarian = () => {
   const dataSource =  dummy();
@@ -92,8 +93,11 @@ const DonasiHarian = () => {
       setFilterModal(false)
     }
 
-    const handleOkFilterModal = () => {
-      setFilterModal(false)
+    const handleOkFilterModal = (params) => {
+      setFilterModal(false);
+      setLoading(true);
+      setData(filterData(dataSource, params));
+      setLoading(false);
     }
 
     const handleOkModal = (data) => {

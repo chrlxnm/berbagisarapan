@@ -15,6 +15,7 @@ import { SearchOutlined } from '@ant-design/icons';
 import { downloadExcelData } from '../../../helpers/services';
 import { dummy } from './dummy';
 import AlertNew from '../../../components/AlertNew';
+import { filterData } from './utils';
 
 const LaporanHarian = () => {
   const dataSource =  dummy();
@@ -85,8 +86,11 @@ const LaporanHarian = () => {
     setFilterModal(false)
   }
 
-  const handleOkFilterModal = (data) => {
-    setFilterModal(false)
+  const handleOkFilterModal = (params) => {
+    setFilterModal(false);
+    setLoading(true);
+    setData(filterData(dataSource, params));
+    setLoading(false);
   }
   const [modal, setModal] = useState({
     visible: false,

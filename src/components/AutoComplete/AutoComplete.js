@@ -8,7 +8,7 @@ import styled from 'styled-components';
 const Autocomplete = (props) => {
     const [filteredSuggestions, setFilteredSuggestions] = useState([]);
     const [userInput, setUserInput] = useState(props?.value);
-    const onChange = e => {
+    const onChange = e => {console.log('test onchang', props)
       setUserInput(e);
     };
     useEffect(()=>{
@@ -24,9 +24,11 @@ const Autocomplete = (props) => {
     setFilteredSuggestions(result)
   };
     return (
-      <Form.Item name={props.name}>
+      <Form.Item 
+      name={props.name}
+      rules={[{ required: true, message: 'Please fill no WA' }]}>
         <CustomAutoComplete
-          placeholder={props.placeholder}
+          {...props}
           onChange={onChange}
           dropdownClassName='dropdownAutoComplete'
           options={filteredSuggestions}

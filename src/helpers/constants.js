@@ -124,10 +124,16 @@ export const OPTION_PROGRAM = [{
 
 export const OPTION_WA = () => {
   const data = [];
-  for (let i = 0; i < 57; i++) {
+  for (let i = 0; i < 30; i++) {
   data.push({
     key: i,
     value: `08${i}09027${i}`,
+    nama:`Charles ${i}`,
+    berapaKali:i%2===0?'1':'2',
+    totalDonasi: `${i}000000`,
+    lastUpdate: '12-08-2022',
+    admin: i%2===0?'Admin 1': 'Admin 2',
+    programFavorit: i%2 === 0 ? 'Laskar Pelangi' : (i % 3===0 ? 'The Raid' : 'Kura-Kura Ninja')
     });
   }
   

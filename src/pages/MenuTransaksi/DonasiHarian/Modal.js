@@ -32,6 +32,7 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                             placeholder='No WA'
                             name='noWA'
                             options={OPTION_WA()}
+                            onSelect={(e)=>console.log('test deh',e)}
                         />
                    
                     </Col>
