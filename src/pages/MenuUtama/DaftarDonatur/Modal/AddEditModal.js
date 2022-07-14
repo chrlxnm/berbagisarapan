@@ -12,6 +12,15 @@ const { Option } = SelectAntd;
 
 function AddModal({visible,handleCancel,handleOk, title, data}) {
     const [form] = Form.useForm();
+    const onSelectWA = (record) => {
+        form.setFieldsValue({
+            berapaKali: record?.berapaKali,
+            totalDonasi: record?.totalDonasi,
+            programFavorit: record?.programFavorit,
+            lastUpdate: moment(record?.lastUpdate, 'DD-MM-YYYY'),
+
+        })
+    }
 
     useEffect(()=>{
         if(data){
@@ -103,6 +112,7 @@ function AddModal({visible,handleCancel,handleOk, title, data}) {
                             placeholder='No WA'
                             name='noWA'
                             options={OPTION_WA()}
+                            onSelect={(_, record) => onSelectWA(record) }
                         />
                     </Col>
                     

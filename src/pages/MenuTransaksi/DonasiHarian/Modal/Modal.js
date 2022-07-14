@@ -9,6 +9,12 @@ import styled from 'styled-components';
 
 function AddModal({visible,handleCancel,handleOk, title}) {
     const [form] = Form.useForm();
+    const onSelectWA = (record) => {
+        form.setFieldsValue({
+            nama: record?.nama,
+            admin: record?.admin
+        })
+    }
   return (
     <Modal 
     isModalVisible={visible}
@@ -42,6 +48,7 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                             placeholder='No WA'
                             name='noWA'
                             options={OPTION_WA()}
+                            onSelect={(_, record) => onSelectWA(record) }
                         />
                     </Col>
                     

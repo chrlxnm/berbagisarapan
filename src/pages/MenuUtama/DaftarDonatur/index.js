@@ -19,6 +19,7 @@ import FilterModal from './Modal/FilterModal';
 import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.svg';
 import { downloadExcelData } from "../../../helpers/services";
 import { dummy } from "./dummy";
+import { filterData } from "./utils";
 
 const DaftarDonatur = () => {
   const dataSource =  dummy();
@@ -94,8 +95,11 @@ const DaftarDonatur = () => {
     setFilterModal(false)
   }
 
-  const handleOkFilterModal = () => {
-    setFilterModal(false)
+  const handleOkFilterModal = (params) => {
+    setFilterModal(false);
+    setLoading(true);
+    setData(filterData(dataSource, params));
+    setLoading(false);
   }
   const [modal, setModal] = useState({
     visible: false,
@@ -156,7 +160,7 @@ const DaftarDonatur = () => {
       {
         title: 'No',
         key: 'no',
-        render:(text, record) => <p>{record.key+1}</p>
+        render:(text, record, index) => <p>{index+1}</p>
       },
       {
         title: 'Panggilan',
@@ -372,6 +376,7 @@ const DaftarDonatur = () => {
                 <Table 
                   style={{width:"100%"}} 
                   columns={columns} 
+                  loading={loading}
                   dataSource={data}
                   pagination={false} 
                  />
