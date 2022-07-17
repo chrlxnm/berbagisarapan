@@ -11,11 +11,12 @@ import { svgChart } from './styled';
 
 import { Label } from "../../components";
 import Chart from "react-apexcharts";
-
-
+import { dummy } from './dummy';
+import { convertBarNewUser } from "./convertData";
 
 const Beranda = () => {
-
+    console.log(dummy())
+    const data = convertBarNewUser(dummy())
     const tahun = ['2019','2020','2021','2022']
     const bulan = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Aug','Sept','Oct','Nov','Dec']
     const value = {
@@ -156,9 +157,86 @@ const Beranda = () => {
       ],
     }
 
-    
-
-  
+  const config_bar1 = {
+          
+    series: [{
+      name: 'Jumlah',
+      data: data.value
+    }],
+    options: {
+      chart: {
+        height: 350,
+        type: 'bar',
+      },
+      plotOptions: {
+        bar: {
+          borderRadius: 10,
+          dataLabels: {
+            position: 'top', // top, center, bottom
+          },
+        }
+      },
+      dataLabels: {
+        enabled: true,
+        formatter: function (val) {
+          return val;
+        },
+        offsetY: -20,
+        style: {
+          fontSize: '12px',
+          colors: ["#304758"]
+        }
+      },
+      
+      xaxis: {
+        categories: data.labels,
+        position: 'bottom',
+        axisBorder: {
+          show: false
+        },
+        axisTicks: {
+          show: false
+        },
+        crosshairs: {
+          fill: {
+            type: 'gradient',
+            gradient: {
+              colorFrom: '#D8E3F0',
+              colorTo: '#BED1E6',
+              stops: [0, 100],
+              opacityFrom: 0.4,
+              opacityTo: 0.5,
+            }
+          }
+        },
+        tooltip: {
+          enabled: true,
+        }
+      },
+      yaxis: {
+        axisBorder: {
+          show: false
+        },
+        axisTicks: {
+          show: false,
+        },
+        labels: {
+          show: false,
+          formatter: function (val) {
+            return val;
+          }
+        }
+      
+      },
+      title: {
+        text: 'Jumlah pengguna baru per bulan',
+        align: 'center',
+        style: {
+          color: '#444'
+        }
+      }
+    },
+  }
   
     return (
         <Card className="home" style={{ borderRadius:16}}>
@@ -172,6 +250,13 @@ const Beranda = () => {
               </Col>
               <Col xl={12}>
                   <Chart options={value2.options} series={value2.series} type="line" height={400} />
+              </Col>
+            </Row>
+            <Row xl={24}>
+              <Col xl={12}>
+                  <Chart options={config_bar1.options} series={config_bar1.series} type="bar" height={350} />
+              </Col>
+              <Col xl={12}>
               </Col>
             </Row>
         </Card>
