@@ -114,7 +114,6 @@ const DaftarDonatur = () => {
   const [visibleDeleteModal, setVisibleDeleteModal] = useState(false);
   const handleOkModal = (data) => {
     setVisible({...visible,isVisible:true,type:'ERROR',message:'Gagal Submit'})
-    console.log(data)
     setModal({
       ...modal,
       visible: false

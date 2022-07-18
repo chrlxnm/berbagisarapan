@@ -97,7 +97,6 @@ const DaftarPengguna = () => {
     title: 'Add Data',
   })
   const handleOkModal = (data) => {
-    console.log(data);
     setVisible({...visible,isVisible:true,type:'ERROR',message:'Gagal Submit'})
     setModal({
       ...modal,
