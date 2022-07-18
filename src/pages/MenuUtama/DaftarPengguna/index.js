@@ -2,11 +2,10 @@ import "./styles.css"
 import './styled.js'
 
 import * as AiIcons from 'react-icons/ai';
-import * as BsIcons from 'react-icons/bs';
 import * as FaIcons from 'react-icons/fa';
 import * as FiIcons from 'react-icons/fi';
 
-import { Button, Card, Checkbox, Col, Divider, Dropdown, Form, Input, Layout, Menu, Pagination, Popover, Row, Select, Space, Table, Typography } from 'antd';
+import { Button, Card, Checkbox, Col, Divider, Dropdown, Form, Input, Layout, Menu, Pagination, Popover, Row, Select, Space, Table, Typography, Upload } from 'antd';
 import { ButtonFilter, WrapperPagination, WrapperSearchFilter, WrapperSelect, styleBtnDownload } from "./styled.js";
 import { PlusOutlined, SearchOutlined } from '@ant-design/icons';
 import React, { PureComponent, useEffect, useState } from "react";
@@ -20,6 +19,8 @@ import { downloadExcelData } from "../../../helpers/services";
 import { dummy } from "./dummy";
 import errorAlert from "../../../components/alert/errorAlert";
 import successAlert from "../../../components/alert/successAlert";
+import UploadButton from "../../../components/UploadButton/UploadButton";
+import { ButtonPrimary, ButtonSecondary } from "../../../components/Button/Button";
 
 const DaftarPengguna = () => {
   const dataSource =  dummy();
@@ -46,7 +47,7 @@ const DaftarPengguna = () => {
   const [visible,setVisible] = useState({
     isVisible:false,
     type:'SUCCESS',
-    message:'Berhasil submit'
+    message:'Berhasil Submit'
   })
   const handleSizeChange = (e) => {
     let temp = ({...page,
@@ -229,19 +230,21 @@ const DaftarPengguna = () => {
                   size='large'
                   className="daftarpenggunaSearchBox"
                   onChange={handleSearch}
-                  // onChange={(e)=>handleInputState(e)}
-                  // disabled={Number(selectedSearchType)===4}
-                  // onKeyPress={(e)=>handleInputState(e)}
                   prefix={<SearchOutlined />}
                   />
                   </WrapperSearchFilter>
                 </Col>
                 <Col span={4}>
                   <div className="btnGroup">
-                        <Button className="btnDownload" type="primary" style={{color:'#3E903B', borderColor:'#3E903B'}} ghost onClick={()=>downloadExcelData(dataSource,'daftarPengguna')}>
+                        <UploadButton
+                        setAlert = {setVisible}
+                        />
+                        <ButtonSecondary
+                        onClick={()=>downloadExcelData(dataSource,'daftarPengguna')}>
                         Download
-                        </Button>
-                      <Button className="btnAdd" type="primary"
+                        </ ButtonSecondary>
+                      <ButtonPrimary
+                      style={{width: '88px'}} 
                         onClick={()=> {
                           setModal({
                             visible: true,
@@ -250,7 +253,7 @@ const DaftarPengguna = () => {
                         }}
                       icon={<AiIcons.AiOutlinePlus />}>
                         Add
-                      </Button>
+                      </ButtonPrimary>
                   </div>
                 </Col>                  
             </Row>

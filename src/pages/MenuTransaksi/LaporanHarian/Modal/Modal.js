@@ -1,10 +1,10 @@
-import { Col, Form, Input as InputAntd, Row, Select as SelectAntd } from 'antd'
+import { Col, DatePicker as DatePickerAntd, Form, Input as InputAntd, Row, Select as SelectAntd } from 'antd'
 import React, { useState } from 'react'
 
 import Autocomplete from '../../../../components/AutoComplete/AutoComplete';
 import { ButtonPrimary } from '../../../../components/Button/Button';
 import Modal from '../../../../components/Modal/Modal'
-import { OPTION_WA } from '../../../../helpers/constants';
+import { OPTION_ADMIN, OPTION_WA } from '../../../../helpers/constants';
 import styled from 'styled-components';
 import { requiredMark } from '../../../../components/customRequiredMark';
 
@@ -59,7 +59,7 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                     <Col className='rightSide' span={12}>
                         <Form.Item
                                 name={'nama'}
-                                rules={[{ required: true, message: 'Please fill hobi' }]}
+                                rules={[{ required: true, message: 'Please fill nama' }]}
                             >  
                                 <Input 
                                     placeholder='Nama'
@@ -80,7 +80,7 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                     <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'laporan'}
-                            rules={[{ required: true, message: 'Please fill kota' }]}
+                            rules={[{ required: true, message: 'Please fill laporan' }]}
                         >    
                             <Input
                                 placeholder='Laporan'
@@ -93,9 +93,9 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                     <Col className='rightSide' span={12}>
                         <Form.Item
                                 name={'tanggal'}
-                                rules={[{ required: true, message: 'Please fill alamat' }]}
+                                rules={[{ required: true, message: 'Please fill tanggal' }]}
                             >  
-                                <Input
+                                <DatePicker 
                                     placeholder='Tanggal'
                                     name={'tanggal'}
                                 />
@@ -111,11 +111,12 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                     <Col className='leftSide' span={12}>  
                         <Form.Item
                             name={'admin'}
-                            rules={[{ required: true, message: 'Please fill berapakali' }]}
+                            rules={[{ required: true, message: 'Please fill admin' }]}
                         >    
-                            <Input
+                            <Select
                                 placeholder='Admin'
                                 name={'admin'}
+                                options={OPTION_ADMIN}
                             />
                         </Form.Item>
                    
@@ -146,4 +147,10 @@ const Select = styled(SelectAntd)`
 const Input = styled(InputAntd)`
 height: 40px !important;
   border-radius: 6px !important;
+`
+
+const DatePicker = styled(DatePickerAntd)`
+height: 40px !important;
+width: 100%;
+border-radius: 6px !important;
 `

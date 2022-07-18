@@ -3,6 +3,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import {ALERT_TYPE} from "./types";
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+import { InfoCircleOutlined } from '@ant-design/icons';
 
 const getBorderColor = ({type}) => {
     switch (type) {
@@ -10,6 +11,8 @@ const getBorderColor = ({type}) => {
             return '#77E4BD';
         case ALERT_TYPE.ERROR:
             return '#FFA39E';
+        case ALERT_TYPE.INFO:
+            return '#d5dbe0';
         default:
             return '#77E4BD';
     }
@@ -21,6 +24,8 @@ const getBackgroundColor = ({type}) => {
             return '#F1FFFA';
         case ALERT_TYPE.ERROR:
             return '#FFF1F0';
+        case ALERT_TYPE.INFO:
+            return '#f0f1f2';
         default:
             return '#F1FFFA';
     }
@@ -111,6 +116,8 @@ const AlertCore = ({message, type, onClose}) => {
                 return <SuccessIcon />
             case ALERT_TYPE.ERROR:
                 return <ErrorIcon />
+            case ALERT_TYPE.INFO:
+                return <InfoCircleOutlined style={{color: 'blue'}} />
             default:
                 return <SuccessIcon />
         }

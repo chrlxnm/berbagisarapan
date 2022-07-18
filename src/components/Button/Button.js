@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const ButtonPrimary = styled(Button)`
     background: #3E903B;
     border-radius: 8px;
-    height : 40px;
+    height : 44px;
     color: #FFFFFF;
 
     font-family: 'Poppins';
@@ -36,8 +36,10 @@ export const ButtonPrimary = styled(Button)`
 export const ButtonSecondary = styled(Button)`
     background: #FFFFFF;
     border-radius: 8px;
-    height : 40px;
+    height : 44px;
+    width: 125px;
     border: solid 2px #3E903B;
+    margin-right: 10px;
     color: #3E903B;
 
     font-family: 'Poppins';

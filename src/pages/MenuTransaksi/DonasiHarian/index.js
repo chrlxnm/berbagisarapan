@@ -17,6 +17,7 @@ import { ReactComponent as IconFilter1 } from '../../../assets/svg/icon-filter1.
 import { SearchOutlined } from '@ant-design/icons';
 import { dummy } from './dummy';
 import { filterData } from './utils';
+import UploadButton from '../../../components/UploadButton/UploadButton';
 
 const DonasiHarian = () => {
   const dataSource =  dummy();
@@ -221,11 +222,16 @@ const DonasiHarian = () => {
                     </WrapperSearchFilter>
                   </Col>
                   <Col span={4}>
-                    <div style={{display: 'flex',gap:'1rem'}}>
+                  <div className="btnGroup">
+                        <UploadButton
+                        setAlert = {setVisible}
+                        />
                           <ButtonSecondary onClick={() => downloadExcelData(dataSource,'DonasiHarian')}>
                             Download
                           </ButtonSecondary>
-                        <ButtonPrimary icon={<AiIcons.AiOutlinePlus />}
+                        <ButtonPrimary 
+                        style={{width: '88px'}} 
+                        icon={<AiIcons.AiOutlinePlus />}
                         onClick={()=>setModal({
                           visible: true,
                           title: 'Add Data'
