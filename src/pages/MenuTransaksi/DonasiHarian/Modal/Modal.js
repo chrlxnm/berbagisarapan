@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Autocomplete from '../../../../components/AutoComplete/AutoComplete';
 import { ButtonPrimary } from '../../../../components/Button/Button';
 import Modal from '../../../../components/Modal/Modal'
-import { OPTION_BANK, OPTION_PROGRAM, OPTION_WA } from '../../../../helpers/constants';
+import { OPTION_ADMIN, OPTION_BANK, OPTION_PROGRAM, OPTION_WA } from '../../../../helpers/constants';
 import styled from 'styled-components';
 import { requiredMark } from '../../../../components/customRequiredMark';
 
@@ -161,9 +161,10 @@ function AddModal({visible,handleCancel,handleOk, title}) {
                                 name={'admin'}
                                 rules={[{ required: true, message: 'Please fill Admin' }]}
                             >  
-                                <Input
+                                <Select
                                     placeholder='Admin'
                                     name={'admin'}
+                                    options={OPTION_ADMIN}
                                 />
                         </Form.Item>
                     </Col>

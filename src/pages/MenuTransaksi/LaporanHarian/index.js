@@ -16,6 +16,7 @@ import { downloadExcelData } from '../../../helpers/services';
 import { dummy } from './dummy';
 import AlertNew from '../../../components/AlertNew';
 import { filterData } from './utils';
+import UploadButton from '../../../components/UploadButton/UploadButton';
 
 const LaporanHarian = () => {
   const dataSource =  dummy();
@@ -211,11 +212,16 @@ const LaporanHarian = () => {
                     </WrapperSearchFilter>
                   </Col>
                   <Col span={4}>
-                    <div style={{display: 'flex',gap:'1rem'}}>
+                  <div className="btnGroup">
+                    <UploadButton
+                        setAlert = {setVisible}
+                        />
                           <ButtonSecondary onClick={()=> downloadExcelData(dataSource,'laporanHarian')}> 
                             Download
                           </ButtonSecondary>
-                        <ButtonPrimary icon={<AiIcons.AiOutlinePlus />}
+                        <ButtonPrimary
+                        style={{width: '88px'}}  
+                        icon={<AiIcons.AiOutlinePlus />}
                         onClick={()=>
                           setModal({
                           visible: true,

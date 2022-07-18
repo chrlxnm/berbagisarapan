@@ -1,6 +1,7 @@
 const ALERT_TYPE = {
     SUCCESS: 'SUCCESS',
-    ERROR: 'ERROR'
+    ERROR: 'ERROR',
+    INFO: 'INFO'
 }
 
 export {ALERT_TYPE};
