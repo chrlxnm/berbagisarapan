@@ -229,7 +229,7 @@ const Beranda = () => {
       
       },
       title: {
-        text: 'Jumlah pengguna baru per bulan',
+        text: 'Jumlah donatur baru per bulan',
         align: 'center',
         style: {
           color: '#444'
