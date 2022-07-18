@@ -249,14 +249,7 @@ const Beranda = () => {
                   <Chart options={value.options} series={value.series} type="line" height={400} />
               </Col>
               <Col xl={12}>
-                  <Chart options={value2.options} series={value2.series} type="line" height={400} />
-              </Col>
-            </Row>
-            <Row xl={24}>
-              <Col xl={12}>
-                  <Chart options={config_bar1.options} series={config_bar1.series} type="bar" height={350} />
-              </Col>
-              <Col xl={12}>
+                  <Chart options={config_bar1.options} series={config_bar1.series} type="bar" height={440} />
               </Col>
             </Row>
         </Card>
