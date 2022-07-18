@@ -21,7 +21,6 @@ export const dummy = () => {
                 });
             }
         else {
-            console.log(i)
             const date = i-1 < 9 ? moment(new Date(`2022-0${i}-01`)).format("DD-MM-YYYY") : moment(new Date(`2022-${i}-1`)).format("DD-MM-YYYY")
             data.push({
                 key: i+""+j,

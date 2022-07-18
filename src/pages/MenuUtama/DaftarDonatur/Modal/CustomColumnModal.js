@@ -59,6 +59,7 @@ const Select = styled(SelectAntd)`
   &.ant-select:not(.ant-select-customize-input) .ant-select-selector{
     height: 40px !important;
     border-radius: 6px !important;
+    align-items: center;
   }
 `
 

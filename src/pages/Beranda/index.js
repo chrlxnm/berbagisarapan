@@ -15,7 +15,6 @@ import { dummy } from './dummy';
 import { convertBarNewUser } from "./convertData";
 
 const Beranda = () => {
-    console.log(dummy())
     const data = convertBarNewUser(dummy())
     const tahun = ['2019','2020','2021','2022']
     const bulan = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Aug','Sept','Oct','Nov','Dec']

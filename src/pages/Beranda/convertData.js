@@ -30,7 +30,6 @@ export function convertBarNewUser(data){
 
     const hitung = count(data)
     const label = Object.keys(hitung)
-    console.log(label)
     return {
         labels:label,
         value:Object.values(hitung)

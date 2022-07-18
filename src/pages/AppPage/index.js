@@ -3,7 +3,7 @@ import './style.css';
 import { ButtonSider, ButtonWrapper, EmailText, Logo, NameText, SettingWrapper } from './styles';
 import { FileTextOutlined, HomeOutlined, LogoutOutlined, PullRequestOutlined, SettingOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
-import { Link, Redirect, Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Link, Redirect, Route, BrowserRouter as Router, Switch, useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 
 import Akun from '../Akun';
@@ -15,12 +15,12 @@ import LaporanHarian from '../MenuTransaksi/LaporanHarian';
 import LoginPage from '../LoginPage';
 import { logOut } from '../../services/Logout';
 import logoCB from "../../assets/images/cb-logo.svg";
-import useToken from '../../helpers/utils';
+import useUserInfo, { getCurrentTab } from '../../helpers/utils';
 
 const { Content, Sider } = Layout;
 
 const AppPage = () => {
-    const { token, setToken } = useToken();
+    const { userInfo, setUserInfo } = useUserInfo();
     const [collapsed, setCollapsed] = useState(false);
     const [allowCollapsed, setAllowCollapsed] = useState(true);
     const handleResize = () => {
@@ -32,7 +32,6 @@ const AppPage = () => {
             setAllowCollapsed(true)
         }
     }
-    // const router = useHistory()
     useEffect(()=> {
         window.addEventListener("resize", handleResize)
     },[]);
@@ -41,14 +40,15 @@ const AppPage = () => {
 
 
     const onClick = (e) => {
-            setCurrent(e.key)
+        setCurrent(e.key)
     }
 
-    if (!token){
+    if (!userInfo){
         return (
-            <LoginPage setToken={setToken} />
+            <LoginPage setUserInfo={setUserInfo} />
         )
     };
+
     return(
     <>
         <Router>
@@ -76,6 +76,7 @@ const AppPage = () => {
                         mode="inline"
                         onClick={onClick}
                         defaultSelectedKeys={['1']}
+                        selectedKeys={getCurrentTab(window.location.pathname)}
                         items={[
                             {
                             key: '1',
@@ -112,17 +113,21 @@ const AppPage = () => {
                         />
                         <SettingWrapper>
                             {!collapsed ? 
-                            <><NameText>Gilang Ilham</NameText>
-                            <EmailText>gilangilham@gmail.com</EmailText></>
-                            :<></>}
+                            <>
+                            <NameText>{userInfo?.displayName || "Username"}</NameText>
+                            <EmailText>{userInfo?.email}</EmailText></>
+                            :
+                            <></>}
                             <ButtonWrapper className={collapsed? 'btn-collapsed':''}>
                             <Link to="akun">
-                                <ButtonSider>
+                                <ButtonSider onClick={()=>{
+                                    setCurrent('0')
+                                    }}>
                                 <SettingOutlined style={{color: 'black'}}/>
                                 </ButtonSider>
                                 </Link>
                                 <ButtonSider onClick={()=>{
-                                    logOut(setToken)
+                                    logOut(setUserInfo)
                                     }}>
                                 <LogoutOutlined style={{color: '#BB0001'}}/>
                                 </ButtonSider>
@@ -139,7 +144,7 @@ const AppPage = () => {
                             overflow: "initial"
                         }}>
                             <Route exact path="/">
-                                <Redirect to={!token?"/login":"/beranda"} />
+                                <Redirect to={!userInfo?"/login":"/beranda"} />
                             </Route>
                             <Route path="/beranda">
                                 <Beranda/>

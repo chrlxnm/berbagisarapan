@@ -25,9 +25,8 @@ export default class Login extends Component {
     const authentication = getAuth();
         try {
         signInWithEmailAndPassword(authentication, values.email, values.password)
-            .then((response) => {
-                this.props.setToken(response._tokenResponse.refreshToken)
-                // localStorage.setItem('token', response._tokenResponse.refreshToken)
+            .then((response) => {console.log(response)
+                this.props.setUserInfo(response.user)
             })
         }
         catch (err) {

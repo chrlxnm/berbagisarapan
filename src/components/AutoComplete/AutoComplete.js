@@ -8,18 +8,31 @@ import styled from 'styled-components';
 const Autocomplete = (props) => {
     const [filteredSuggestions, setFilteredSuggestions] = useState([]);
     const [userInput, setUserInput] = useState(props?.value);
-    const onChange = e => {console.log('test onchang', props)
-      setUserInput(e);
+    const onChange = e => {
+      let tempInput = userInput;
+      const regex= /^[0-9]*$/;
+      if(regex.test(e)){
+      tempInput = e;
+      setUserInput(tempInput)
+      }
+      props?.passingForm?.setFieldsValue({
+        noWA:tempInput
+      })
     };
     useEffect(()=>{
       setUserInput(props?.value)
     },[props])
 
    const onSearch = (searchText) => {
+    let tempInput = userInput;
+    const regex= /^[0-9]*$/;
+    if(regex.test(searchText)){
+    tempInput = searchText;
+    }
     const { options } = props;
-    const result = !searchText ? [] : options?.filter(
+    const result = !tempInput ? [] : options?.filter(
       suggestion =>
-        suggestion?.value.toLowerCase().indexOf(searchText.toLowerCase()) > -1
+        suggestion?.value.toLowerCase().indexOf(tempInput.toLowerCase()) > -1
     );
     setFilteredSuggestions(result)
   };
